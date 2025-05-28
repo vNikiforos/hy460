@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Loading of a B+-Tree</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="meta">
+        <b>Μάθημα:</b> HY-XXX | <b>Διάλεξη:</b> X | <b>Τίτλος:</b> Bulk Loading of a B+-Tree | <b>Ημ/νία:</b> 2025-05-28
+    </div>
+    <div class="mode-switch">
+        <button id="show-all-btn">Όλες οι ερωτήσεις</button>
+        <button id="quiz-mode-btn">Quiz mode</button>
+    </div>
+    <div id="questions-all">
+
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="0" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is NOT a problem associated with creating a B+-tree by repeatedly inserting records?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-0-A" name="mc-0" value="A">
+            <label for="mc-0-A"><strong>A:</strong> It is very slow.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-0-B" name="mc-0" value="B">
+            <label for="mc-0-B"><strong>B:</strong> It leads to minimal leaf utilization.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-0-C" name="mc-0" value="C">
+            <label for="mc-0-C"><strong>C:</strong> It results in leaves being stored sequentially.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-0-D" name="mc-0" value="D">
+            <label for="mc-0-D"><strong>D:</strong> It does not give sequential storage of leaves (aka clustering).</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Repeatedly inserting records into a B+-tree is slow, leads to minimal leaf utilization, and *does not* result in sequential storage of leaves (clustering). Option C describes a benefit of bulk loading, not a problem of repeated insertion.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, performance, clustering</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="1" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the primary advantage of &#39;Bulk Loading&#39; a B+-tree compared to repeated record insertions?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-1-A" name="mc-1" value="A">
+            <label for="mc-1-A"><strong>A:</strong> It requires more I/O operations.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-1-B" name="mc-1" value="B">
+            <label for="mc-1-B"><strong>B:</strong> It results in less efficient buffer pool utilization.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-1-C" name="mc-1" value="C">
+            <label for="mc-1-C"><strong>C:</strong> It is significantly faster and more efficient.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-1-D" name="mc-1" value="D">
+            <label for="mc-1-D"><strong>D:</strong> It leads to more locks for concurrency control.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Bulk loading is explicitly stated to be &#39;much more efficiently&#39; and &#39;much faster than repeated inserts&#39;. It achieves this through fewer I/Os, better buffer pool utilization, and fewer locks.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, efficiency, performance</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="2" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In the context of bulk loading a B+-tree, what is the initial crucial step before building the tree structure?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-2-A" name="mc-2" value="A">
+            <label for="mc-2-A"><strong>A:</strong> Creating an empty root page.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-2-B" name="mc-2" value="B">
+            <label for="mc-2-B"><strong>B:</strong> Sorting all data entries.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-2-C" name="mc-2" value="C">
+            <label for="mc-2-C"><strong>C:</strong> Inserting the first record into a leaf page.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-2-D" name="mc-2" value="D">
+            <label for="mc-2-D"><strong>D:</strong> Allocating all necessary disk space for the tree.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The first step mentioned for bulk loading is to &#39;Sort all data entries&#39;. This sorted order is fundamental to the efficiency and structure of the bulk-loaded tree.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, algorithm</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="3" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following describes how index entries for leaf pages are typically handled during B+-tree bulk loading?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-3-A" name="mc-3" value="A">
+            <label for="mc-3-A"><strong>A:</strong> They are entered into the left-most index page just above the leaf level.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-3-B" name="mc-3" value="B">
+            <label for="mc-3-B"><strong>B:</strong> They are entered into a randomly selected index page at the appropriate level.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-3-C" name="mc-3" value="C">
+            <label for="mc-3-C"><strong>C:</strong> They are always entered into the right-most index page just above the leaf level.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-3-D" name="mc-3" value="D">
+            <label for="mc-3-D"><strong>D:</strong> They are directly inserted into the root page without intermediate index pages.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text states: &#39;Index entries for leaf pages always entered into right-most index page just above leaf level&#39;. This is a specific mechanism of the bulk loading process.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, index entries</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="4" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">A key benefit of bulk loading a B+-tree is &#39;better control of “fill factor” on pages&#39;. What does this imply for leaf nodes?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-4-A" name="mc-4" value="A">
+            <label for="mc-4-A"><strong>A:</strong> Leaf nodes will be sparsely populated to allow for future insertions.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-4-B" name="mc-4" value="B">
+            <label for="mc-4-B"><strong>B:</strong> Leaf nodes will be filled up completely, maximizing storage efficiency.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-4-C" name="mc-4" value="C">
+            <label for="mc-4-C"><strong>C:</strong> Leaf nodes will only contain pointers, not actual data entries.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-4-D" name="mc-4" value="D">
+            <label for="mc-4-D"><strong>D:</strong> Leaf nodes will have a variable fill factor depending on data distribution.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text explicitly states &#39;Better control of “fill factor” on pages (leaf nodes filled up completely)&#39;. This means bulk loading aims to maximize the space utilization of leaf pages.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, fill factor, storage efficiency</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="5" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">When a split occurs in an index page during B+-tree bulk loading, where does the split typically propagate?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-5-A" name="mc-5" value="A">
+            <label for="mc-5-A"><strong>A:</strong> Down to the left-most child page.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-5-B" name="mc-5" value="B">
+            <label for="mc-5-B"><strong>B:</strong> Randomly to any parent node.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-5-C" name="mc-5" value="C">
+            <label for="mc-5-C"><strong>C:</strong> Up the right-most path to the root.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-5-D" name="mc-5" value="D">
+            <label for="mc-5-D"><strong>D:</strong> Only within the same level, never upwards.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text specifies: &#39;Split may go up right-most path to the root&#39;. This is a characteristic of how the tree is built from sorted data during bulk loading.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, node splitting</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="6" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">How does bulk loading contribute to better buffer pool utilization?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-6-A" name="mc-6" value="A">
+            <label for="mc-6-A"><strong>A:</strong> By performing more random I/Os.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-6-B" name="mc-6" value="B">
+            <label for="mc-6-B"><strong>B:</strong> By reducing the total number of pages accessed.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-6-C" name="mc-6" value="C">
+            <label for="mc-6-C"><strong>C:</strong> By utilizing sequential access patterns, leading to fewer I/Os.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-6-D" name="mc-6" value="D">
+            <label for="mc-6-D"><strong>D:</strong> By requiring more frequent flushing of the buffer pool.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text states &#39;Fewer I/Os for building (i.e., buffer pool is utilized more effectively)&#39;. This is achieved because bulk loading processes sorted data sequentially, allowing the buffer pool to prefetch and keep relevant pages in memory, reducing random disk accesses.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, I/O, buffer pool</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="7" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">One of the key benefits of bulk loading is that &#39;Leaves will be stored sequentially (and linked, of course)&#39;. What is this property commonly known as?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-7-A" name="mc-7" value="A">
+            <label for="mc-7-A"><strong>A:</strong> Normalization</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-7-B" name="mc-7" value="B">
+            <label for="mc-7-B"><strong>B:</strong> Denormalization</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-7-C" name="mc-7" value="C">
+            <label for="mc-7-C"><strong>C:</strong> Clustering</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-7-D" name="mc-7" value="D">
+            <label for="mc-7-D"><strong>D:</strong> Hashing</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text explicitly states &#39;Leaves will be stored sequentially (and linked, of course)&#39; and then adds &#39;(aka clustering)&#39;. Clustering refers to the physical storage of data records in the same order as their index key.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, clustering, physical data organization</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="8" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following statements is true regarding the impact of bulk loading on concurrency control?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-8-A" name="mc-8" value="A">
+            <label for="mc-8-A"><strong>A:</strong> It requires more locks due to the sorting phase.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-8-B" name="mc-8" value="B">
+            <label for="mc-8-B"><strong>B:</strong> It leads to fewer locks because tree traversals are saved.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-8-C" name="mc-8" value="C">
+            <label for="mc-8-C"><strong>C:</strong> It has no impact on the number of locks required.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-8-D" name="mc-8" value="D">
+            <label for="mc-8-D"><strong>D:</strong> It increases the likelihood of deadlocks.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text states &#39;Fewer locks for concurrency control (tree traversals are saved)&#39;. This is because the tree is built in a structured, bottom-up manner, reducing the need for complex locking during individual insertions.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, concurrency control, locking</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="9" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Consider a scenario where a database needs to build a B+-tree on a field for a very large existing dataset. Which method would be most appropriate for creating the index and why?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-9-A" name="mc-9" value="A">
+            <label for="mc-9-A"><strong>A:</strong> Repeatedly inserting records one by one, as it ensures data integrity.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-9-B" name="mc-9" value="B">
+            <label for="mc-9-B"><strong>B:</strong> Bulk loading, because it is faster and leads to better leaf utilization and clustering.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-9-C" name="mc-9" value="C">
+            <label for="mc-9-C"><strong>C:</strong> Using a hash index, as it is always more efficient for large datasets.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-9-D" name="mc-9" value="D">
+            <label for="mc-9-D"><strong>D:</strong> Creating a temporary unsorted file, then converting it to a B+-tree, as this avoids I/O.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">For a &#39;large collection of records&#39;, the text explicitly states that &#39;doing so by repeatedly inserting records –is very slow –leads to minimal leaf utilization –does not give sequential storage of leaves&#39;. In contrast, &#39;Bulk Loading can be done much more efficiently&#39; and offers benefits like sequential storage (clustering) and better fill factor.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, scenario, performance, indexing strategy</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="10" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the general rule for index entries in a B+-tree, as stated in the provided content?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-10-A" name="mc-10" value="A">
+            <label for="mc-10-A"><strong>A:</strong> Each index entry must be less than every key value to its right.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-10-B" name="mc-10" value="B">
+            <label for="mc-10-B"><strong>B:</strong> Each index entry must be equal to the first key value in its subtree.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-10-C" name="mc-10" value="C">
+            <label for="mc-10-C"><strong>C:</strong> Each index entry must be greater than every key value (in any subtree) to its left.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-10-D" name="mc-10" value="D">
+            <label for="mc-10-D"><strong>D:</strong> Index entries are only used in leaf nodes.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text states: &#39;In general, while compressing, must leave each index entry greater than every key value (in any subtree) to its left&#39;. This is a fundamental property of B+-trees for efficient search.</div>
+            <div class="topics">Θέματα: B+ tree, index entries, data structure properties</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="11" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is a direct consequence of bulk loading leading to &#39;fewer I/Os for building&#39;?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-11-A" name="mc-11" value="A">
+            <label for="mc-11-A"><strong>A:</strong> Increased disk fragmentation.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-11-B" name="mc-11" value="B">
+            <label for="mc-11-B"><strong>B:</strong> Reduced CPU utilization.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-11-C" name="mc-11" value="C">
+            <label for="mc-11-C"><strong>C:</strong> More effective buffer pool utilization.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-11-D" name="mc-11" value="D">
+            <label for="mc-11-D"><strong>D:</strong> Higher network latency.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text explicitly links &#39;Fewer I/Os for building&#39; with &#39;(i.e., buffer pool is utilized more effectively)&#39;. Fewer I/Os mean the system can rely more on data already in memory (buffer pool) or fetch data in larger, more efficient chunks.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, I/O, buffer pool</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="12" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Why is &#39;Time and space efficient!&#39; mentioned as a characteristic of bulk loading?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-12-A" name="mc-12" value="A">
+            <label for="mc-12-A"><strong>A:</strong> Because it requires more memory to store temporary sorted data.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-12-B" name="mc-12" value="B">
+            <label for="mc-12-B"><strong>B:</strong> Because it avoids disk I/O entirely.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-12-C" name="mc-12" value="C">
+            <label for="mc-12-C"><strong>C:</strong> Because it reduces I/O operations and optimizes page fill factors, leading to a compact and fast-to-build tree.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-12-D" name="mc-12" value="D">
+            <label for="mc-12-D"><strong>D:</strong> Because it uses a simpler algorithm that doesn&#39;t involve tree balancing.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Bulk loading is time and space efficient because it reduces I/O (time efficiency) and leads to better fill factors (space efficiency) by filling leaf nodes completely, making the tree more compact.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, efficiency, performance</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="13" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">If a B+-tree is built using repeated insertions, what can be expected regarding the physical storage of its leaf pages?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-13-A" name="mc-13" value="A">
+            <label for="mc-13-A"><strong>A:</strong> They will be stored in perfect sequential order.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-13-B" name="mc-13" value="B">
+            <label for="mc-13-B"><strong>B:</strong> They will be randomly distributed across the disk.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-13-C" name="mc-13" value="C">
+            <label for="mc-13-C"><strong>C:</strong> They will not necessarily be stored sequentially, leading to poor clustering.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-13-D" name="mc-13" value="D">
+            <label for="mc-13-D"><strong>D:</strong> They will always be stored on contiguous blocks.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">One of the problems with repeated insertion is that it &#39;does not give sequential storage of leaves (aka clustering)&#39;. This means the leaf pages will not be physically ordered according to their key values.</div>
+            <div class="topics">Θέματα: B+ tree, repeated insertion, clustering, physical data organization</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="14" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is a direct consequence of bulk loading saving &#39;tree traversals&#39; for concurrency control?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-14-A" name="mc-14" value="A">
+            <label for="mc-14-A"><strong>A:</strong> Increased contention for locks.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-14-B" name="mc-14" value="B">
+            <label for="mc-14-B"><strong>B:</strong> Reduced overhead from locking mechanisms.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-14-C" name="mc-14" value="C">
+            <label for="mc-14-C"><strong>C:</strong> Slower overall tree construction.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-14-D" name="mc-14" value="D">
+            <label for="mc-14-D"><strong>D:</strong> More complex locking protocols.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text states &#39;Fewer locks for concurrency control (tree traversals are saved)&#39;. Saving tree traversals means fewer points where locks might be needed, thus reducing the overhead associated with acquiring and releasing locks.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, concurrency control, locking</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="15" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">During bulk loading, after sorting all data entries, what is inserted into a new (root) page?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-15-A" name="mc-15" value="A">
+            <label for="mc-15-A"><strong>A:</strong> All sorted data entries directly.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-15-B" name="mc-15" value="B">
+            <label for="mc-15-B"><strong>B:</strong> A pointer to the last leaf page.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-15-C" name="mc-15" value="C">
+            <label for="mc-15-C"><strong>C:</strong> A pointer to the first (leaf) page.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-15-D" name="mc-15" value="D">
+            <label for="mc-15-D"><strong>D:</strong> Only the largest key value.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The process described is to &#39;Sort all data entries, insert pointer to first (leaf) page in a new (root) page&#39;. This initiates the bottom-up construction of the tree.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, algorithm</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="16" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following scenarios would most benefit from using B+-tree bulk loading?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-16-A" name="mc-16" value="A">
+            <label for="mc-16-A"><strong>A:</strong> A real-time system with continuous, small insertions.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-16-B" name="mc-16" value="B">
+            <label for="mc-16-B"><strong>B:</strong> An OLTP system with frequent updates and deletions.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-16-C" name="mc-16" value="C">
+            <label for="mc-16-C"><strong>C:</strong> An initial setup of a large data warehouse index.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-16-D" name="mc-16" value="D">
+            <label for="mc-16-D"><strong>D:</strong> A system where data is never sorted before indexing.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Bulk loading is ideal for &#39;a large collection of records&#39; where an index needs to be created. Data warehouses often deal with large, static or semi-static datasets that are loaded in batches, making bulk loading highly suitable. Real-time/OLTP systems with continuous small changes or unsorted data would not benefit as much, or at all, from bulk loading.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, application, use case</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="17" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the primary reason why bulk loading is described as &#39;time and space efficient&#39;?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-17-A" name="mc-17" value="A">
+            <label for="mc-17-A"><strong>A:</strong> It uses a simpler algorithm that doesn&#39;t require complex data structures.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-17-B" name="mc-17" value="B">
+            <label for="mc-17-B"><strong>B:</strong> It reduces I/O operations and optimizes page fill factors, leading to a compact and fast-to-build tree.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-17-C" name="mc-17" value="C">
+            <label for="mc-17-C"><strong>C:</strong> It avoids the need for any disk storage by keeping everything in memory.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-17-D" name="mc-17" value="D">
+            <label for="mc-17-D"><strong>D:</strong> It only works for small datasets, which are inherently efficient.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Bulk loading achieves time efficiency through fewer I/Os and space efficiency by filling leaf nodes completely (&#39;better control of “fill factor” on pages (leaf nodes filled up completely)&#39;). This combination makes it efficient in both aspects.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, efficiency, performance</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="18">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is &#39;Bulk Loading&#39; in the context of B+-trees?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Bulk loading is an efficient method to create a B+-tree on a large collection of records by first sorting all data entries and then building the tree from the bottom up, rather than inserting records one by one.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, definition</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="19">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">List two problems associated with creating a B+-tree by repeatedly inserting records.</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">1. Very slow. 2. Leads to minimal leaf utilization. 3. Does not give sequential storage of leaves (aka clustering). (Any two are sufficient)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: B+ tree, repeated insertion, problems</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="20">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">How does bulk loading improve buffer pool utilization?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">It leads to fewer I/Os for building the tree, which means the buffer pool can be utilized more effectively by processing data in a more sequential and predictable manner.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: bulk loading, buffer pool, I/O</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="21">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the significance of &#39;leaves being stored sequentially&#39; in a bulk-loaded B+-tree?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">This property is known as &#39;clustering&#39;. It means that records with similar key values are physically stored close to each other on disk, which greatly improves performance for range queries.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: bulk loading, clustering, performance</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="22">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">Explain the &#39;fill factor&#39; benefit of bulk loading.</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Bulk loading allows for better control of the &#39;fill factor&#39; on pages, specifically enabling leaf nodes to be filled up completely. This maximizes storage efficiency and reduces the total number of pages required.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: bulk loading, fill factor, storage efficiency</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="23">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">How does bulk loading reduce the number of locks needed for concurrency control?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">It saves tree traversals. Since the tree is built in a structured, bottom-up fashion from sorted data, there&#39;s less need for complex, fine-grained locking that would be required during individual, potentially random, insertions.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: bulk loading, concurrency control, locking</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="24">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the general rule for placing index entries relative to key values in a B+-tree?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Each index entry must be greater than every key value (in any subtree) to its left.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: B+ tree, index entries, rules</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="25">
+        <div class="qtype">FLASHCARD - when-to-use
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">When would you choose bulk loading over repeated insertions for a B+-tree?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">When you have a large collection of records and you want to create a B+-tree on some field, especially for initial setup or batch processing, as it is much faster and more efficient.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: bulk loading, use case, decision making</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="26">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">Describe the propagation of splits during B+-tree bulk loading.</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">When an index page fills up and splits, the split may go up the right-most path to the root.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: bulk loading, node splitting</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="27">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the first logical step in the bulk loading process after data entries are sorted?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Insert a pointer to the first (leaf) page into a new (root) page.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: bulk loading, algorithm</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="28">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">Why is bulk loading considered &#39;time and space efficient&#39;?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">It&#39;s time efficient due to fewer I/Os and faster building. It&#39;s space efficient because it allows for better fill factors (leaf nodes filled completely), leading to a more compact tree structure.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: bulk loading, efficiency, performance</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="29" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Creating a B+-tree by repeatedly inserting records is generally faster than using bulk loading for a large dataset.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text explicitly states that repeated insertion &#39;is very slow&#39; and bulk loading &#39;can be done much more efficiently&#39; and is &#39;much faster&#39;.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, performance</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="30" data-correct="true">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Bulk loading a B+-tree ensures that leaves will be stored sequentially, which is also known as clustering.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text states: &#39;Leaves will be stored sequentially (and linked, of course) – (aka clustering)&#39;.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, clustering</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="31" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">During bulk loading, index entries for leaf pages are typically entered into the left-most index page just above the leaf level.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text specifies that index entries for leaf pages are &#39;always entered into right-most index page just above leaf level&#39;.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, index entries</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="32" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Bulk loading leads to minimal leaf utilization because it processes data in a sorted manner.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Repeated insertion leads to minimal leaf utilization. Bulk loading, on the other hand, provides &#39;Better control of “fill factor” on pages (leaf nodes filled up completely)&#39;, implying high utilization.</div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, leaf utilization</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="33" data-correct="true">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The general rule for B+-tree index entries requires each entry to be greater than every key value in any subtree to its left.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text states: &#39;must leave each index entry greater than every key value (in any subtree) to its left&#39;.</div>
+            <div class="topics">Θέματα: B+ tree, index entries, rules</div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="34" data-correct="sort">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">When bulk loading a B+-tree, the first step is to _____ all data entries.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">This step ensures efficiency and sequential storage.</div>
+            <div class="answer-reveal">sort</div>
+            <div class="topics">Θέματα: bulk loading, algorithm</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="35" data-correct="fewer">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Bulk loading results in _____ I/Os for building the tree, leading to more effective buffer pool utilization.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">Think about the impact on disk access.</div>
+            <div class="answer-reveal">fewer</div>
+            <div class="topics">Θέματα: bulk loading, I/O, buffer pool</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="36" data-correct="right-most">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">During bulk loading, index entries for leaf pages are always entered into the _____ index page just above the leaf level.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">Consider the direction of tree growth during this process.</div>
+            <div class="answer-reveal">right-most</div>
+            <div class="topics">Θέματα: bulk loading, index entries</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="37" data-correct="completely">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">A key benefit of bulk loading is better control of &#39;fill factor&#39;, which means leaf nodes can be filled up _____.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">This maximizes storage efficiency.</div>
+            <div class="answer-reveal">completely</div>
+            <div class="topics">Θέματα: bulk loading, fill factor</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="38">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Imagine you have the following sorted data entries: 3, 4, 6, 9, 10, 11, 12, 13, 20, 22, 23, 31, 35, 36, 38, 41, 44. Describe the conceptual steps involved in bulk loading these entries into a B+-tree, assuming a simplified process where you are building from the bottom up and promoting keys as pages fill, similar to the provided diagram.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>Step 1: Sort all data entries (already given as sorted).</li><li>Step 2: Create leaf pages by filling them sequentially with the sorted data entries. For example, if a leaf page can hold 4 entries, the first page would contain 3*, 4*, 6*, 9*.</li><li>Step 3: As leaf pages are created, create index entries pointing to these leaf pages. For each filled leaf page, an index entry (the smallest key in the *next* leaf page or the largest key in the current page, depending on convention, but here it&#39;s the smallest key in the next page) is promoted to the level above.</li><li>Step 4: These index entries are collected and used to fill index pages at the level directly above the leaves. These index entries are inserted into the &#39;right-most&#39; available index page at that level.</li><li>Step 5: If an index page fills up, it splits, and a new index entry (the key separating the two new index pages) is promoted to the next higher level (up the right-most path).</li><li>Step 6: This process continues upwards until a root page is formed, which may involve splitting and promoting keys until a single root node is established, pointing to the first level of index pages.</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>correctly identifies initial sorting: 10 βαθμοί</li><li>explains leaf page creation and linking: 20 βαθμοί</li><li>describes index entry promotion from leaves: 20 βαθμοί</li><li>explains index page filling and splitting propagation: 30 βαθμοί</li><li>overall clarity and logical flow: 20 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: bulk loading algorithm, sorted data, leaf page creation, index page creation, key promotion, node splitting, bottom-up construction</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="39">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">You are tasked with creating a B+-tree index for a new table containing 10 million records. The table will primarily be used for analytical queries (OLAP) which involve large range scans. Explain why bulk loading is the preferred method for creating this index, considering the given context.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>Step 1: Identify the scale of the data (10 million records) and the query pattern (large range scans).</li><li>Step 2: Explain the drawbacks of repeated insertions for such a large dataset: it would be very slow, lead to poor leaf utilization, and lack clustering.</li><li>Step 3: Explain how bulk loading addresses these issues: it&#39;s much faster due to fewer I/Os and better buffer pool utilization.</li><li>Step 4: Highlight the benefit of sequential leaf storage (clustering) provided by bulk loading, which is crucial for efficient range queries in OLAP scenarios.</li><li>Step 5: Mention the improved fill factor, leading to a more compact and efficient index structure.</li><li>Step 6: Conclude that bulk loading is superior for this scenario due to its efficiency and the resulting clustered structure, which aligns with the OLAP query patterns.</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>identifies scale and query type: 15 βαθμοί</li><li>explains repeated insertion issues: 25 βαθμοί</li><li>explains bulk loading benefits (speed, I/O, buffer pool): 25 βαθμοί</li><li>connects clustering to range query performance: 25 βαθμοί</li><li>overall coherence and justification: 10 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: bulk loading benefits, repeated insertion drawbacks, OLAP, range queries, clustering, efficiency</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="40">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">A database administrator is considering building a B+-tree index on a large, existing table. They are concerned about the impact on system resources, particularly I/O and concurrency. Outline how bulk loading mitigates these concerns compared to a standard &#39;insert-one-by-one&#39; approach.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>Step 1: Address I/O concerns: Explain that bulk loading sorts data first, allowing for sequential disk reads/writes and better buffer pool utilization, resulting in &#39;fewer I/Os&#39; compared to the potentially random I/Os of individual insertions.</li><li>Step 2: Address concurrency concerns: Explain that bulk loading &#39;saves tree traversals&#39; and therefore requires &#39;fewer locks for concurrency control&#39; during the tree construction phase, reducing contention and overhead compared to the numerous individual locking operations required for repeated inserts.</li><li>Step 3: Summarize that these efficiencies make bulk loading &#39;time and space efficient&#39; and less resource-intensive for large datasets.</li><li>Step 4: Contrast this with the &#39;very slow&#39; and resource-heavy nature of repeated insertions for large datasets.</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>explains I/O mitigation (sequential access, buffer pool): 40 βαθμοί</li><li>explains concurrency mitigation (fewer locks, saved traversals): 40 βαθμοί</li><li>compares effectively to repeated insertion: 20 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: bulk loading, I/O cost, concurrency control, locking, efficiency</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question short-answer" data-qtype="Σύντομη Απάντηση" data-idx="41">
+        <div class="qtype">SHORT ANSWER QUESTION
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Explain why &#39;minimal leaf utilization&#39; is a problem when creating a B+-tree by repeatedly inserting records, and how bulk loading addresses this.</div>
+            <div class="answer-points" style="display:none;">
+                <h4>Σημαντικά σημεία:</h4>
+                <ul><li>Repeated insertions often lead to leaf pages being filled only partially (e.g., 50% full) due to splits and insertions occurring at various points in the tree.</li><li>This &#39;minimal leaf utilization&#39; means more disk space is consumed than necessary, and more I/O operations are required to read the same amount of data (as data is spread across more pages).</li><li>Bulk loading addresses this by sorting all data entries first, allowing leaf pages to be filled &#39;completely&#39; or to a very high &#39;fill factor&#39; (e.g., 90-100%).</li><li>This maximizes storage efficiency and reduces the total number of leaf pages, thereby improving performance.</li></ul>
+                <div class="meta">Μέγιστη βαθμολογία: 10</div>
+            </div>
+            <div class="topics">Θέματα: B+ tree, leaf utilization, bulk loading, efficiency</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question short-answer" data-qtype="Σύντομη Απάντηση" data-idx="42">
+        <div class="qtype">SHORT ANSWER QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Describe the general process of how index entries are handled during B+-tree bulk loading, specifically focusing on their placement and split propagation.</div>
+            <div class="answer-points" style="display:none;">
+                <h4>Σημαντικά σημεία:</h4>
+                <ul><li>After leaf pages are created from sorted data, index entries (typically the smallest key of the next leaf page) are generated.</li><li>These index entries are then inserted into the &#39;right-most index page just above the leaf level&#39;.</li><li>As these index pages fill up, they will &#39;split&#39;.</li><li>When a split occurs, the new index entry (the key separating the two new pages) is propagated &#39;up right-most path to the root&#39;, creating higher-level index pages as needed until the root is reached or a new root is formed.</li></ul>
+                <div class="meta">Μέγιστη βαθμολογία: 10</div>
+            </div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, index entries, node splitting</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question scenario" data-qtype="Σενάριο" data-idx="43">
+        <div class="qtype">SCENARIO BASED QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="scenario-text">A large e-commerce company is migrating its product catalog to a new database system. The catalog contains millions of products, and a B+-tree index needs to be built on the &#39;product_id&#39; field, which is a primary key. The company wants to minimize downtime during the migration and ensure optimal performance for future queries. They also anticipate very few updates to the &#39;product_id&#39; field after the initial load.</div>
+            <div class="qtext">Given this scenario, would you recommend using &#39;repeated insertion&#39; or &#39;bulk loading&#39; for creating the B+-tree index on &#39;product_id&#39;? Justify your choice by referencing the benefits and drawbacks discussed in the lecture content.</div>
+            <div class="analysis" style="display:none;">
+                <h4>Βασικά σημεία ανάλυσης:</h4>
+                <ul><li>large dataset</li><li>minimize downtime (efficiency)</li><li>optimal performance (clustering, fill factor)</li><li>infrequent updates (initial load focus)</li></ul>
+                <div class="sample-answer">
+                    <h4>Ενδεικτική απάντηση:</h4>
+                    <div>For this scenario, **bulk loading** is strongly recommended for creating the B+-tree index on &#39;product_id&#39;.
+
+**Justification:**
+1.  **Large Dataset:** The catalog has &#39;millions of products&#39;. Repeatedly inserting records for such a large volume would be &#39;very slow&#39; and lead to significant downtime, which contradicts the goal of &#39;minimizing downtime&#39;. Bulk loading is &#39;much faster&#39; and &#39;more efficient&#39; for large collections.
+2.  **Optimal Performance &amp; Clustering:** Bulk loading ensures that &#39;leaves will be stored sequentially (aka clustering)&#39;. This is crucial for optimal performance, especially for primary key lookups and potential range queries on product IDs, as it reduces I/O operations by keeping related data physically close.
+3.  **Fill Factor:** Bulk loading allows for &#39;better control of “fill factor” on pages&#39;, meaning &#39;leaf nodes filled up completely&#39;. This maximizes storage efficiency and reduces the overall size of the index, further contributing to performance.
+4.  **I/O and Concurrency:** Bulk loading results in &#39;fewer I/Os&#39; (better buffer pool utilization) and &#39;fewer locks for concurrency control&#39; during the build process. This minimizes resource contention and speeds up the index creation, again helping to reduce downtime.
+
+In contrast, repeated insertion would be slow, lead to minimal leaf utilization (wasting space and I/O), and not provide sequential storage of leaves, which would negatively impact query performance.</div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: B+ tree, bulk loading, scenario, performance, efficiency, clustering</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση ανάλυσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question calculation" data-qtype="Υπολογιστικό" data-idx="44">
+        <div class="qtype">CALCULATION QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">A database system needs to build a B+-tree index on a table with 1,000,000 records. If repeated insertions would typically require 3 I/O operations per record insertion (due to random access and node splits), and bulk loading can reduce the total I/O operations by 90% due to sequential processing and better buffer pool utilization, calculate the estimated total I/O operations saved by using bulk loading instead of repeated insertions.</div>
+            <div class="given-values"><b>Δεδομένα:</b> total_records: 1000000, io_per_repeated_insert: 3, io_reduction_percentage_bulk_load: 0.9</div>
+            <div class="solution" style="display:none;">
+                <h4>Βήματα επίλυσης:</h4>
+                <ol><li>Step 1: Calculate total I/O operations for repeated insertions: Total Records * I/O per Repeated Insert = 1,000,000 * 3 = 3,000,000 I/O operations.</li><li>Step 2: Calculate the I/O operations saved by bulk loading: Total I/O (Repeated) * I/O Reduction Percentage = 3,000,000 * 0.90 = 2,700,000 I/O operations.</li><li>Step 3: (Optional: Calculate I/O for bulk loading) Total I/O (Repeated) - I/O Saved = 3,000,000 - 2,700,000 = 300,000 I/O operations.</li><li>The question asks for I/O operations saved.</li></ol>
+                <div class="final-answer"><b>Τελική απάντηση:</b> 2,700,000 I/O operations saved</div>
+            </div>
+            <div class="topics">Θέματα: bulk loading, I/O cost, performance calculation</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="quiz-mode" style="display:none;">
+        <div id="quiz-question"></div>
+        <div class="quiz-navigation">
+            <button id="prev-question-btn">Προηγούμενη</button>
+            <button id="next-question-btn">Επόμενη</button>
+        </div>
+    </div>
+</div>
+<script src="quiz.js"></script>
+</body>
+</html>

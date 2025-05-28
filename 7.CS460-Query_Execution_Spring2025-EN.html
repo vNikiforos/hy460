@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Algorithms, Set & Aggregate Operations, Query Evaluation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="meta">
+        <b>Μάθημα:</b> CS-460 | <b>Διάλεξη:</b> X | <b>Τίτλος:</b> Join Algorithms, Set & Aggregate Operations, Query Evaluation | <b>Ημ/νία:</b> 2025-05-28
+    </div>
+    <div class="mode-switch">
+        <button id="show-all-btn">Όλες οι ερωτήσεις</button>
+        <button id="quiz-mode-btn">Quiz mode</button>
+    </div>
+    <div id="questions-all">
+
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="0" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the approximate total I/O cost for Grace Hash Join, assuming each partition fits into memory?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-0-A" name="mc-0" value="A">
+            <label for="mc-0-A"><strong>A:</strong> M+N I/Os</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-0-B" name="mc-0" value="B">
+            <label for="mc-0-B"><strong>B:</strong> 2(M+N) I/Os</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-0-C" name="mc-0" value="C">
+            <label for="mc-0-C"><strong>C:</strong> 3(M+N) I/Os</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-0-D" name="mc-0" value="D">
+            <label for="mc-0-D"><strong>D:</strong> M*N I/Os</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The cost for Grace Hash Join is 2(M+N) for the partitioning phase (scanning R and S once and writing them out once) and M+N for the joining phase (scanning each partition once). The total cost is 3(M+N) I/Os.</div>
+            <div class="topics">Θέματα: Hash Join, I/O Cost</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="1" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">For Grace Hash Join to perform well, what is the approximate minimum buffer size (B) required, where M and N are the number of pages in relations R and S respectively?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-1-A" name="mc-1" value="A">
+            <label for="mc-1-A"><strong>A:</strong> B &gt; M</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-1-B" name="mc-1" value="B">
+            <label for="mc-1-B"><strong>B:</strong> B &gt; N</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-1-C" name="mc-1" value="C">
+            <label for="mc-1-C"><strong>C:</strong> B &gt; min(M, N)</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-1-D" name="mc-1" value="D">
+            <label for="mc-1-D"><strong>D:</strong> B &gt; sqrt(min(M, N))</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture states: &#39;Approximately, we need B &gt; min(M, N) for the Grace hash join to perform well.&#39; This ensures that the smaller relation can be partitioned into a number of buckets such that each bucket fits in memory for the probing phase.</div>
+            <div class="topics">Θέματα: Hash Join, Memory Requirements</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="2" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the primary advantage of Hybrid Hash Join over Grace Hash Join?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-2-A" name="mc-2" value="A">
+            <label for="mc-2-A"><strong>A:</strong> It can handle range join conditions efficiently.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-2-B" name="mc-2" value="B">
+            <label for="mc-2-B"><strong>B:</strong> It requires less memory than Grace Hash Join.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-2-C" name="mc-2" value="C">
+            <label for="mc-2-C"><strong>C:</strong> It avoids writing and reading back the first partition of both relations to/from disk.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-2-D" name="mc-2" value="D">
+            <label for="mc-2-D"><strong>D:</strong> It performs better when relations are already sorted.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Hybrid Hash Join utilizes extra memory to keep the first partition of the smaller relation (R) in memory as a hash table, and directly probes the first partition of the larger relation (S) against it during the partitioning phase. This saves I/Os by not writing/reading these partitions to/from disk.</div>
+            <div class="topics">Θέματα: Hybrid Hash Join, I/O Optimization</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="3" data-correct="D">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">If an R partition in a Hash Join becomes larger than the available memory size (overflow on disk), which of the following is a valid strategy to handle it?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-3-A" name="mc-3" value="A">
+            <label for="mc-3-A"><strong>A:</strong> Revise the partitioning scheme and keep a smaller partition in memory.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-3-B" name="mc-3" value="B">
+            <label for="mc-3-B"><strong>B:</strong> Combine small partitions first and then join them.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-3-C" name="mc-3" value="C">
+            <label for="mc-3-C"><strong>C:</strong> Recursive partitioning.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-3-D" name="mc-3" value="D">
+            <label for="mc-3-D"><strong>D:</strong> Both B and C.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture lists &#39;Solution (a) small partitions first and combine before join&#39; and &#39;Solution (b) recursive partition&#39; for handling overflow on disk. Option A is for overflow in memory.</div>
+            <div class="topics">Θέματα: Hash Join, Error Handling, Partition Overflow</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="4" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which statement accurately describes the I/O patterns for sorting and hashing when handling very large inputs?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-4-A" name="mc-4" value="A">
+            <label for="mc-4-A"><strong>A:</strong> Sorting uses random write, sequential read; Hashing uses sequential write, random read.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-4-B" name="mc-4" value="B">
+            <label for="mc-4-B"><strong>B:</strong> Sorting uses sequential write, random read; Hashing uses random write, sequential read.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-4-C" name="mc-4" value="C">
+            <label for="mc-4-C"><strong>C:</strong> Both use sequential write and sequential read.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-4-D" name="mc-4" value="D">
+            <label for="mc-4-D"><strong>D:</strong> Both use random write and random read.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The &#39;Duality of Sort and Hash&#39; section states: &#39;Sorting: sequential write, random read (merge)&#39; and &#39;Hashing: random write, sequential read (partition)&#39;.</div>
+            <div class="topics">Θέματα: Sorting, Hashing, I/O Patterns, Duality</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="5" data-correct="A">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In terms of memory requirements, which join algorithm is generally considered lower, especially if relation sizes differ greatly?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-5-A" name="mc-5" value="A">
+            <label for="mc-5-A"><strong>A:</strong> Hash Join</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-5-B" name="mc-5" value="B">
+            <label for="mc-5-B"><strong>B:</strong> Sort-Merge Join</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-5-C" name="mc-5" value="C">
+            <label for="mc-5-C"><strong>C:</strong> Nested Loop Join</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-5-D" name="mc-5" value="D">
+            <label for="mc-5-D"><strong>D:</strong> Block Nested Loop Join</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture states, &#39;Memory requirement: hash join is lower – Hash join wins on this count if relation sizes differ greatly.&#39;</div>
+            <div class="topics">Θέματα: Join Algorithms, Comparison, Memory</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="6" data-correct="A">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Under which condition does Sort-Merge Join typically perform better than Hash Join?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-6-A" name="mc-6" value="A">
+            <label for="mc-6-A"><strong>A:</strong> When the result needs to be in sorted order.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-6-B" name="mc-6" value="B">
+            <label for="mc-6-B"><strong>B:</strong> When the join predicate is an equijoin.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-6-C" name="mc-6" value="C">
+            <label for="mc-6-C"><strong>C:</strong> When relation sizes differ greatly.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-6-D" name="mc-6" value="D">
+            <label for="mc-6-D"><strong>D:</strong> When the hashing quality is poor.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture states: &#39;Sort-Merge join wins if the result needs to be in sorted order.&#39; It also wins if relations are already sorted or for inequality joins. Poor hashing quality is a disadvantage for Hash Join, not an advantage for Sort-Merge.</div>
+            <div class="topics">Θέματα: Sort-Merge Join, Comparison</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="7" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">When does Nested Loop Join perform well?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-7-A" name="mc-7" value="A">
+            <label for="mc-7-A"><strong>A:</strong> When both relations are very large.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-7-B" name="mc-7" value="B">
+            <label for="mc-7-B"><strong>B:</strong> When one relation is large and one is small, especially if the smaller relation fits entirely in main memory.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-7-C" name="mc-7" value="C">
+            <label for="mc-7-C"><strong>C:</strong> When the join predicate is an inequality.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-7-D" name="mc-7" value="D">
+            <label for="mc-7-D"><strong>D:</strong> When the result needs to be sorted.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">&#39;Nested loop join performs well when one relation is large &amp; one is small – A special case is when the smaller relation can be entirely held in main memory which implies that both relations need to be read in only once.&#39;</div>
+            <div class="topics">Θέματα: Nested Loop Join, Applicability</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="8" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In a Simple Nested Loop Join, if there are not enough buffer pages to hold the entire inner relation, which buffer replacement policy is considered the worst?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-8-A" name="mc-8" value="A">
+            <label for="mc-8-A"><strong>A:</strong> MRU (Most Recently Used)</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-8-B" name="mc-8" value="B">
+            <label for="mc-8-B"><strong>B:</strong> LRU (Least Recently Used)</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-8-C" name="mc-8" value="C">
+            <label for="mc-8-C"><strong>C:</strong> FIFO (First In, First Out)</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-8-D" name="mc-8" value="D">
+            <label for="mc-8-D"><strong>D:</strong> Clock</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture explicitly states: &#39;Simple nested loop join: for each outer record, scan all pages of the inner relation... Otherwise [if not enough buffer pages], LRU is worst (sequential flooding)&#39;.</div>
+            <div class="topics">Θέματα: Buffering, Buffer Replacement Policies, Sequential Flooding</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="9" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">For a Simple Nested Loop Join without enough buffer pages to hold the inner relation, which buffer replacement policy gives the best buffer utilization?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-9-A" name="mc-9" value="A">
+            <label for="mc-9-A"><strong>A:</strong> LRU</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-9-B" name="mc-9" value="B">
+            <label for="mc-9-B"><strong>B:</strong> FIFO</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-9-C" name="mc-9" value="C">
+            <label for="mc-9-C"><strong>C:</strong> MRU</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-9-D" name="mc-9" value="D">
+            <label for="mc-9-D"><strong>D:</strong> Random</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture states: &#39;MRU gives best buffer utilization, the first B − 2 pages of the inner will always stay in the buffer (pinning a few pages is best)&#39;.</div>
+            <div class="topics">Θέματα: Buffering, Buffer Replacement Policies</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="10" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">For range conditions over attributes (e.g., R.rname &lt; S.sname), which type of index is typically needed for Index Nested Loop Join to be effective?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-10-A" name="mc-10" value="A">
+            <label for="mc-10-A"><strong>A:</strong> Hashed index</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-10-B" name="mc-10" value="B">
+            <label for="mc-10-B"><strong>B:</strong> Unclustered B+ tree index</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-10-C" name="mc-10" value="C">
+            <label for="mc-10-C"><strong>C:</strong> Clustered B+ tree index</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-10-D" name="mc-10" value="D">
+            <label for="mc-10-D"><strong>D:</strong> Any index type will work</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">&#39;For Index Nested Loop Join, need (clustered!) B+ tree index&#39; for range conditions. A clustered index ensures that records with similar key values are stored physically close together, which is crucial for efficient range scans.</div>
+            <div class="topics">Θέματα: Index Nested Loop Join, Index Types, Range Queries</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="11" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is a valid approach for computing a Union (Distinct) operation?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-11-A" name="mc-11" value="A">
+            <label for="mc-11-A"><strong>A:</strong> Sort both relations, then scan in parallel and merge, eliminating duplicates.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-11-B" name="mc-11" value="B">
+            <label for="mc-11-B"><strong>B:</strong> Partition both relations using a hash function, then for each S-partition, build an in-memory hash table, scan corresponding R-partition and add records, discarding duplicates.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-11-C" name="mc-11" value="C">
+            <label for="mc-11-C"><strong>C:</strong> Both A and B.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-11-D" name="mc-11" value="D">
+            <label for="mc-11-D"><strong>D:</strong> Only A, as hashing cannot handle duplicates.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture describes both &#39;Sorting based approach to union&#39; and &#39;Hash based approach to union&#39;, both of which handle duplicates.</div>
+            <div class="topics">Θέματα: Set Operations, Union, Algorithms</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="12" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">When using a B+-tree index for an aggregate operation with a GROUP BY clause, under what condition can an index-only scan be performed efficiently?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-12-A" name="mc-12" value="A">
+            <label for="mc-12-A"><strong>A:</strong> If the search key includes all attributes in the SELECT clause.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-12-B" name="mc-12" value="B">
+            <label for="mc-12-B"><strong>B:</strong> If the search key includes all attributes in the WHERE clause.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-12-C" name="mc-12" value="C">
+            <label for="mc-12-C"><strong>C:</strong> If the group-by attributes form a prefix of the search key.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-12-D" name="mc-12" value="D">
+            <label for="mc-12-D"><strong>D:</strong> If the B+-tree is unclustered.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">&#39;Given B+ -tree index whose search key includes all attributes in SELECT, WHERE and GROUP BY clauses, can do index-only scan... if group-by attributes form prefix of search key, can retrieve data entries/records in group-by order&#39;.</div>
+            <div class="topics">Θέματα: Aggregate Operations, Group By, Index-only Scan</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="13" data-correct="A">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the key difference in how intermediate results are handled between Materialization and Pipelining in relational expression evaluation?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-13-A" name="mc-13" value="A">
+            <label for="mc-13-A"><strong>A:</strong> Materialization stores intermediate results on disk, while Pipelining passes them directly to the next operation.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-13-B" name="mc-13" value="B">
+            <label for="mc-13-B"><strong>B:</strong> Materialization passes intermediate results directly, while Pipelining stores them on disk.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-13-C" name="mc-13" value="C">
+            <label for="mc-13-C"><strong>C:</strong> Both store intermediate results on disk.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-13-D" name="mc-13" value="D">
+            <label for="mc-13-D"><strong>D:</strong> Both pass intermediate results directly.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">&#39;Materialization: ...materialize (store) it on disk and repeat... use temporary relations to hold intermediate results.&#39; &#39;Pipelining: ...pass on records to parent operations even as an operation is being executed... results are passed from one operation to next, no need for temp relations.&#39;</div>
+            <div class="topics">Θέματα: Query Evaluation, Materialization, Pipelining</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="14" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following operations/implementations generally *does not* allow pipelining of both arguments?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-14-A" name="mc-14" value="A">
+            <label for="mc-14-A"><strong>A:</strong> Projection</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-14-B" name="mc-14" value="B">
+            <label for="mc-14-B"><strong>B:</strong> Selection</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-14-C" name="mc-14" value="C">
+            <label for="mc-14-C"><strong>C:</strong> Intersection</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-14-D" name="mc-14" value="D">
+            <label for="mc-14-D"><strong>D:</strong> Index Nested Loop Join (for the non-indexed argument)</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture states: &#39;Projection, Selection allow pipelining&#39;, &#39;Intersection does not allow pipelining&#39;, and &#39;Index join allows pipelining of the non indexed argument&#39;.</div>
+            <div class="topics">Θέματα: Query Evaluation, Pipelining, Operations</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="15" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">When using an unclustered index for accessing records, what is the likely impact on buffer pool utilization and I/O activity?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-15-A" name="mc-15" value="A">
+            <label for="mc-15-A"><strong>A:</strong> High likelihood of finding pages in the buffer, leading to low I/O activity.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-15-B" name="mc-15" value="B">
+            <label for="mc-15-B"><strong>B:</strong> Low likelihood of finding pages in the buffer, leading to high I/O activity.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-15-C" name="mc-15" value="C">
+            <label for="mc-15-C"><strong>C:</strong> No significant impact on buffer pool or I/O activity.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-15-D" name="mc-15" value="D">
+            <label for="mc-15-D"><strong>D:</strong> It always leads to sequential access patterns.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">&#39;Using an unclustered index for accessing records makes finding a page in the buffer rather unlikely and dependent on (rather unpredictably!) the size of the buffer – Furthermore, each page access is likely to refer to a new page, therefore, the buffer pool fills quickly and we obtain a high level of I/O activity.&#39;</div>
+            <div class="topics">Θέματα: Buffering, Unclustered Index, I/O Cost</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="16" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which join algorithm is generally less sensitive to data skew?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-16-A" name="mc-16" value="A">
+            <label for="mc-16-A"><strong>A:</strong> Hash Join</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-16-B" name="mc-16" value="B">
+            <label for="mc-16-B"><strong>B:</strong> Sort-Merge Join</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-16-C" name="mc-16" value="C">
+            <label for="mc-16-C"><strong>C:</strong> Simple Nested Loop Join</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-16-D" name="mc-16" value="D">
+            <label for="mc-16-D"><strong>D:</strong> Block Nested Loop Join</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture states: &#39;Sort-Merge join less sensitive to data skew&#39;. Hash Join performance depends on the quality of hashing, which can be negatively impacted by data skew (unevenly sized buckets).</div>
+            <div class="topics">Θέματα: Hash Join, Sort-Merge Join, Data Skew, Comparison</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="17" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following join algorithms is *only* applicable to equijoin conditions?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-17-A" name="mc-17" value="A">
+            <label for="mc-17-A"><strong>A:</strong> Sort-Merge Join</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-17-B" name="mc-17" value="B">
+            <label for="mc-17-B"><strong>B:</strong> Nested Loop Join</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-17-C" name="mc-17" value="C">
+            <label for="mc-17-C"><strong>C:</strong> Hash Join</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-17-D" name="mc-17" value="D">
+            <label for="mc-17-D"><strong>D:</strong> Block Nested Loop Join</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">&#39;Hash join is very efficient but is only applicable to equijoin&#39;. Sort-Merge Join can handle inequality joins. Nested Loop Join can handle any join condition.</div>
+            <div class="topics">Θέματα: Hash Join, Equijoin, Applicability</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="18">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the &#39;fudge factor&#39; (f) in the context of Hash Join memory requirements?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A factor (f ≈ 1.2) used to capture the small increase in size between a partition and the hash table built for that partition in memory during the probing phase. It accounts for overhead in the hash table structure.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: Hash Join, Memory, Terminology</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="19">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">Describe the &#39;duality&#39; between sorting and hashing in terms of their divide-and-conquer paradigm.</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Sorting uses physical division (creating sorted runs) and logical combination (merging runs). Hashing uses logical division (partitioning data into buckets based on hash function) and physical combination (joining corresponding partitions).</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: Sorting, Hashing, Duality</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="20">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is &#39;sequential flooding&#39; in the context of buffer replacement policies?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A phenomenon where LRU (Least Recently Used) buffer replacement policy performs poorly when scanning a relation larger than the buffer. Each page read is new, causing the buffer to fill with pages that will not be reused soon, leading to high I/O activity as useful pages are evicted.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: Buffering, LRU, Sequential Flooding</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="21">
+        <div class="qtype">FLASHCARD - when-to-use
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">When is Simple Nested Loop Join (or Page-oriented Nested Loop Join) generally efficient?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">When one relation is very small (especially if it can fit entirely in main memory), or when combined with an index on the joining attribute of the inner relation (Index Nested Loop Join).</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: Nested Loop Join, Applicability</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="22">
+        <div class="qtype">FLASHCARD - when-to-use
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">When is Sort-Merge Join a preferred choice over other join algorithms?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">When one or both relations are already sorted on the joining attributes, when the result needs to be in sorted order, or when the join predicate is an inequality (!=). It is also less sensitive to data skew.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: Sort-Merge Join, Applicability</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="23">
+        <div class="qtype">FLASHCARD - when-to-use
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">When is Hash Join generally the most efficient join algorithm?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">For equijoins, especially when relation sizes differ greatly (Hash Join has lower memory requirements in this case) and when the hashing quality is good (even bucket distribution). It is also highly parallelizable.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: Hash Join, Applicability</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="24">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the core idea behind &#39;Materialization&#39; in relational expression evaluation?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Evaluating a relational expression one operation at a time, where the results of each intermediate operation are computed and stored (materialized) on disk as temporary relations before being used as input for the next operation.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: Query Evaluation, Materialization</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="25">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the core idea behind &#39;Pipelining&#39; in relational expression evaluation?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Evaluating several operations simultaneously, where results of one operation are passed directly to the next operation in a stream, without being stored on disk as temporary relations. This avoids I/O costs for intermediate results.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: Query Evaluation, Pipelining</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="26">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the primary saving achieved by Hybrid Hash Join compared to Grace Hash Join?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">It saves I/O operations by avoiding the need to write out and read back in the first partitions of both relations (R1 and S1) to/from disk. These partitions are processed in memory during the partitioning phase itself.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: Hybrid Hash Join, I/O Optimization</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="27">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is &#39;Partition Overflow&#39; in the context of Hash Join?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A situation where one or more partitions created by the hash function do not fit into the available main memory, either during the in-memory hash table build (overflow in memory) or when a partition written to disk is larger than memory (overflow on disk).</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: Hash Join, Partition Overflow</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="28">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">How does MRU (Most Recently Used) buffer replacement policy help in Simple Nested Loop Join when the inner relation is larger than the buffer?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">MRU keeps the first B-2 pages of the inner relation in the buffer (effectively pinning them), ensuring that these frequently accessed pages are not evicted, thus improving buffer utilization and reducing I/Os compared to LRU.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: Buffering, MRU, Nested Loop Join</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="29" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Hash Join is generally applicable to range join predicates (e.g., R.A &lt; S.B).</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture explicitly states: &#39;Hash Join, Sort Merge Join not applicable!&#39; for range conditions. Hash Join is primarily for equijoins.</div>
+            <div class="topics">Θέματα: Hash Join, Range Queries</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="30" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Pipelining is always possible for all relational operations, making materialization obsolete.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">While pipelining is often cheaper, it&#39;s not always possible. The lecture notes that &#39;Pipelining may not always be possible&#39; and gives &#39;Intersection does not allow pipelining&#39; as an example. Some operations (or their implementations) require seeing the entire relation before starting.</div>
+            <div class="topics">Θέματα: Pipelining, Materialization, Query Evaluation</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="31" data-correct="true">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The cost of Grace Hash Join and a two-pass Sort-Merge Join are approximately the same, both being 3(M+N) I/Os.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture states: &#39;Both have a cost of 3(M+N) I/Os – Assuming two-pass Sort-Merge join&#39;.</div>
+            <div class="topics">Θέματα: Hash Join, Sort-Merge Join, I/O Cost</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="32" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">When several operators execute concurrently, estimating the number of available buffer pages is straightforward and predictable.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture states: &#39;When several operations are executed concurrently, estimating the number of available buffer pages is guesswork&#39; because they share the buffer pool.</div>
+            <div class="topics">Θέματα: Buffering, Concurrency</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="33" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Block Nested Loop Join&#39;s performance is significantly affected by the buffer replacement policy because only one unpinned page is available for the inner relation scan.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture states: &#39;Block nested loop join: ...Since only one unpinned page is available for the scan of the inner, the replacement policy makes no difference&#39;.</div>
+            <div class="topics">Θέματα: Block Nested Loop Join, Buffering, Buffer Replacement Policies</div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="34" data-correct="3(M+N) I/Os">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The total I/O cost for Grace Hash Join, assuming each partition fits into memory, is approximately ______.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">Consider the partitioning and joining phases.</div>
+            <div class="answer-reveal">3(M+N) I/Os</div>
+            <div class="topics">Θέματα: Hash Join, I/O Cost</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="35" data-correct="first">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In Hybrid Hash Join, the savings are obtained from not having to write out and read back in the ______ partitions of R and S.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">Think about which part of the data is kept in memory.</div>
+            <div class="answer-reveal">first</div>
+            <div class="topics">Θέματα: Hybrid Hash Join, I/O Optimization</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="36" data-correct="physical combination">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The duality of sort and hash algorithms states that sorting uses physical division and logical combination, while hashing uses logical division and ______.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">How are the results of the division brought together?</div>
+            <div class="answer-reveal">physical combination</div>
+            <div class="topics">Θέματα: Sorting, Hashing, Duality</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="37" data-correct="not considered">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The cost of generating the output relation in join algorithms is generally ______ when calculating I/O costs.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">Check the assumptions for I/O cost calculations.</div>
+            <div class="answer-reveal">not considered</div>
+            <div class="topics">Θέματα: Join Algorithms, I/O Cost</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="38">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">You are tasked with performing a join operation on two very large relations, `Orders` (M pages) and `Customers` (N pages), where M and N are both significantly larger than available main memory (B pages). The join condition is `Orders.customer_id = Customers.id`. The `Orders` relation is not sorted, but `Customers` is already sorted on `id`. Describe which join algorithm you would choose and explain your reasoning, including any assumptions.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>Identify the join type: This is an equijoin.</li><li>Analyze characteristics of relations: Both relations are very large (larger than memory). One relation (`Customers`) is already sorted on the join attribute.</li><li>Compare relevant join algorithms: Consider Hash Join, Sort-Merge Join, and Block Nested Loop Join.</li><li>Choose the most appropriate algorithm: Sort-Merge Join.</li><li>Justify the choice: Sort-Merge Join is highly advantageous here because the `Customers` relation is already sorted on the join attribute. This means the sorting phase for `Customers` can be skipped, significantly reducing the overall I/O cost for the Sort-Merge Join. While Hash Join is efficient for equijoins, it wouldn&#39;t benefit from the pre-sorted `Customers` relation. Block Nested Loop Join would be inefficient for two very large relations.</li><li>Assumptions: Assume a two-pass Sort-Merge Join is feasible given the relation sizes and memory.</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>correct_final_tree: 30 βαθμοί</li><li>proper_splitting: 40 βαθμοί</li><li>step_by_step_logic: 30 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: Join algorithm selection, Sort-Merge Join advantages, Hash Join applicability, I/O cost, Pre-sorted data</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="39">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Explain the concept of &#39;recursive partitioning&#39; as a solution for &#39;partition overflow on disk&#39; in Hash Join. Illustrate with a simple example.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>Define partition overflow on disk: This occurs when a partition created by the initial hash function (h1) for a relation (e.g., R_i) is too large to fit into main memory during the joining (probing) phase.</li><li>Explain the recursive partitioning strategy: When a partition R_i (and its corresponding S_i) is found to be too large, instead of joining it directly, it is treated as a new, smaller join problem. A *new* hash function (h3, different from h1 and h2) is applied to R_i and S_i to re-partition them into even smaller sub-partitions.</li><li>Describe the process for both relations: Both the overflowing R_i and S_i partitions are read from disk, re-hashed using h3, and written back to disk as smaller sub-partitions (e.g., R_i_j and S_i_j). This process is repeated recursively until all sub-partitions are small enough to fit in memory.</li><li>Provide a conceptual example: Imagine R_i is 100 pages and memory B is 10 pages. R_i cannot fit. Recursive partitioning would read R_i, apply a new hash function h3, and write out 10 new sub-partitions (R_i_1, ..., R_i_10) of ~10 pages each. Similarly for S_i. Then, each R_i_j can be loaded into memory and joined with its corresponding S_i_j.</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>clear_definition_of_overflow: 20 βαθμοί</li><li>accurate_explanation_of_recursion: 30 βαθμοί</li><li>description_of_process_for_both_relations: 20 βαθμοί</li><li>clear_conceptual_example: 30 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: Hash Join, Partition Overflow, Recursive Partitioning, Multi-pass algorithms</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="40">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Consider a scenario where you need to compute `SELECT AVG(S.age) FROM Sailors S GROUP BY S.rating`. Describe two distinct algorithms (one sort-based and one hash-based) to perform this aggregate operation, outlining their main steps.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>**Sort-based approach:**</li><li>1. Sort the `Sailors` relation based on the grouping attribute `S.rating`. This might involve an external sort if the relation is too large for memory.</li><li>2. Scan the sorted `Sailors` relation sequentially.</li><li>3. Maintain a running sum of `age` and a count of records for the current `S.rating` group.</li><li>4. When the `S.rating` value changes (or at the end of the relation), calculate the `AVG` for the completed group (sum / count) and output the result.</li><li>5. Reset the sum and count for the new `S.rating` group and continue scanning.</li><li>**Hash-based approach:**</li><li>1. Initialize an empty in-memory hash table. The hash table entries will store `(grouping_value, running_sum, running_count)`.</li><li>2. Scan the `Sailors` relation record by record.</li><li>3. For each `Sailor` record, use its `S.rating` as the key to probe the hash table.</li><li>4. If an entry for `S.rating` already exists in the hash table, retrieve it and update its `running_sum` by adding `S.age` and increment its `running_count`.</li><li>5. If no entry exists, create a new entry `(S.rating, S.age, 1)` and insert it into the hash table.</li><li>6. After scanning all records in `Sailors`, iterate through all entries in the hash table. For each entry, calculate `AVG = running_sum / running_count` and output `(grouping_value, AVG)`.</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>correctly_describes_sort_based_approach: 50 βαθμοί</li><li>correctly_describes_hash_based_approach: 50 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: Aggregate operations, GROUP BY, Sort-based aggregation, Hash-based aggregation</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question short-answer" data-qtype="Σύντομη Απάντηση" data-idx="41">
+        <div class="qtype">SHORT ANSWER QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Explain the main difference in how intermediate results are handled between &#39;Materialization&#39; and &#39;Pipelining&#39; in the context of relational expression evaluation. What is the primary benefit of Pipelining?</div>
+            <div class="answer-points" style="display:none;">
+                <h4>Σημαντικά σημεία:</h4>
+                <ul><li>Materialization: Intermediate results of an operation are fully computed and stored on disk as temporary relations before being used as input for the next operation.</li><li>Pipelining: Intermediate results are passed directly from one operation to the next in a stream, without being stored on disk. Operations execute simultaneously, passing records as they are produced.</li><li>Primary Benefit: Pipelining avoids the significant I/O cost associated with writing and reading intermediate temporary relations to/from disk, making it much more efficient.</li></ul>
+                <div class="meta">Μέγιστη βαθμολογία: 10</div>
+            </div>
+            <div class="topics">Θέματα: Query Evaluation, Materialization, Pipelining, I/O Cost</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question short-answer" data-qtype="Σύντομη Απάντηση" data-idx="42">
+        <div class="qtype">SHORT ANSWER QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Describe the I/O patterns (sequential/random write/read) for sorting and hashing algorithms when handling very large inputs, as discussed in their &#39;duality.&#39;</div>
+            <div class="answer-points" style="display:none;">
+                <h4>Σημαντικά σημεία:</h4>
+                <ul><li>Sorting: In the initial pass (Pass 0), data is read sequentially and written out sequentially into sorted runs. In subsequent merge passes, data is read randomly (from multiple sorted runs) and written sequentially (to new merged runs). So, sequential write, random read (merge).</li><li>Hashing: In the partitioning phase, data is read sequentially from the input relations but written randomly to different hash buckets on disk. In the joining phase, each partition is read sequentially. So, random write, sequential read (partition).</li></ul>
+                <div class="meta">Μέγιστη βαθμολογία: 10</div>
+            </div>
+            <div class="topics">Θέματα: Sorting, Hashing, I/O Patterns, Duality</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question scenario" data-qtype="Σενάριο" data-idx="43">
+        <div class="qtype">SCENARIO BASED QUESTION
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="scenario-text">You are designing a query optimizer for a new DBMS. A critical aspect is how to handle the buffer pool when multiple query operations are executing concurrently.</div>
+            <div class="qtext">Discuss the challenges in estimating available buffer pages in such a concurrent environment. Furthermore, explain how the choice of buffer replacement policy and the access pattern (e.g., using an unclustered index vs. a clustered index for sequential access) can significantly impact I/O activity and overall performance.</div>
+            <div class="analysis" style="display:none;">
+                <h4>Βασικά σημεία ανάλυσης:</h4>
+                <ul><li>Concurrent operations</li><li>shared buffer pool</li><li>unpredictability</li><li>unclustered vs. clustered index</li><li>sequential access patterns</li><li>LRU vs. MRU</li><li>sequential flooding</li></ul>
+                <div class="sample-answer">
+                    <h4>Ενδεικτική απάντηση:</h4>
+                    <div>Challenges in concurrent estimation: When multiple operators run concurrently, they share a single buffer pool. This makes it difficult to accurately estimate the number of available buffer pages for any single operation, as the pool&#39;s state is dynamically changing due to other operations. This leads to &#39;guesswork&#39; in buffer allocation, as the buffer pool is a shared resource.
+
+Impact of access pattern and replacement policy:
+- Unclustered Index: Accessing records via an unclustered index often results in random I/O. Each record fetch might require a new page, quickly filling the buffer pool with pages that are unlikely to be reused soon. This leads to a high level of I/O activity and poor buffer hit rates because each access is likely to refer to a new page, causing the buffer pool to fill quickly.
+- Clustered Index/Sequential Access: If an operation has a repeated sequential access pattern (e.g., scanning a sorted relation, or using a clustered index for range queries), a clever replacement policy and/or sufficient buffers can significantly speed up the operation. The predictability of access allows for better buffer utilization.
+- LRU vs. MRU: For simple nested loop joins where the inner relation is scanned repeatedly and is larger than the buffer, LRU performs worst (&#39;sequential flooding&#39;) because it evicts the most recently used (and soon-to-be-reused) pages. MRU, conversely, is best as it keeps the initial pages of the inner relation in memory, effectively &#39;pinning&#39; them and reducing I/Os by ensuring frequently accessed pages remain in the buffer.</div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: Buffering, Query Optimization, Concurrency, Indexing, Buffer Replacement Policies</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση ανάλυσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question calculation" data-qtype="Υπολογιστικό" data-idx="44">
+        <div class="qtype">CALCULATION QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">A Grace Hash Join is performed on two relations, R (M=1000 pages) and S (N=500 pages). Assume the hash function partitions uniformly, and each partition fits into memory during the joining phase. Calculate the total I/O operations needed for this join.</div>
+            <div class="given-values"><b>Δεδομένα:</b> M: 1000, N: 500</div>
+            <div class="solution" style="display:none;">
+                <h4>Βήματα επίλυσης:</h4>
+                <ol><li>The formula for Grace Hash Join cost is 3 * (M + N) I/Os.</li><li>Substitute the given values: 3 * (1000 + 500).</li><li>Calculate the sum: 3 * 1500.</li><li>Calculate the final product: 4500 I/Os.</li></ol>
+                <div class="final-answer"><b>Τελική απάντηση:</b> 4500 I/Os</div>
+            </div>
+            <div class="topics">Θέματα: Hash Join, I/O Cost, Calculation</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="quiz-mode" style="display:none;">
+        <div id="quiz-question"></div>
+        <div class="quiz-navigation">
+            <button id="prev-question-btn">Προηγούμενη</button>
+            <button id="next-question-btn">Επόμενη</button>
+        </div>
+    </div>
+</div>
+<script src="quiz.js"></script>
+</body>
+</html>

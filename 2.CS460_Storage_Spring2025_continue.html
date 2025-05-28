@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record and Block Organization, File Structures</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="meta">
+        <b>Μάθημα:</b> HY-460 | <b>Διάλεξη:</b> 3 | <b>Τίτλος:</b> Record and Block Organization, File Structures | <b>Ημ/νία:</b> 2025-05-28
+    </div>
+    <div class="mode-switch">
+        <button id="show-all-btn">Όλες οι ερωτήσεις</button>
+        <button id="quiz-mode-btn">Quiz mode</button>
+    </div>
+    <div id="questions-all">
+
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="0" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following best describes a &#39;virtual page fault&#39; in a DBMS context?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-0-A" name="mc-0" value="A">
+            <label for="mc-0-A"><strong>A:</strong> Page does not reside in DBMS buffer, frame is in physical memory.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-0-B" name="mc-0" value="B">
+            <label for="mc-0-B"><strong>B:</strong> Page resides in DBMS buffer, but frame has been swapped out of physical memory by the OS VM manager.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-0-C" name="mc-0" value="C">
+            <label for="mc-0-C"><strong>C:</strong> Page does not reside in DBMS buffer, and frame has been swapped out of physical memory by the OS VM manager.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-0-D" name="mc-0" value="D">
+            <label for="mc-0-D"><strong>D:</strong> An I/O operation is not necessary.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">A virtual page fault occurs when the DBMS believes a page is in its buffer, but the operating system&#39;s virtual memory manager has swapped the physical memory frame containing that page out to disk. This necessitates an I/O operation that the DBMS is not directly aware of. Option A describes a buffer fault. Option C describes a double page fault.</div>
+            <div class="topics">Θέματα: buffer_management, page_faults</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="1" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is a &#39;buffer fault&#39; in the context of DBMS buffer management?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-1-A" name="mc-1" value="A">
+            <label for="mc-1-A"><strong>A:</strong> A page is in the DBMS buffer but swapped out by the OS.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-1-B" name="mc-1" value="B">
+            <label for="mc-1-B"><strong>B:</strong> A page is not in the DBMS buffer, but its frame is in physical memory.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-1-C" name="mc-1" value="C">
+            <label for="mc-1-C"><strong>C:</strong> A page is not in the DBMS buffer and its frame is swapped out by the OS.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-1-D" name="mc-1" value="D">
+            <label for="mc-1-D"><strong>D:</strong> The DBMS buffer is full and cannot accept new pages.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">A buffer fault (or regular DBMS page fault) occurs when the requested page is not found in the DBMS buffer, but the physical memory frame where it would reside is available in main memory. This requires the DBMS to perform a page replacement and an I/O operation to bring the page into the buffer.</div>
+            <div class="topics">Θέματα: buffer_management, page_faults</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="2" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">A &#39;double page fault&#39; in a DBMS environment implies which of the following?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-2-A" name="mc-2" value="A">
+            <label for="mc-2-A"><strong>A:</strong> The DBMS buffer is full, leading to two replacement operations.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-2-B" name="mc-2" value="B">
+            <label for="mc-2-B"><strong>B:</strong> Two consecutive I/O operations are needed because the page is not in the DBMS buffer and its frame is also swapped out by the OS.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-2-C" name="mc-2" value="C">
+            <label for="mc-2-C"><strong>C:</strong> The same page is requested twice in a short period, leading to two faults.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-2-D" name="mc-2" value="D">
+            <label for="mc-2-D"><strong>D:</strong> A page is corrupted, requiring two attempts to load it.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">A double page fault occurs when the requested page is not in the DBMS buffer, AND the physical memory frame that would hold it has been swapped out by the OS. This requires two I/O operations: one for the OS to bring the frame back into physical memory, and another for the DBMS to replace a page in that frame and bring in the requested page.</div>
+            <div class="topics">Θέματα: buffer_management, page_faults, io_cost</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="3" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In DBMS terminology, what is a &#39;record&#39;?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-3-A" name="mc-3" value="A">
+            <label for="mc-3-A"><strong>A:</strong> A collection of disk blocks.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-3-B" name="mc-3" value="B">
+            <label for="mc-3-B"><strong>B:</strong> A contiguous sequence of sectors on a single track.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-3-C" name="mc-3" value="C">
+            <label for="mc-3-C"><strong>C:</strong> A data element such as a tuple or object, represented by consecutive bytes in a disk block.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-3-D" name="mc-3" value="D">
+            <label for="mc-3-D"><strong>D:</strong> A field within a tuple.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">A record represents a data element like a tuple or object and is stored as a sequence of consecutive bytes within a disk block.</div>
+            <div class="topics">Θέματα: data_elements, records</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="4" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which statement accurately describes the &#39;packed&#39; organization for fixed-length records within a block?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-4-A" name="mc-4" value="A">
+            <label for="mc-4-A"><strong>A:</strong> Records are stored with a bitmap in the header indicating free slots.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-4-B" name="mc-4" value="B">
+            <label for="mc-4-B"><strong>B:</strong> Records are moved to keep them contiguous, which may change their Record ID (RID).</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-4-C" name="mc-4" value="C">
+            <label for="mc-4-C"><strong>C:</strong> Records are stored with pointers to free space, allowing for easy deletion.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-4-D" name="mc-4" value="D">
+            <label for="mc-4-D"><strong>D:</strong> Records are stored in fixed-size slots, and deletions create holes that are not compacted.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">In a packed organization, records are kept contiguous to maximize space utilization. This means that if a record is deleted or moved, other records might shift, potentially changing their physical address and thus their Record ID (RID) if the RID is based on &lt;page#, slot#&gt;.</div>
+            <div class="topics">Θέματα: block_formats, fixed_length_records, record_organization</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="5" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is a key characteristic of &#39;slotted&#39; page organization for records?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-5-A" name="mc-5" value="A">
+            <label for="mc-5-A"><strong>A:</strong> It is primarily used for fixed-length records to avoid fragmentation.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-5-B" name="mc-5" value="B">
+            <label for="mc-5-B"><strong>B:</strong> It allows records to be moved on the page without changing their Record ID (RID) due to indirection.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-5-C" name="mc-5" value="C">
+            <label for="mc-5-C"><strong>C:</strong> It uses a bitmap in the header to track free slots.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-5-D" name="mc-5" value="D">
+            <label for="mc-5-D"><strong>D:</strong> It requires records to be packed contiguously after deletions.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Slotted page organization uses a record directory (slot directory) at one end of the page, where each entry points to a record&#39;s offset and length. This indirection allows records to be moved (e.g., to compact free space after deletions) without invalidating external RIDs, as the RID refers to the slot index, not the direct physical offset.</div>
+            <div class="topics">Θέματα: block_formats, slotted_pages, record_organization</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="6" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which type of file structure is most suitable when the typical access pattern involves scanning all records in the file?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-6-A" name="mc-6" value="A">
+            <label for="mc-6-A"><strong>A:</strong> Sorted (sequential) Files.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-6-B" name="mc-6" value="B">
+            <label for="mc-6-B"><strong>B:</strong> Hashed Files.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-6-C" name="mc-6" value="C">
+            <label for="mc-6-C"><strong>C:</strong> Heap (unordered) Files.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-6-D" name="mc-6" value="D">
+            <label for="mc-6-D"><strong>D:</strong> Indexed Files.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Heap (unordered) files store records in no particular order. While they are simple to implement, their primary advantage is when the entire file needs to be scanned, as there&#39;s no overhead of maintaining order or indexes.</div>
+            <div class="topics">Θέματα: file_structures, heap_files</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="7" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">A significant disadvantage of implementing a heap file as a linked list of pages is:</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-7-A" name="mc-7" value="A">
+            <label for="mc-7-A"><strong>A:</strong> It cannot support record deletion efficiently.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-7-B" name="mc-7" value="B">
+            <label for="mc-7-B"><strong>B:</strong> It requires a separate directory page, increasing overhead.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-7-C" name="mc-7" value="C">
+            <label for="mc-7-C"><strong>C:</strong> Scanning for a page with enough free space for insertion can be inefficient if many pages have small amounts of free space.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-7-D" name="mc-7" value="D">
+            <label for="mc-7-D"><strong>D:</strong> It does not allow for unique Record IDs (RIDs).</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">In a linked list heap file, pages are typically categorized into &#39;pages with free space&#39; and &#39;full pages.&#39; When inserting a record, the DBMS might have to traverse many pages in the &#39;free space&#39; list before finding one with sufficient contiguous free space, especially if records are variable length and many pages have small, fragmented free areas.</div>
+            <div class="topics">Θέματα: heap_files, file_structures, performance_issues</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="8" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">How does a heap file implemented using a directory of pages improve upon the linked list approach?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-8-A" name="mc-8" value="A">
+            <label for="mc-8-A"><strong>A:</strong> It eliminates the need for any free space management.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-8-B" name="mc-8" value="B">
+            <label for="mc-8-B"><strong>B:</strong> It allows for direct access to any record using its RID.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-8-C" name="mc-8" value="C">
+            <label for="mc-8-C"><strong>C:</strong> It maintains a counter per entry indicating free space, enabling efficient search for suitable pages for new records.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-8-D" name="mc-8" value="D">
+            <label for="mc-8-D"><strong>D:</strong> It ensures all records are physically contiguous on disk.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The directory of pages approach stores entries for each data page, and these entries can include metadata like the number of free bytes. This allows the DBMS to quickly search the directory (which is much smaller than the data pages themselves) to find a page with enough free space for an incoming record, avoiding the potentially long scans of the linked list method.</div>
+            <div class="topics">Θέματα: heap_files, file_structures, performance_improvement</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="9" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is typically NOT stored in the Data Dictionary (System Catalog)?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-9-A" name="mc-9" value="A">
+            <label for="mc-9-A"><strong>A:</strong> Names and types of attributes.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-9-B" name="mc-9" value="B">
+            <label for="mc-9-B"><strong>B:</strong> Physical file organization information.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-9-C" name="mc-9" value="C">
+            <label for="mc-9-C"><strong>C:</strong> Actual user data (e.g., specific tuples).</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-9-D" name="mc-9" value="D">
+            <label for="mc-9-D"><strong>D:</strong> Statistical data like the number of tuples in each relation.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The Data Dictionary, or System Catalog, stores metadata – data about data. It includes information about schema, physical organization, integrity constraints, views, users, and statistics, but not the actual user data (tuples/records) themselves.</div>
+            <div class="topics">Θέματα: data_dictionary, metadata</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="10" data-correct="D">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is a primary tradeoff when choosing a smaller block size (e.g., 512 bytes vs. 4KB) for disk storage?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-10-A" name="mc-10" value="A">
+            <label for="mc-10-A"><strong>A:</strong> Smaller blocks lead to more space wasted due to partially filled blocks.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-10-B" name="mc-10" value="B">
+            <label for="mc-10-B"><strong>B:</strong> Smaller blocks result in fewer transfers from disk.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-10-C" name="mc-10" value="C">
+            <label for="mc-10-C"><strong>C:</strong> Smaller blocks increase the likelihood of data corruption.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-10-D" name="mc-10" value="D">
+            <label for="mc-10-D"><strong>D:</strong> Smaller blocks mean more transfers from disk, potentially increasing I/O cost.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Smaller blocks mean that more blocks are needed to store the same amount of data. Consequently, retrieving a given amount of data (e.g., a full relation) will require more individual block transfers from disk, which can increase I/O cost due to more seek and rotational delays. Larger blocks can lead to more wasted space if records don&#39;t fill them completely.</div>
+            <div class="topics">Θέματα: disk_organization, block_size, io_cost</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="11" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">How is a fixed-length character STRING typically represented in a DBMS?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-11-A" name="mc-11" value="A">
+            <label for="mc-11-A"><strong>A:</strong> As an array of n+1 bytes with the first byte holding the string length.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-11-B" name="mc-11" value="B">
+            <label for="mc-11-B"><strong>B:</strong> As an array of n+1 bytes terminated by a null character.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-11-C" name="mc-11" value="C">
+            <label for="mc-11-C"><strong>C:</strong> As an array of n bytes, padded with a special character if the value is shorter than n.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-11-D" name="mc-11" value="D">
+            <label for="mc-11-D"><strong>D:</strong> As a variable-length sequence of bytes with a pointer to its start.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">For a fixed-length character string, an array of a predefined length &#39;n&#39; is allocated. If the actual string value is shorter than &#39;n&#39;, the remaining bytes in the array are filled with a special pad character.</div>
+            <div class="topics">Θέματα: data_representation, strings</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="12" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is a common representation for variable-length character strings?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-12-A" name="mc-12" value="A">
+            <label for="mc-12-A"><strong>A:</strong> An array of fixed size &#39;n&#39; with unused bytes ignored.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-12-B" name="mc-12" value="B">
+            <label for="mc-12-B"><strong>B:</strong> A fixed-size array where the first byte indicates the number of bytes in the string.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-12-C" name="mc-12" value="C">
+            <label for="mc-12-C"><strong>C:</strong> A length-plus-content format where the first byte holds the string length, followed by the content.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-12-D" name="mc-12" value="D">
+            <label for="mc-12-D"><strong>D:</strong> A null-terminated string where the string is followed by a special pad character.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Two common representations for variable-length strings are &#39;length plus content&#39; (where the first byte or bytes indicate the string&#39;s length) and &#39;null-terminated string&#39; (where a null character marks the end). Option C correctly describes the length-plus-content format. Option D is incorrect because null-terminated strings use a null character, not a pad character, and the question asks for a common representation, not a specific incorrect one.</div>
+            <div class="topics">Θέματα: data_representation, strings</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="13" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">When organizing variable-length fields within a record, what is a common strategy to allow direct access to the i-th field?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-13-A" name="mc-13" value="A">
+            <label for="mc-13-A"><strong>A:</strong> Store all fields consecutively and use a fixed offset for each.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-13-B" name="mc-13" value="B">
+            <label for="mc-13-B"><strong>B:</strong> Put all fixed-length fields after the variable-length fields.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-13-C" name="mc-13" value="C">
+            <label for="mc-13-C"><strong>C:</strong> Store all fixed-length fields ahead of the variable-length fields and include pointers/offsets to variable fields in the record header.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-13-D" name="mc-13" value="D">
+            <label for="mc-13-D"><strong>D:</strong> Use a bitmap to indicate the presence of each field.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">To allow direct access to fields in variable-length records, a common approach is to group all fixed-length fields at the beginning. The record header then contains offsets or pointers to the start of each variable-length field, allowing direct calculation of their positions.</div>
+            <div class="topics">Θέματα: record_formats, variable_length_records</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="14" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">When is it necessary to use &#39;spanned&#39; records in a file organization?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-14-A" name="mc-14" value="A">
+            <label for="mc-14-A"><strong>A:</strong> When records are of variable length.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-14-B" name="mc-14" value="B">
+            <label for="mc-14-B"><strong>B:</strong> When records need to be clustered together.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-14-C" name="mc-14" value="C">
+            <label for="mc-14-C"><strong>C:</strong> When a single record&#39;s size exceeds the block size.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-14-D" name="mc-14" value="D">
+            <label for="mc-14-D"><strong>D:</strong> When records are frequently updated.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Spanned records are used when a single logical record is too large to fit entirely within one disk block. In such cases, the record is split across multiple blocks, and pointers are used to link the fragments.</div>
+            <div class="topics">Θέματα: record_placement, spanned_records</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="15" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the primary benefit of &#39;clustering&#39; records of different types in the same block?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-15-A" name="mc-15" value="A">
+            <label for="mc-15-A"><strong>A:</strong> It simplifies record deletion and insertion.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-15-B" name="mc-15" value="B">
+            <label for="mc-15-B"><strong>B:</strong> It reduces the total storage space required for the database.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-15-C" name="mc-15" value="C">
+            <label for="mc-15-C"><strong>C:</strong> It improves performance for queries that frequently access these clustered records together.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-15-D" name="mc-15" value="D">
+            <label for="mc-15-D"><strong>D:</strong> It ensures records are always physically contiguous.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Clustering records (e.g., an Actor record with Movie records they appeared in) means storing them physically close together on disk, ideally in the same block. This is beneficial for queries that join or access these related records frequently, as it minimizes I/O operations by retrieving them in a single read.</div>
+            <div class="topics">Θέματα: record_placement, clustering, performance</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="16" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The main purpose of &#39;pointer swizzling&#39; in a DBMS is to:</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-16-A" name="mc-16" value="A">
+            <label for="mc-16-A"><strong>A:</strong> Encrypt pointers for security.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-16-B" name="mc-16" value="B">
+            <label for="mc-16-B"><strong>B:</strong> Convert database addresses to memory addresses to avoid repeated translation costs.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-16-C" name="mc-16" value="C">
+            <label for="mc-16-C"><strong>C:</strong> Automatically reorder records on disk.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-16-D" name="mc-16" value="D">
+            <label for="mc-16-D"><strong>D:</strong> Manage free space within blocks.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Pointer swizzling is a technique used to optimize access to records once they are loaded into main memory. Instead of repeatedly translating a disk-based database address to a memory address, the database address is &#39;swizzled&#39; (converted) into a direct memory pointer. This reduces the overhead of address translation for subsequent accesses to the same in-memory object.</div>
+            <div class="topics">Θέματα: pointer_swizzling, memory_management, performance</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="17" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is a significant challenge when managing BLOBs (Binary Large Objects) in a DBMS?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-17-A" name="mc-17" value="A">
+            <label for="mc-17-A"><strong>A:</strong> BLOBs must always be stored in a single, contiguous block.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-17-B" name="mc-17" value="B">
+            <label for="mc-17-B"><strong>B:</strong> Efficient retrieval of BLOBs may require striping them across multiple disks.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-17-C" name="mc-17" value="C">
+            <label for="mc-17-C"><strong>C:</strong> BLOBs cannot be indexed, making partial retrieval impossible.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-17-D" name="mc-17" value="D">
+            <label for="mc-17-D"><strong>D:</strong> BLOBs are typically fixed-length, leading to wasted space.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">BLOBs are very large values (e.g., images, videos). Storing them on a single disk might not allow for fast enough retrieval (e.g., real-time streaming). To overcome this, striping the BLOB across several disks allows for parallel I/O, significantly improving retrieval speed. BLOBs are variable-length, and while they can be stored contiguously, it&#39;s not always feasible or efficient for very large ones. They can also have suitable index structures for interior portions.</div>
+            <div class="topics">Θέματα: blobs, storage_management, performance, io_cost</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="18">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is a &#39;virtual page fault&#39;?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A page resides in the DBMS buffer, but its physical memory frame has been swapped out by the OS&#39;s virtual memory manager, requiring an I/O operation not visible to the DBMS.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: buffer_management, page_faults</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="19">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">Define &#39;buffer fault&#39; in DBMS.</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A page does not reside in the DBMS buffer, but its frame is in physical memory. This requires a regular DBMS page replacement and an I/O operation.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: buffer_management, page_faults</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="20">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">Explain a &#39;double page fault.&#39;</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A page does not reside in the DBMS buffer, AND its physical memory frame has been swapped out by the OS VM manager. This necessitates two I/O operations: one for the OS to bring the frame in, and another for the DBMS to replace the page in that frame.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: buffer_management, page_faults, io_cost</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="21">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">In DBMS terminology, what is a &#39;record&#39;?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A data element such as a tuple or object, represented by consecutive bytes within a disk block.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: data_elements, records</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="22">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">Describe the &#39;slotted page organization.&#39;</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A block format where records are stored in variable-size fragments. A slot directory at one end of the page contains &lt;record-offset, record-length&gt; entries, allowing records to be moved on the page (e.g., to compact free space) without changing their external Record ID (RID).</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: block_formats, slotted_pages</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="23">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the &#39;Data Dictionary&#39; (or System Catalog)?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A component of the DBMS that stores metadata (data about data), such as information about relations, attributes, physical file organization, integrity constraints, view definitions, and user information.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: data_dictionary, metadata</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="24">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the primary difference between fixed-length and variable-length records?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Fixed-length records have a predefined, constant size for all fields and the record itself. Variable-length records have fields or the record itself whose size can vary, often due to varying field lengths, repeating fields, or optional fields.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: record_formats, fixed_length_records, variable_length_records</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="25">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">Explain the difference between &#39;spanned&#39; and &#39;un-spanned&#39; records.</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Un-spanned records are entirely contained within a single disk block. Spanned records are necessary when a record&#39;s size exceeds the block size, meaning the record is split and stored across multiple blocks, with pointers linking the fragments.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: record_placement, spanned_records</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="26">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is &#39;pointer swizzling&#39; and its purpose?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Pointer swizzling is a technique to convert disk-based database addresses of records (when loaded into main memory) into direct memory pointers. Its purpose is to avoid the repeated cost of translating database addresses to memory addresses for in-memory objects, thereby improving performance.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: pointer_swizzling, memory_management</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="27">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is a &#39;tombstone&#39; in the context of record deletion?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A special mark (e.g., a bit or a specific value) placed at the old location of a deleted record or in a map table. It indicates that the record has been deleted and helps prevent dangling pointers from referring to the old (now invalid) location or a new record that might occupy it. It typically remains until the database is reorganized.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: record_operations, record_deletion</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="28">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is a &#39;block&#39; (or &#39;page&#39;) in DBMS storage, and what are typical sizes?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A block is a fixed-length unit for storage allocation and data transfer between disk and memory, typically a contiguous sequence of sectors from a single track. Typical sizes today range from 4KB to 16KB.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: disk_organization, blocks</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="29" data-correct="true">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">For optimal performance, the DBMS buffer should ideally be memory resident within the operating system&#39;s memory.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">If the DBMS buffer is swapped out by the OS, it can lead to &#39;virtual page faults&#39; or &#39;double page faults,&#39; incurring additional, unexpected I/O costs. Keeping the buffer memory resident minimizes these issues.</div>
+            <div class="topics">Θέματα: buffer_management, performance</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="30" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In a &#39;packed&#39; organization for fixed-length records, moving records for free space management or sorting does not change their Record ID (RID) because the RID is based on the logical slot number.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">In a packed organization, records are kept contiguous. If records are moved, their physical location changes. If the RID is based on &lt;page#, slot#&gt; where slot# implies physical position, then moving records would change the RID. This is a disadvantage of packed organization. Slotted organization, by contrast, allows movement without changing RID.</div>
+            <div class="topics">Θέματα: block_formats, fixed_length_records, record_id</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="31" data-correct="true">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Sorted (sequential) files are generally the best file structure when the primary access pattern is to retrieve records in a specific search key order.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Sorted files maintain records in a specific order based on a search key. This makes them highly efficient for range queries or for retrieving records in that specific order, as sequential I/O can be utilized.</div>
+            <div class="topics">Θέματα: file_structures, sorted_files</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="32" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">A call to deleteRecord in a heap file implementation will always result in the deallocation of the containing page.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Deleting a record *may* result in moving the containing page from a &#39;full&#39; list to a &#39;free page&#39; list if enough space becomes available. It only leads to page deallocation if the page becomes *completely* free after the deletion.</div>
+            <div class="topics">Θέματα: heap_files, record_operations, page_management</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="33" data-correct="true">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">When a variable-length record is updated, it is generally not necessary to create a tombstone for the old version of the record.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture states that when a variable-length record is updated, &#39;it is not necessary to create a tombstone for the old version of the record.&#39; This is because the update typically replaces the old version, potentially requiring a move to a new location if the size changes, but the old space is immediately reclaimed or marked as free, rather than needing a persistent &#39;deleted&#39; marker like with a full deletion.</div>
+            <div class="topics">Θέματα: record_operations, record_update</div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="34" data-correct="record">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In DBMS terminology, a data element such as a tuple (πλειάδα) or object (αντικείμενο) is represented by a __________, which consists of consecutive bytes in some disk block.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">It&#39;s the basic unit of data storage.</div>
+            <div class="answer-reveal">record</div>
+            <div class="topics">Θέματα: data_elements, records</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="35" data-correct="record-offset, record-length">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In a slotted page organization, the record (slot) directory entries typically contain &lt;__________, __________&gt; for each record.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">These two pieces of information are crucial for locating and understanding the size of a record within the page.</div>
+            <div class="answer-reveal">record-offset, record-length</div>
+            <div class="topics">Θέματα: block_formats, slotted_pages</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="36" data-correct="catalog">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The system __________, also called the data dictionary, stores metadata about the database.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">It&#39;s where the DBMS keeps information about its own structure.</div>
+            <div class="answer-reveal">catalog</div>
+            <div class="topics">Θέματα: data_dictionary, metadata</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="37" data-correct="tombstone">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">When a record is deleted, one option is to mark it as &#39;deleted&#39; using a special mark called a __________, which stays there until the database is reconstructed to prevent dangling pointers.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">Think of a marker indicating something is no longer there.</div>
+            <div class="answer-reveal">tombstone</div>
+            <div class="topics">Θέματα: record_operations, record_deletion</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="38">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Describe the step-by-step process for inserting a new record into a heap file that is implemented as a linked list of pages, assuming the system needs to find a suitable page for the record.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>1. The DBMS receives a request to insert a record `r` into file `f`.</li><li>2. It attempts to find a page `p` in the &#39;pages with free space&#39; linked list that has enough free space to accommodate the size of `r`.</li><li>3. If a suitable page `p` is found in the free list, the record `r` is written to this page.</li><li>4. If no suitable page is found in the free list, the DBMS requests the disk space manager to allocate a new page `p`.</li><li>5. The record `r` is then written to this newly allocated page `p`.</li><li>6. A unique Record ID (RID) for `r` is computed (e.g., based on `&lt;pageID, slotID&gt;`) and returned to the caller.</li><li>7. Since `|r|` is generally much smaller than `|p|`, the page `p` (whether found or newly allocated) will typically still have free space and should remain in or be added to the &#39;pages with free space&#39; list. If it becomes full, it&#39;s moved to the &#39;full pages&#39; list.</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>correctly_identifies_finding_free_page: 30 βαθμοί</li><li>correctly_identifies_new_page_allocation: 30 βαθμοί</li><li>describes_record_placement_and_rid_return: 20 βαθμοί</li><li>explains_page_list_management_after_insertion: 20 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: heap_file_insertion, linked_list_implementation, free_space_management</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="39">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Explain how variable-length fields are typically organized within a record to allow efficient access to individual fields, and describe how the i-th field&#39;s value would be located.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>1. **Organization:** All fixed-length fields are placed consecutively at the beginning of the record.</li><li>2. **Header:** The record header contains the total length of the record and an array of pointers or offsets. Each entry in this array points to the beginning of a corresponding variable-length field.</li><li>3. **Variable Fields:** The variable-length fields themselves are stored contiguously after all fixed-length fields, and after the offset array in the header.</li><li>4. **Locating i-th Field (Fixed-length):** For a fixed-length field, its address is calculated by adding its predefined offset (sum of lengths of preceding fixed fields) to the base address of the record.</li><li>5. **Locating i-th Field (Variable-length):** For a variable-length field, the system accesses the i-th entry in the offset array within the record header. This offset, when added to the base address of the record (or the start of the variable-length field area), gives the starting address of the i-th variable-length field.</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>correct_field_placement_description: 30 βαθμοί</li><li>accurate_record_header_description: 30 βαθμοί</li><li>clear_explanation_for_fixed_field_access: 20 βαθμοί</li><li>clear_explanation_for_variable_field_access: 20 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: variable_length_records, record_organization, field_access</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="40">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">When a record is deleted from a database, several issues arise, including space reclamation and the problem of &#39;dangling pointers.&#39; Describe the available options for handling record deletion and how the dangling pointer problem can be addressed.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>1. **Space Reclamation Options:**</li><li>   - **Immediate Reclaim:** The space occupied by the deleted record is immediately made available for new records. This might involve compacting remaining records on the page (if variable length) or marking a slot as free. This can be expensive if it requires moving many records.</li><li>   - **Mark as &#39;Deleted&#39;:** The record is not physically removed immediately. Instead, it&#39;s marked as &#39;deleted&#39; (e.g., using a special bit/character in the record itself or an entry in a map/directory). This space can be reused later, possibly through a chain of deleted records, or during a file reorganization.</li><li>2. **Dangling Pointer Problem:** This occurs when other records or indexes hold pointers (Record IDs) to the deleted record. If the space is reused by a new record, the old pointer would incorrectly refer to the new, unrelated record.</li><li>3. **Addressing Dangling Pointers (Tombstones):**</li><li>   - A common solution is to use a &#39;tombstone.&#39; This is a special mark (e.g., a bit at the beginning of the record, or an entry in a map table) placed at the old location of the deleted record.</li><li>   - The tombstone indicates that the record at that location has been deleted.</li><li>   - It stays there until the database file is reconstructed or reorganized.</li><li>   - Any attempt to access the deleted record via an old pointer will hit the tombstone, indicating the record is gone, preventing incorrect access to new data.</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>describes_space_reclamation_options: 40 βαθμοί</li><li>explains_dangling_pointer_problem: 30 βαθμοί</li><li>details_tombstone_solution: 30 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: record_deletion, space_management, dangling_pointers, tombstones</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question short-answer" data-qtype="Σύντομη Απάντηση" data-idx="41">
+        <div class="qtype">SHORT ANSWER QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Compare and contrast the two main implementations of heap files: linked list of pages versus a directory of pages. Discuss their advantages and disadvantages regarding free space management and scan operations.</div>
+            <div class="answer-points" style="display:none;">
+                <h4>Σημαντικά σημεία:</h4>
+                <ul><li>**Linked List Implementation:**</li><li>- **Structure:** Header page points to two doubly linked lists: &#39;pages with free space&#39; and &#39;full pages&#39;.</li><li>- **Free Space Management:** To insert, scan the &#39;free space&#39; list. If no page is found, allocate a new one. Deletion may move pages between lists.</li><li>- **Advantage:** Simple to implement.</li><li>- **Disadvantage:** Inefficient for insertions if many pages have small free spaces (requires scanning many pages). Scanning all records requires traversing both lists.</li><li>**Directory of Pages Implementation:**</li><li>- **Structure:** Header page points to a directory of pages (which is itself a collection of pages). Each directory entry contains &lt;PageID, nfree&gt; (number of free bytes).</li><li>- **Free Space Management:** To insert, efficiently search the directory for a page with enough free space using the `nfree` counter.</li><li>- **Advantage:** Much more efficient for finding free space for insertions, as the directory is much smaller than the data pages.</li><li>- **Disadvantage:** Slightly more complex structure to manage the directory itself.</li></ul>
+                <div class="meta">Μέγιστη βαθμολογία: 10</div>
+            </div>
+            <div class="topics">Θέματα: heap_files, file_structures, free_space_management</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question short-answer" data-qtype="Σύντομη Απάντηση" data-idx="42">
+        <div class="qtype">SHORT ANSWER QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Explain the concept of &#39;clustering&#39; records in blocks and provide a scenario where it would be highly beneficial for database performance.</div>
+            <div class="answer-points" style="display:none;">
+                <h4>Σημαντικά σημεία:</h4>
+                <ul><li>**Concept of Clustering:** Clustering refers to the practice of storing logically related records (often from different relations, or records that are frequently accessed together) physically close to each other on disk, ideally within the same disk block or contiguous blocks. This minimizes the number of I/O operations required to retrieve related data.</li><li>**Scenario and Benefit:** Consider a database with `Actor` and `Movie` relations. If queries frequently involve finding all movies an actor appeared in (e.g., `SELECT * FROM Actor JOIN Movie ON Actor.actor_id = Movie.actor_id`), clustering the `Movie` records for a specific actor with the `Actor` record itself would be highly beneficial. When the `Actor` record is read, the related `Movie` records are likely already in the buffer, reducing subsequent disk I/Os and improving query performance significantly.</li></ul>
+                <div class="meta">Μέγιστη βαθμολογία: 8</div>
+            </div>
+            <div class="topics">Θέματα: record_placement, clustering, performance, io_cost</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question scenario" data-qtype="Σενάριο" data-idx="43">
+        <div class="qtype">SCENARIO BASED QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="scenario-text">You are designing a database for a media streaming service. This service stores a vast library of movies, each represented as a BLOB (Binary Large Object). Users expect seamless, real-time playback, and the system must support seeking to arbitrary points within a movie without downloading the entire file.</div>
+            <div class="qtext">Given these requirements, describe a comprehensive strategy for storing and retrieving these movie BLOBs, addressing the challenges of large size, real-time streaming, and partial access.</div>
+            <div class="analysis" style="display:none;">
+                <h4>Βασικά σημεία ανάλυσης:</h4>
+                <ul><li>BLOB_storage</li><li>real-time_streaming</li><li>partial_retrieval</li><li>disk_striping</li><li>indexing</li><li>compression</li></ul>
+                <div class="sample-answer">
+                    <h4>Ενδεικτική απάντηση:</h4>
+                    <div>For storing movie BLOBs, a multi-pronged approach is needed:
+*   **Storage:** Due to their large size and real-time retrieval needs, BLOBs should be **striped across multiple disks**. This allows for parallel I/O operations, significantly increasing throughput and enabling faster data retrieval necessary for smooth streaming. Storing them on dedicated cylinders or contiguous blocks on each disk can further optimize sequential reads.
+*   **Retrieval (Streaming):** To support real-time streaming, the system should not retrieve the entire BLOB at once. Instead, it should **stream small parts (blocks) of the BLOB at a specific rate**. This implies a mechanism to request and deliver data incrementally.
+*   **Partial Access (Seeking):** To allow users to seek to arbitrary points (e.g., the ending of a movie) without downloading the entire BLOB, a **suitable index structure** is crucial. This index would map logical time points or byte offsets within the movie to their physical block locations on disk. This allows the system to directly retrieve only the necessary interior portions of the BLOB.
+*   **Compression:** While not directly related to storage *placement*, **data compression** should be considered. Fewer disk I/Os are needed to read compressed data, which can translate to faster data transfer and improved streaming performance, though it adds CPU overhead for decompression.</div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: blobs, storage_management, streaming, indexing, performance</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση ανάλυσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question calculation" data-qtype="Υπολογιστικό" data-idx="44">
+        <div class="qtype">CALCULATION QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">A `MovieStar` relation has fixed-length records, each taking 316 bytes (including header). If the disk block size is 4KB (4096 bytes) and a block header consumes 12 bytes, calculate the maximum number of `MovieStar` records that can be stored in a single block and the amount of wasted space (in bytes) per block.</div>
+            <div class="given-values"><b>Δεδομένα:</b> record_size: 316, block_size: 4096, block_header_size: 12</div>
+            <div class="solution" style="display:none;">
+                <h4>Βήματα επίλυσης:</h4>
+                <ol><li>1. Calculate available space for records in a block: `Block Size - Block Header Size = 4096 bytes - 12 bytes = 4084 bytes`.</li><li>2. Calculate maximum number of records per block: `Available Space / Record Size = 4084 bytes / 316 bytes/record = 12.92 records`. Since records must fit entirely, truncate to the nearest whole number: `12 records`.</li><li>3. Calculate space occupied by records: `Number of Records * Record Size = 12 records * 316 bytes/record = 3792 bytes`.</li><li>4. Calculate total space used in the block: `Space Occupied by Records + Block Header Size = 3792 bytes + 12 bytes = 3804 bytes`.</li><li>5. Calculate wasted space per block: `Block Size - Total Space Used = 4096 bytes - 3804 bytes = 292 bytes`.</li></ol>
+                <div class="final-answer"><b>Τελική απάντηση:</b> Maximum records: 12, Wasted space: 292 bytes</div>
+            </div>
+            <div class="topics">Θέματα: block_utilization, record_placement, io_cost</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="quiz-mode" style="display:none;">
+        <div id="quiz-question"></div>
+        <div class="quiz-navigation">
+            <button id="prev-question-btn">Προηγούμενη</button>
+            <button id="next-question-btn">Επόμενη</button>
+        </div>
+    </div>
+</div>
+<script src="quiz.js"></script>
+</body>
+</html>

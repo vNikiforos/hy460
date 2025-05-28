@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Optimization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="meta">
+        <b>Μάθημα:</b> CS-460 | <b>Διάλεξη:</b> X | <b>Τίτλος:</b> Query Optimization | <b>Ημ/νία:</b> 2025-05-28
+    </div>
+    <div class="mode-switch">
+        <button id="show-all-btn">Όλες οι ερωτήσεις</button>
+        <button id="quiz-mode-btn">Quiz mode</button>
+    </div>
+    <div id="questions-all">
+
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="0" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following best describes the overall task of query optimization?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-0-A" name="mc-0" value="A">
+            <label for="mc-0-A"><strong>A:</strong> To find the single best query execution plan for any given query.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-0-B" name="mc-0" value="B">
+            <label for="mc-0-B"><strong>B:</strong> To find one good query execution plan among a combinatorial explosion of possibilities.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-0-C" name="mc-0" value="C">
+            <label for="mc-0-C"><strong>C:</strong> To re-write SQL queries into a more procedural language for faster execution.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-0-D" name="mc-0" value="D">
+            <label for="mc-0-D"><strong>D:</strong> To eliminate the need for database statistics by using fixed heuristics.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Query optimization is a complex task with a combinatorial explosion of possible plans. The goal is to find &#39;one good&#39; plan, not necessarily the absolute &#39;best&#39; one, as finding the best is often computationally infeasible. It does not aim to convert SQL to procedural language or eliminate statistics.</div>
+            <div class="topics">Θέματα: query_optimization, overview</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="1" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">According to the lecture, which of the following is a characteristic of heuristic optimization in query processing?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-1-A" name="mc-1" value="A">
+            <label for="mc-1-A"><strong>A:</strong> It always yields the optimal query execution plan.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-1-B" name="mc-1" value="B">
+            <label for="mc-1-B"><strong>B:</strong> It relies heavily on statistics gathered on relations.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-1-C" name="mc-1" value="C">
+            <label for="mc-1-C"><strong>C:</strong> It is more efficient to generate plans, but may not yield the optimal plan.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-1-D" name="mc-1" value="D">
+            <label for="mc-1-D"><strong>D:</strong> It is primarily used for adaptive runtime re-optimization.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Heuristic optimization is described as being &#39;more efficient to generate&#39; but with the drawback that it &#39;may not yield the optimal query execution plan.&#39; Cost-based optimization relies on statistics, and heuristics are not primarily for adaptive re-optimization.</div>
+            <div class="topics">Θέματα: query_optimization, heuristic_optimization</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="2" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Why did the System R optimizer primarily consider only left-deep plans and avoid Cartesian products?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-2-A" name="mc-2" value="A">
+            <label for="mc-2-A"><strong>A:</strong> To ensure that all possible join orders, including bushy trees, were explored.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-2-B" name="mc-2" value="B">
+            <label for="mc-2-B"><strong>B:</strong> Because left-deep plans are always more efficient than bushy plans.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-2-C" name="mc-2" value="C">
+            <label for="mc-2-C"><strong>C:</strong> To prune the excessively large plan space and make optimization feasible.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-2-D" name="mc-2" value="D">
+            <label for="mc-2-D"><strong>D:</strong> To simplify the cost estimation model by ignoring I/O costs.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The System R optimizer faced an excessively large plan space. To manage this combinatorial explosion, it pruned the space by considering only left-deep plans and avoiding Cartesian products, making the optimization process tractable, even if it meant not exploring all possible plans. It does not explore bushy trees, and left-deep plans are not always more efficient, nor does it ignore I/O costs.</div>
+            <div class="topics">Θέματα: system_r, plan_space, left_deep_plans</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="3" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What core problem does the Starburst optimizer aim to address regarding complex SQL queries?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-3-A" name="mc-3" value="A">
+            <label for="mc-3-A"><strong>A:</strong> The inability of traditional optimizers to handle simple SELECT-FROM-WHERE queries.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-3-B" name="mc-3" value="B">
+            <label for="mc-3-B"><strong>B:</strong> The fact that traditional DBMS only perform plan optimization on a single query block at a time.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-3-C" name="mc-3" value="C">
+            <label for="mc-3-C"><strong>C:</strong> The lack of support for basic indexing strategies in older DBMS.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-3-D" name="mc-3" value="D">
+            <label for="mc-3-D"><strong>D:</strong> The difficulty in gathering accurate statistics for cost-based optimization.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The Starburst optimizer&#39;s highlights explicitly state that &#39;Traditional DBMS only perform plan optimization on a single query block at a time and perform no cross-block optimization,&#39; leading to sub-optimal plans for complex queries with subqueries and views.</div>
+            <div class="topics">Θέματα: starburst_optimizer, query_blocks</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="4" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is a primary goal of query rewriting in the Starburst optimizer?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-4-A" name="mc-4" value="A">
+            <label for="mc-4-A"><strong>A:</strong> To convert all queries into imperative programming language constructs.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-4-B" name="mc-4" value="B">
+            <label for="mc-4-B"><strong>B:</strong> To ensure that queries always produce different answers for performance gains.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-4-C" name="mc-4" value="C">
+            <label for="mc-4-C"><strong>C:</strong> To make queries as declarative as possible by performing unnesting/flattening.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-4-D" name="mc-4" value="D">
+            <label for="mc-4-D"><strong>D:</strong> To eliminate the need for a standard optimizer by pre-optimizing all queries.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The goals of query rewriting in Starburst include &#39;Make queries as declarative as possible&#39; by transforming &#39;procedural&#39; queries and performing &#39;unnesting/flattening on nested blocks,&#39; while retaining the semantics (same answer).</div>
+            <div class="topics">Θέματα: starburst_optimizer, query_rewriting</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="5" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The Volcano optimizer is characterized by which type of algorithm?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-5-A" name="mc-5" value="A">
+            <label for="mc-5-A"><strong>A:</strong> Bottom-up enumeration of plans.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-5-B" name="mc-5" value="B">
+            <label for="mc-5-B"><strong>B:</strong> A purely heuristic, rule-based approach without cost estimation.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-5-C" name="mc-5" value="C">
+            <label for="mc-5-C"><strong>C:</strong> A top-down algorithm where logical expressions are optimized on demand.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-5-D" name="mc-5" value="D">
+            <label for="mc-5-D"><strong>D:</strong> A fixed sequence of join operations determined at compile time.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The Volcano optimizer uses a &#39;Top down algorithm&#39; where &#39;Logical expressions optimized on demand.&#39; Starburst uses bottom-up enumeration.</div>
+            <div class="topics">Θέματα: volcano_optimizer, algorithm_type</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="6" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In the System R optimizer, how are multi-table joins typically built up?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-6-A" name="mc-6" value="A">
+            <label for="mc-6-A"><strong>A:</strong> By trying all possible bushy join trees simultaneously.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-6-B" name="mc-6" value="B">
+            <label for="mc-6-B"><strong>B:</strong> By combining k-table plans with 1-table plans iteratively until a full plan tree is formed.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-6-C" name="mc-6" value="C">
+            <label for="mc-6-C"><strong>C:</strong> By always joining the smallest tables first, regardless of access paths.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-6-D" name="mc-6" value="D">
+            <label for="mc-6-D"><strong>D:</strong> By converting all joins into subqueries before optimization.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">System R&#39;s highlights describe the join process as &#39;Try all ways of joining pairs of 1-table plans; save cheapest unordered + interesting ordered plans&#39;, then &#39;Try all ways of joining 2-table with 1-table&#39;, and finally &#39;Combine k-table with 1-table till you have full plan tree&#39;. This describes an iterative, left-deep approach.</div>
+            <div class="topics">Θέματα: system_r, join_algorithms</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="7" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which statement accurately differentiates between heuristic and cost-based optimization?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-7-A" name="mc-7" value="A">
+            <label for="mc-7-A"><strong>A:</strong> Heuristic optimization relies on statistics, while cost-based optimization uses fixed rules.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-7-B" name="mc-7" value="B">
+            <label for="mc-7-B"><strong>B:</strong> Cost-based optimization is more efficient to generate plans, while heuristic optimization yields optimal plans.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-7-C" name="mc-7" value="C">
+            <label for="mc-7-C"><strong>C:</strong> Heuristic optimization is more efficient to generate but may not be optimal; cost-based relies on statistics.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-7-D" name="mc-7" value="D">
+            <label for="mc-7-D"><strong>D:</strong> Both heuristic and cost-based optimization always find the best possible query plan.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The summary states &#39;Heuristic optimization is more efficient to generate, but may not yield the optimal query execution plan&#39; and &#39;Cost-based optimization relies on statistics gathered on the relations.&#39;</div>
+            <div class="topics">Θέματα: query_optimization, heuristic_vs_cost_based</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="8" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the primary purpose of the Query Graph Model (QGM) in Starburst?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-8-A" name="mc-8" value="A">
+            <label for="mc-8-A"><strong>A:</strong> To visualize the physical execution plan of a query.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-8-B" name="mc-8" value="B">
+            <label for="mc-8-B"><strong>B:</strong> To provide an abstract view of queries suitable for rule transformations.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-8-C" name="mc-8" value="C">
+            <label for="mc-8-C"><strong>C:</strong> To store system catalog statistics for cost estimation.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-8-D" name="mc-8" value="D">
+            <label for="mc-8-D"><strong>D:</strong> To define the grammar for SQL query parsing.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The Starburst optimizer highlights state: &#39;The Query Graph Model (QGM) provides an abstract view of queries that is suitable for most rule transformations.&#39;</div>
+            <div class="topics">Θέματα: starburst_optimizer, qgm</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="9" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following components are part of the optimization goal in the Volcano optimizer?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-9-A" name="mc-9" value="A">
+            <label for="mc-9-A"><strong>A:</strong> Only logical expression and estimated cost.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-9-B" name="mc-9" value="B">
+            <label for="mc-9-B"><strong>B:</strong> Logical expression, physical properties, and estimated cost.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-9-C" name="mc-9" value="C">
+            <label for="mc-9-C"><strong>C:</strong> Only physical properties and transformation rules.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-9-D" name="mc-9" value="D">
+            <label for="mc-9-D"><strong>D:</strong> Estimated cost and branch and bound strategy.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The Volcano optimizer&#39;s highlights explicitly list &#39;Optimization goal –Logical expression, –Physical properties, –Estimated cost.&#39;</div>
+            <div class="topics">Θέματα: volcano_optimizer, optimization_goal</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="10" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In System R, what is an &#39;interesting order&#39;?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-10-A" name="mc-10" value="A">
+            <label for="mc-10-A"><strong>A:</strong> A random order of tuples used for statistical sampling.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-10-B" name="mc-10" value="B">
+            <label for="mc-10-B"><strong>B:</strong> A specific sort order of results that might be useful for subsequent operations like GROUP BY or ORDER BY.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-10-C" name="mc-10" value="C">
+            <label for="mc-10-C"><strong>C:</strong> The order in which data pages are stored on disk for a clustered index.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-10-D" name="mc-10" value="D">
+            <label for="mc-10-D"><strong>D:</strong> An order of joining tables that minimizes the number of intermediate results.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">System R saves the &#39;cheapest plan for each interesting order&#39; and uses &#39;interesting ordered plan&#39; at the top to satisfy GROUP BY and ORDER BY. This implies an order that is useful for later processing steps.</div>
+            <div class="topics">Θέματα: system_r, interesting_order</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="11" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which statement accurately describes query tuning?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-11-A" name="mc-11" value="A">
+            <label for="mc-11-A"><strong>A:</strong> It is a fully automated process that requires no human intervention.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-11-B" name="mc-11" value="B">
+            <label for="mc-11-B"><strong>B:</strong> It has a localized effect and can make queries harder to understand.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-11-C" name="mc-11" value="C">
+            <label for="mc-11-C"><strong>C:</strong> It is a one-time task that eliminates the need for future optimization.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-11-D" name="mc-11" value="D">
+            <label for="mc-11-D"><strong>D:</strong> It is a new area of research, unlike traditional query optimization.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The summary states that query tuning &#39;has a localized effect&#39;, &#39;is a time-consuming and specialized task&#39;, and &#39;makes the queries harder to understand&#39;. It is not fully automated or a one-time task.</div>
+            <div class="topics">Θέματα: query_tuning, overview</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="12" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the &#39;Single Rewrite Philosophy&#39; of the Starburst optimizer?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-12-A" name="mc-12" value="A">
+            <label for="mc-12-A"><strong>A:</strong> To convert all queries into a series of nested subqueries.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-12-B" name="mc-12" value="B">
+            <label for="mc-12-B"><strong>B:</strong> To ensure that every query is evaluated using only hash joins.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-12-C" name="mc-12" value="C">
+            <label for="mc-12-C"><strong>C:</strong> To convert a query to a single select operator whenever possible to maximize optimizer latitude.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-12-D" name="mc-12" value="D">
+            <label for="mc-12-D"><strong>D:</strong> To rewrite queries only if they contain aggregate functions.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Starburst&#39;s &#39;Single Rewrite Philosophy&#39; is explicitly stated as: &#39;Whenever possible, a query should be converted to a single select operator&#39; to give &#39;The Standard optimizer... the maximum latitude possible.&#39;</div>
+            <div class="topics">Θέματα: starburst_optimizer, query_rewriting_philosophy</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="13" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Despite its &#39;very inexact&#39; cost estimation, why has the System R optimizer remained widely used and generally effective for queries with fewer than 10 joins?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-13-A" name="mc-13" value="A">
+            <label for="mc-13-A"><strong>A:</strong> Its cost model is based on highly sophisticated techniques that perfectly predict query execution time.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-13-B" name="mc-13" value="B">
+            <label for="mc-13-B"><strong>B:</strong> It only considers CPU costs, which are easier to estimate accurately.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-13-C" name="mc-13" value="C">
+            <label for="mc-13-C"><strong>C:</strong> Its practical effectiveness stems from its ability to prune the search space effectively, making &#39;good enough&#39; plans feasible, even with inexact costs.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-13-D" name="mc-13" value="D">
+            <label for="mc-13-D"><strong>D:</strong> It avoids using system catalogs, which are often outdated, leading to more reliable estimates.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text states &#39;Cost estimation: –Very inexact, but works ok in practice –Statistics, maintained in system catalogs, used to estimate cost of operations and result sizes&#39;. The impact section notes &#39;works well for &lt; 10 joins&#39;. The effectiveness comes from its pruning of the plan space (left-deep, no Cartesian products), which limits the search to a manageable size, allowing it to find a &#39;good&#39; plan despite inexact costs, rather than perfect prediction or ignoring I/O costs.</div>
+            <div class="topics">Θέματα: system_r, cost_estimation, impact_limitations</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="14" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In the Volcano optimizer, what are the two main types of transformation rules?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-14-A" name="mc-14" value="A">
+            <label for="mc-14-A"><strong>A:</strong> Heuristic rules and statistical rules.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-14-B" name="mc-14" value="B">
+            <label for="mc-14-B"><strong>B:</strong> Predicate rules and join rules.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-14-C" name="mc-14" value="C">
+            <label for="mc-14-C"><strong>C:</strong> Logical rules and implementation rules.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-14-D" name="mc-14" value="D">
+            <label for="mc-14-D"><strong>D:</strong> Top-down rules and bottom-up rules.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Volcano optimizer highlights explicitly list &#39;Transformation rules –Logical rules, –Implementation rules.&#39;</div>
+            <div class="topics">Θέματα: volcano_optimizer, transformation_rules</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="15" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is mentioned as a &#39;new area&#39; in query optimization research?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-15-A" name="mc-15" value="A">
+            <label for="mc-15-A"><strong>A:</strong> Perfecting the cost-based models for all query types.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-15-B" name="mc-15" value="B">
+            <label for="mc-15-B"><strong>B:</strong> Developing more efficient methods for bulk loading B+-trees.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-15-C" name="mc-15" value="C">
+            <label for="mc-15-C"><strong>C:</strong> Random statistical approaches like simulated annealing.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-15-D" name="mc-15" value="D">
+            <label for="mc-15-D"><strong>D:</strong> Eliminating the need for query tuning entirely.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The summary mentions &#39;New areas: random statistical approaches (e.g., simulated annealing), adaptive runtime re-optimization (e.g., eddies)&#39; as future directions.</div>
+            <div class="topics">Θέματα: query_optimization, future_trends</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="16" data-correct="D">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is NOT a component of the Starburst&#39;s grammar-like set of production rules for generating execution plans?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-16-A" name="mc-16" value="A">
+            <label for="mc-16-A"><strong>A:</strong> LOLEPOP (terminals for physical operators).</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-16-B" name="mc-16" value="B">
+            <label for="mc-16-B"><strong>B:</strong> STAR (production rules for alternative implementations of query graph blocks).</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-16-C" name="mc-16" value="C">
+            <label for="mc-16-C"><strong>C:</strong> GLUE (additional rules for achieving a given property like order).</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-16-D" name="mc-16" value="D">
+            <label for="mc-16-D"><strong>D:</strong> QGM (Query Graph Model for abstract query representation).</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">LOLEPOP, STAR, and GLUE are listed as components of the &#39;Grammar-like set of production rules to generate execution plans.&#39; QGM is the &#39;abstract view of queries&#39; used for rule transformations, not part of the production rules for plan generation itself.</div>
+            <div class="topics">Θέματα: starburst_optimizer, plan_generation</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="17" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">How does the System R optimizer typically handle GROUP BY and ORDER BY clauses at the final stage of plan generation?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-17-A" name="mc-17" value="A">
+            <label for="mc-17-A"><strong>A:</strong> It always adds a separate sort node, regardless of the plan&#39;s current order.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-17-B" name="mc-17" value="B">
+            <label for="mc-17-B"><strong>B:</strong> It uses an interesting ordered plan if available, otherwise adds a sort node to an unordered plan.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-17-C" name="mc-17" value="C">
+            <label for="mc-17-C"><strong>C:</strong> It ignores these clauses, assuming the application will handle sorting.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-17-D" name="mc-17" value="D">
+            <label for="mc-17-D"><strong>D:</strong> It converts them into nested subqueries for re-optimization.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">System R&#39;s highlights state: &#39;At the top, to satisfy GROUP BY and ORDER BY –Use interesting ordered plan –Add a sort node to unordered plan.&#39; This indicates a conditional approach.</div>
+            <div class="topics">Θέματα: system_r, group_by, order_by</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="18">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the primary goal of query optimization?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">To find one good query execution plan among a vast number of possibilities, rather than necessarily the absolute best one, due to combinatorial explosion.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: query_optimization, definition</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="19">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">In the context of System R, what is a &#39;left-deep plan&#39;?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A join plan where the right child of every join node is a base table (or a single-table access path), meaning the join tree always &#39;leans&#39; to the left. System R primarily considers these to prune the search space.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: system_r, left_deep_plans</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="20">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is an &#39;interesting order&#39; in System R&#39;s optimization process?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A specific ordering of tuples (e.g., sorted by a particular column) that might be beneficial for subsequent operations like GROUP BY or ORDER BY, allowing the optimizer to avoid an explicit sort later.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: system_r, interesting_order</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="21">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the Query Graph Model (QGM) in Starburst?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">An abstract graphical representation of queries used by the Starburst optimizer that is suitable for applying rule-based transformations, especially for complex queries with nested blocks.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: starburst_optimizer, qgm, definition</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="22">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is &#39;predicate pushdown&#39; as a heuristic in query rewriting (e.g., in Starburst)?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A query rewrite heuristic that moves selection predicates (WHERE clauses) as early as possible in the query execution plan to reduce the amount of data processed by subsequent operations.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: starburst_optimizer, query_rewriting, predicate_pushdown</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="23">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">In the Volcano optimizer, what are &#39;logical rules&#39;?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Transformation rules that change one logical query expression into another semantically equivalent logical expression, without considering physical implementation details (e.g., join reordering).</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: volcano_optimizer, logical_rules, definition</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="24">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">In the Volcano optimizer, what are &#39;implementation rules&#39;?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Transformation rules that convert a logical operator into one or more physical operators (e.g., converting a &#39;join&#39; logical operator into a &#39;hash join&#39; or &#39;merge join&#39; physical operator).</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: volcano_optimizer, implementation_rules, definition</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="25">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">Why is query optimization described as facing a &#39;combinatorial explosion&#39;?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Because for even moderately complex queries, the number of possible execution plans (combinations of join orders, access methods, algorithms) grows exponentially, making exhaustive search impractical.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: query_optimization, combinatorial_explosion</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="26">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the primary reliance of cost-based optimization?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Cost-based optimization primarily relies on statistics gathered on the relations (e.g., number of tuples, distinct values, data distribution) to estimate the cost of operations and result sizes.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: query_optimization, cost_based_optimization</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="27">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">List two characteristics of &#39;query tuning&#39;.</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">1. It has a localized effect (improving specific queries). 2. It is a time-consuming and specialized task. 3. It can make queries harder to understand.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: query_tuning</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="28">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is &#39;unnesting/flattening&#39; in the context of Starburst&#39;s query rewriting?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A technique used to transform complex SQL queries containing nested subqueries or views into a simpler, semantically equivalent form, often by converting them into joins or other single-block operations, to allow for broader optimization.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: starburst_optimizer, unnesting, flattening</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="29">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">How does &#39;branch and bound&#39; apply to the Volcano optimizer&#39;s top-down algorithm?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Branch and bound is an optimization technique where the search space is pruned by discarding branches (partial plans) that are determined to be suboptimal based on estimated costs, thus avoiding exhaustive search.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: volcano_optimizer, branch_and_bound</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="30" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Query optimization always aims to find the single best query execution plan, regardless of computational cost.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture states that query optimization aims to find &#39;one good query execution plan, not the best one,&#39; due to the combinatorial explosion of possibilities.</div>
+            <div class="topics">Θέματα: query_optimization, goals</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="31" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The System R optimizer considers all possible join orders, including bushy trees, to ensure optimality.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">System R prunes the plan space by considering &#39;Only the space of left-deep plans&#39; and avoids Cartesian products, meaning it does not consider all possible join orders, including bushy trees.</div>
+            <div class="topics">Θέματα: system_r, plan_space</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="32" data-correct="true">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Starburst&#39;s Query Graph Model (QGM) provides an abstract view of queries suitable for rule transformations.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture explicitly states: &#39;The Query Graph Model (QGM) provides an abstract view of queries that is suitable for most rule transformations.&#39;</div>
+            <div class="topics">Θέματα: starburst_optimizer, qgm</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="33" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The Volcano optimizer employs a bottom-up algorithm for optimizing logical expressions.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The Volcano optimizer uses a &#39;Top down algorithm&#39; where &#39;Logical expressions optimized on demand.&#39; Starburst uses bottom-up enumeration for plan generation.</div>
+            <div class="topics">Θέματα: volcano_optimizer, algorithm_type</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="34" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Query tuning is a quick and easy process that makes queries simpler to understand.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture describes query tuning as &#39;a time-consuming and specialized task&#39; and one that &#39;makes the queries harder to understand.&#39;</div>
+            <div class="topics">Θέματα: query_tuning</div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="35" data-correct="combinatorial explosion">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Query optimization is a very complex task due to __________.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">Think about the number of possible plans.</div>
+            <div class="answer-reveal">combinatorial explosion</div>
+            <div class="topics">Θέματα: query_optimization</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="36" data-correct="left-deep">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The System R optimizer primarily considers the space of __________ plans to manage the large search space.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">Refers to the shape of the join tree.</div>
+            <div class="answer-reveal">left-deep</div>
+            <div class="topics">Θέματα: system_r, plan_space</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="37" data-correct="select">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The Starburst optimizer&#39;s &#39;Single Rewrite Philosophy&#39; aims to convert a query to a single __________ operator whenever possible.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">This operator is fundamental in SQL.</div>
+            <div class="answer-reveal">select</div>
+            <div class="topics">Θέματα: starburst_optimizer, query_rewriting</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="38" data-correct="top-down">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The Volcano optimizer uses a __________ algorithm, where logical expressions are optimized on demand.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">Opposite of bottom-up.</div>
+            <div class="answer-reveal">top-down</div>
+            <div class="topics">Θέματα: volcano_optimizer, algorithm_type</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="39">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Illustrate the general process of plan generation in System R for a query involving three tables (R, S, T) that need to be joined, assuming no specific interesting orders are initially required beyond what&#39;s cheapest. Focus on the iterative joining process.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>Step 1: Find all plans for accessing each base table (R, S, T). For each table, save the cheapest unordered plan and any cheapest plans for interesting orders (if applicable, though not strictly needed for this problem). Discard others.</li><li>Step 2: Try all ways of joining pairs of 1-table plans. This would involve (R JOIN S), (R JOIN T), (S JOIN T). For each pair, save the cheapest unordered plan and any cheapest plans for interesting orders. Discard others.</li><li>Step 3: Try all ways of joining 2-table plans with 1-table plans. For example, ((R JOIN S) JOIN T) or ((S JOIN T) JOIN R). Continue saving the cheapest unordered and interesting ordered plans.</li><li>Step 4: Continue combining k-table plans with 1-table plans until a full plan tree involving all tables (R, S, T) is formed. This iterative process ensures left-deep join trees.</li><li>Step 5: At the top, if GROUP BY or ORDER BY clauses exist, use an interesting ordered plan if one was found, or add a sort node to an unordered plan to satisfy the requirement.</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>correctly_identifies_initial_access_plans: 20 βαθμοί</li><li>demonstrates_iterative_k_with_1_joining: 40 βαθμοί</li><li>explains_left_deep_nature_implicitly_or_explicitly: 20 βαθμοί</li><li>mentions_handling_of_order_by_group_by: 20 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: system_r, plan_generation, left_deep_joins, iterative_optimization</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question short-answer" data-qtype="Σύντομη Απάντηση" data-idx="40">
+        <div class="qtype">SHORT ANSWER QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">According to the Starburst optimizer highlights, explain why traditional DBMS optimizers often choose sub-optimal plans for complex SQL queries, and what the consequence of this is.</div>
+            <div class="answer-points" style="display:none;">
+                <h4>Σημαντικά σημεία:</h4>
+                <ul><li>Traditional DBMS optimizers typically perform plan optimization only on a single query block at a time (e.g., main query, then subqueries separately).</li><li>They perform no cross-block optimization, meaning they don&#39;t consider how optimizing one block might affect the overall plan for the entire complex query.</li><li>This isolated optimization often forces them to choose a sub-optimal plan for the query as a whole.</li><li>The consequence is that the penalty for poor planning is increasing, especially as queries become more complex and databases grow larger.</li></ul>
+                <div class="meta">Μέγιστη βαθμολογία: 10</div>
+            </div>
+            <div class="topics">Θέματα: starburst_optimizer, limitations_traditional_optimizers</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question short-answer" data-qtype="Σύντομη Απάντηση" data-idx="41">
+        <div class="qtype">SHORT ANSWER QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Describe the impact and key limitations of the System R optimizer as discussed in the lecture.</div>
+            <div class="answer-points" style="display:none;">
+                <h4>Σημαντικά σημεία:</h4>
+                <ul><li>Impact: Most widely used currently, works well for queries with fewer than 10 joins.</li><li>Limitation 1 (Cost Estimation): Cost estimation is very inexact, though it works &#39;ok in practice&#39; due to statistics.</li><li>Limitation 2 (Plan Space): The plan space is too large, so it must be pruned. This means it only considers left-deep plans and avoids Cartesian products, which might miss optimal bushy plans for some queries.</li></ul>
+                <div class="meta">Μέγιστη βαθμολογία: 10</div>
+            </div>
+            <div class="topics">Θέματα: system_r, impact, limitations</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question scenario" data-qtype="Σενάριο" data-idx="42">
+        <div class="qtype">SCENARIO BASED QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="scenario-text">A new database system is being designed with a primary focus on handling highly nested SQL queries, complex views, and subqueries efficiently. The developers want to ensure that the optimizer can find near-optimal plans even for these intricate query structures, which often cause traditional optimizers to perform poorly.</div>
+            <div class="qtext">Which of the three optimizers discussed (System R, Starburst, or Volcano) offers a core philosophy or mechanism most directly relevant to addressing this specific challenge of complex, nested queries, and why?</div>
+            <div class="analysis" style="display:none;">
+                <h4>Βασικά σημεία ανάλυσης:</h4>
+                <ul><li>nested queries</li><li>subqueries</li><li>views</li><li>cross-block optimization</li></ul>
+                <div class="sample-answer">
+                    <h4>Ενδεικτική απάντηση:</h4>
+                    <div>The Starburst optimizer offers the most directly relevant philosophy. Its core problem statement highlights that &#39;Traditional DBMS only perform plan optimization on a single query block at a time and perform no cross-block optimization,&#39; leading to sub-optimal plans for complex queries with subqueries and views. Starburst&#39;s solution is &#39;Query rewriting&#39; to semantically equivalent queries with &#39;fewer boxes&#39; (blocks) using the Query Graph Model (QGM) and a Rule Based Query Rewrite engine. Its &#39;Single Rewrite Philosophy&#39; aims to convert queries to a single select operator, giving the standard optimizer maximum latitude. This approach directly tackles the inefficiency of optimizing nested queries by transforming them into a form more amenable to global optimization, which System R&#39;s fixed enumeration or Volcano&#39;s general algebraic tree transformations don&#39;t specifically focus on for *nested block* issues.</div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: </div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση ανάλυσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question comparison" data-qtype="Σύγκριση" data-idx="43">
+        <div class="qtype">COMPARISON QUESTION
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Compare the core problem addressed by the Starburst optimizer versus the System R optimizer.</div>
+            <div class="comparison-elements" style="display:none;">
+                <h4>Στοιχεία προς σύγκριση:</h4>
+                <table class="compare-table"><tr><th>primary problem</th><th>query types focused on</th><th>solution approach</th></tr></table>
+            </div>
+            <div class="topics">Θέματα: optimizer_comparison, system_r, starburst_optimizer</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση στοιχείων σύγκρισης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question comparison" data-qtype="Σύγκριση" data-idx="44">
+        <div class="qtype">COMPARISON QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Compare the overall algorithmic approach (top-down vs. bottom-up) of the Volcano optimizer and the plan enumeration in Starburst.</div>
+            <div class="comparison-elements" style="display:none;">
+                <h4>Στοιχεία προς σύγκριση:</h4>
+                <table class="compare-table"><tr><th>algorithmic direction</th><th>how plans are built</th><th>use of rules/grammar</th></tr></table>
+            </div>
+            <div class="topics">Θέματα: optimizer_comparison, volcano_optimizer, starburst_optimizer, algorithms</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση στοιχείων σύγκρισης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question comparison" data-qtype="Σύγκριση" data-idx="45">
+        <div class="qtype">COMPARISON QUESTION
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Compare the fundamental design philosophy regarding plan enumeration and search space pruning between System R and Volcano.</div>
+            <div class="comparison-elements" style="display:none;">
+                <h4>Στοιχεία προς σύγκριση:</h4>
+                <table class="compare-table"><tr><th>search space pruning</th><th>plan enumeration strategy</th><th>flexibility/extensibility</th></tr></table>
+            </div>
+            <div class="topics">Θέματα: optimizer_comparison, system_r, volcano_optimizer, design_philosophy</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση στοιχείων σύγκρισης</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="quiz-mode" style="display:none;">
+        <div id="quiz-question"></div>
+        <div class="quiz-navigation">
+            <button id="prev-question-btn">Προηγούμενη</button>
+            <button id="next-question-btn">Επόμενη</button>
+        </div>
+    </div>
+</div>
+<script src="quiz.js"></script>
+</body>
+</html>

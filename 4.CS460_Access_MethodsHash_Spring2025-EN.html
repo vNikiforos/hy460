@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACCESS METHODS: HASH Indexes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="meta">
+        <b>Μάθημα:</b> CS-460 | <b>Διάλεξη:</b> X | <b>Τίτλος:</b> ACCESS METHODS: HASH Indexes | <b>Ημ/νία:</b> 2025-05-28
+    </div>
+    <div class="mode-switch">
+        <button id="show-all-btn">Όλες οι ερωτήσεις</button>
+        <button id="quiz-mode-btn">Quiz mode</button>
+    </div>
+    <div id="questions-all">
+
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="0" data-correct="A">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is a primary characteristic of a hash table used in secondary storage compared to main-memory hash tables?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-0-A" name="mc-0" value="A">
+            <label for="mc-0-A"><strong>A:</strong> Buckets are typically disk blocks.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-0-B" name="mc-0" value="B">
+            <label for="mc-0-B"><strong>B:</strong> Hash functions return pointers directly to records.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-0-C" name="mc-0" value="C">
+            <label for="mc-0-C"><strong>C:</strong> Overflow chains are never used.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-0-D" name="mc-0" value="D">
+            <label for="mc-0-D"><strong>D:</strong> The bucket array stores actual records, not block addresses.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">In secondary storage, buckets are typically disk blocks to optimize I/O operations. Main-memory hash tables might use smaller units or direct pointers. Overflow chains are commonly used in secondary storage hash tables to handle collisions. The bucket array stores block addresses, not the records themselves, which reside in the blocks.</div>
+            <div class="topics">Θέματα: hash_tables, secondary_storage, architecture</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="1" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the primary goal when choosing a good hash function for a database index?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-1-A" name="mc-1" value="A">
+            <label for="mc-1-A"><strong>A:</strong> To ensure all search keys map to the same bucket for faster access.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-1-B" name="mc-1" value="B">
+            <label for="mc-1-B"><strong>B:</strong> To minimize the number of available buckets (B).</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-1-C" name="mc-1" value="C">
+            <label for="mc-1-C"><strong>C:</strong> To achieve a uniform distribution of records across buckets.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-1-D" name="mc-1" value="D">
+            <label for="mc-1-D"><strong>D:</strong> To always use K mod B as the hash function.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">A good hash function aims for uniform distribution, meaning buckets have more or less equal numbers of records. Mapping all keys to one bucket (A) would be the worst case. Minimizing B (B) can lead to excessive overflow chains. While K mod B is a common function, it&#39;s not the only or always the best choice; the goal is uniform distribution, not a specific function.</div>
+            <div class="topics">Θέματα: hash_functions, design_principles</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="2" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In a static hash table, what is the consequence of a file growing significantly over time?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-2-A" name="mc-2" value="A">
+            <label for="mc-2-A"><strong>A:</strong> The number of primary pages per bucket increases automatically.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-2-B" name="mc-2" value="B">
+            <label for="mc-2-B"><strong>B:</strong> Performance degrades due to the development of long overflow chains.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-2-C" name="mc-2" value="C">
+            <label for="mc-2-C"><strong>C:</strong> Space wastage decreases as more records fill the fixed number of buckets.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-2-D" name="mc-2" value="D">
+            <label for="mc-2-D"><strong>D:</strong> The hash function dynamically adjusts its range (B).</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Static hash tables have a fixed number of buckets. As the file grows, existing buckets become full, leading to the creation and lengthening of overflow chains. Searching these long chains requires multiple disk I/Os, degrading performance. Primary pages per bucket are fixed, space wastage increases if the file shrinks, and the hash function for static tables does not dynamically adjust.</div>
+            <div class="topics">Θέματα: static_hashing, performance_issues, overflow</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="3" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">When is a separate index structure NOT required for a hash-based index?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-3-A" name="mc-3" value="A">
+            <label for="mc-3-A"><strong>A:</strong> When implementing a secondary index.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-3-B" name="mc-3" value="B">
+            <label for="mc-3-B"><strong>B:</strong> When the hash function computes a location in a secondary index file.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-3-C" name="mc-3" value="C">
+            <label for="mc-3-C"><strong>C:</strong> When the hash function dictates the physical organization of the file for a clustered primary index.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-3-D" name="mc-3" value="D">
+            <label for="mc-3-D"><strong>D:</strong> When dealing with non-clustered indexes.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">For a clustered primary index, the hash function directly determines the physical storage location of the records, meaning the data file itself is organized by the hash key. Therefore, no separate index structure is needed. Secondary indexes and non-clustered indexes, by definition, require a separate structure to point to the data records.</div>
+            <div class="topics">Θέματα: indexing_types, clustered_index, hash_index_applications</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="4" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the average space utilization for buckets in Extensible Hashing, as mentioned in the lecture?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-4-A" name="mc-4" value="A">
+            <label for="mc-4-A"><strong>A:</strong> Approximately 85%</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-4-B" name="mc-4" value="B">
+            <label for="mc-4-B"><strong>B:</strong> Approximately 50%</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-4-C" name="mc-4" value="C">
+            <label for="mc-4-C"><strong>C:</strong> Approximately 69% (ln2)</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-4-D" name="mc-4" value="D">
+            <label for="mc-4-D"><strong>D:</strong> Approximately 90%</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture states that the average utilization for buckets in Extensible Hashing is approximately ln2, which is about 69%. This is compared to B+-tree utilization (67% normally, 85% with redistribution).</div>
+            <div class="topics">Θέματα: extensible_hashing, space_utilization</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="5" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is a disadvantage of Extensible Hashing?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-5-A" name="mc-5" value="A">
+            <label for="mc-5-A"><strong>A:</strong> It always uses overflow buckets, leading to performance degradation.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-5-B" name="mc-5" value="B">
+            <label for="mc-5-B"><strong>B:</strong> The directory size can become too large to fit in main memory after doubling.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-5-C" name="mc-5" value="C">
+            <label for="mc-5-C"><strong>C:</strong> It cannot handle duplicates efficiently.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-5-D" name="mc-5" value="D">
+            <label for="mc-5-D"><strong>D:</strong> It requires periodic re-organization of the entire file.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">A key disadvantage of Extensible Hashing is that when the directory doubles, especially if it&#39;s already large, it might no longer fit in main memory, requiring disk I/Os for directory lookups. Extensible Hashing aims to avoid overflow buckets by splitting. It can handle duplicates, and it avoids periodic re-organization by growing/shrinking &#39;on the fly&#39;.</div>
+            <div class="topics">Θέματα: extensible_hashing, disadvantages, memory_management</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="6" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In Extensible Hashing, what happens if a bucket with local depth `j` equal to the global depth `i` is split?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-6-A" name="mc-6" value="A">
+            <label for="mc-6-A"><strong>A:</strong> Only the bucket is split, and its local depth remains `j`.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-6-B" name="mc-6" value="B">
+            <label for="mc-6-B"><strong>B:</strong> The directory is halved in size, and the global depth decreases.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-6-C" name="mc-6" value="C">
+            <label for="mc-6-C"><strong>C:</strong> The global depth `i` is incremented, and the directory is doubled in size.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-6-D" name="mc-6" value="D">
+            <label for="mc-6-D"><strong>D:</strong> The bucket merges with its split image.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">When a bucket with local depth `j` (which is equal to the global depth `i`) overflows, it means all current hash values for that bucket&#39;s prefix are already being used. To accommodate new entries, the global depth `i` must be incremented, and the directory size is doubled to allow for finer-grained addressing. The bucket is then split based on the new `(j+1)`-st bit.</div>
+            <div class="topics">Θέματα: extensible_hashing, splitting_logic, global_local_depth</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="7" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the purpose of the &#39;Next&#39; pointer in Linear Hashing?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-7-A" name="mc-7" value="A">
+            <label for="mc-7-A"><strong>A:</strong> It points to the next available overflow page for any bucket.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-7-B" name="mc-7" value="B">
+            <label for="mc-7-B"><strong>B:</strong> It indicates the current round number for splitting.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-7-C" name="mc-7" value="C">
+            <label for="mc-7-C"><strong>C:</strong> It denotes the next bucket that will be split in a round-robin fashion.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-7-D" name="mc-7" value="D">
+            <label for="mc-7-D"><strong>D:</strong> It points to the bucket that just overflowed and triggered a split.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">In Linear Hashing, the &#39;Next&#39; pointer (or &#39;Next&#39; counter) is crucial for its round-robin splitting mechanism. It always points to the next bucket in sequence that is due to be split, regardless of which bucket actually overflowed.</div>
+            <div class="topics">Θέματα: linear_hashing, data_structures, splitting_mechanism</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="8" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is a key advantage of Linear Hashing over Extensible Hashing?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-8-A" name="mc-8" value="A">
+            <label for="mc-8-A"><strong>A:</strong> It never uses overflow buckets.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-8-B" name="mc-8" value="B">
+            <label for="mc-8-B"><strong>B:</strong> It avoids the need for a directory, making it suitable for environments with limited main memory.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-8-C" name="mc-8" value="C">
+            <label for="mc-8-C"><strong>C:</strong> It guarantees one I/O operation for every search.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-8-D" name="mc-8" value="D">
+            <label for="mc-8-D"><strong>D:</strong> It always splits the bucket that overflows.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Linear Hashing does not use a directory structure; instead, it uses a &#39;Next&#39; pointer and &#39;Level&#39; counter to manage splits. This makes it more memory-efficient as it avoids the potential overhead of a large directory, which is a key advantage, especially in small computer environments. Linear Hashing *does* use overflow buckets, does not guarantee one I/O, and does not necessarily split the overflowing bucket.</div>
+            <div class="topics">Θέματα: linear_hashing, extensible_hashing, comparison, advantages</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="9" data-correct="A">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">When does a &#39;round&#39; end in Linear Hashing?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-9-A" name="mc-9" value="A">
+            <label for="mc-9-A"><strong>A:</strong> When the &#39;Next&#39; pointer reaches the end of the current hash table (2^Level * B_initial).</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-9-B" name="mc-9" value="B">
+            <label for="mc-9-B"><strong>B:</strong> When the global depth &#39;i&#39; is incremented.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-9-C" name="mc-9" value="C">
+            <label for="mc-9-C"><strong>C:</strong> When the space utilization drops below 50%.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-9-D" name="mc-9" value="D">
+            <label for="mc-9-D"><strong>D:</strong> After every 10 insertions, regardless of bucket status.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">A round in Linear Hashing ends when all buckets that existed at the beginning of that round have been split. This occurs when the &#39;Next&#39; pointer has incremented past the last bucket from the previous round (i.e., Next &gt; 2^Level * B_initial - 1), at which point the &#39;Level&#39; is incremented and &#39;Next&#39; is reset to 0.</div>
+            <div class="topics">Θέματα: linear_hashing, splitting_mechanism, rounds</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="10" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which type of query is generally NOT well-supported by hash indexes?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-10-A" name="mc-10" value="A">
+            <label for="mc-10-A"><strong>A:</strong> Equality searches.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-10-B" name="mc-10" value="B">
+            <label for="mc-10-B"><strong>B:</strong> Exact match queries.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-10-C" name="mc-10" value="C">
+            <label for="mc-10-C"><strong>C:</strong> Range queries.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-10-D" name="mc-10" value="D">
+            <label for="mc-10-D"><strong>D:</strong> Searches on a single attribute key.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Hash functions scatter data across buckets based on the hash value, making it very efficient for equality (exact match) searches. However, this scattering means that records with keys in a certain range are unlikely to be stored contiguously, making range queries inefficient as they would require scanning multiple, potentially non-contiguous, buckets.</div>
+            <div class="topics">Θέματα: hash_indexes, query_types, limitations</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="11" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is &#39;data skewing&#39; in the context of hash functions?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-11-A" name="mc-11" value="A">
+            <label for="mc-11-A"><strong>A:</strong> When the hash function is too complex to compute quickly.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-11-B" name="mc-11" value="B">
+            <label for="mc-11-B"><strong>B:</strong> When some search key values are more &#39;popular&#39; and result in uneven bucket distribution.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-11-C" name="mc-11" value="C">
+            <label for="mc-11-C"><strong>C:</strong> When the hash table is stored across multiple disk blocks.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-11-D" name="mc-11" value="D">
+            <label for="mc-11-D"><strong>D:</strong> When the hash function uses a prime number for &#39;B&#39;.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Data skewing occurs when certain key values are more common or &#39;popular&#39;, leading to those values hashing to the same bucket more frequently. This results in an uneven distribution of records across buckets, potentially causing some buckets to have long overflow chains while others are sparsely populated.</div>
+            <div class="topics">Θέματα: hash_functions, data_distribution, performance_issues</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="12" data-correct="A">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">For character string keys, how might a hash function typically compute its output?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-12-A" name="mc-12" value="A">
+            <label for="mc-12-A"><strong>A:</strong> By treating characters as integers, summing them, dividing by B, and taking the remainder.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-12-B" name="mc-12" value="B">
+            <label for="mc-12-B"><strong>B:</strong> By directly converting the entire string to a single binary number.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-12-C" name="mc-12" value="C">
+            <label for="mc-12-C"><strong>C:</strong> By only considering the first character of the string.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-12-D" name="mc-12" value="D">
+            <label for="mc-12-D"><strong>D:</strong> By using the length of the string modulo B.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture states that for character string keys, characters may be treated as integers (e.g., ASCII values), summed up, divided by B, and the remainder of the division is taken as the result of the hash function. This is a common method to convert strings into a numerical hash value.</div>
+            <div class="topics">Θέματα: hash_functions, data_types</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="13" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In Extensible Hashing, if an insertion causes a bucket to overflow, and its local depth `j` is less than the global depth `i` (j &lt; i), what is the immediate action taken?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-13-A" name="mc-13" value="A">
+            <label for="mc-13-A"><strong>A:</strong> The directory is doubled, and global depth is incremented.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-13-B" name="mc-13" value="B">
+            <label for="mc-13-B"><strong>B:</strong> The bucket is split into two, and records are redistributed based on the (j+1)-st bit.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-13-C" name="mc-13" value="C">
+            <label for="mc-13-C"><strong>C:</strong> A new overflow page is added to the bucket.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-13-D" name="mc-13" value="D">
+            <label for="mc-13-D"><strong>D:</strong> The entire hash file is re-organized.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">If `j &lt; i`, it means there are still unused bits in the global depth that can differentiate entries within this bucket. So, the bucket is split into two, and records are redistributed between the original and new block based on the `(j+1)`-st bit. The local depth of both new buckets is updated to `j+1`. The directory is not doubled in this case.</div>
+            <div class="topics">Θέματα: extensible_hashing, insertion_algorithm, splitting_logic</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="14" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the primary reason for the performance degradation of static hash tables with dynamically growing files?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-14-A" name="mc-14" value="A">
+            <label for="mc-14-A"><strong>A:</strong> The hash function becomes less efficient over time.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-14-B" name="mc-14" value="B">
+            <label for="mc-14-B"><strong>B:</strong> The fixed number of buckets leads to increasingly long overflow chains.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-14-C" name="mc-14" value="C">
+            <label for="mc-14-C"><strong>C:</strong> The bucket array becomes too large to fit in main memory.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-14-D" name="mc-14" value="D">
+            <label for="mc-14-D"><strong>D:</strong> Records are constantly being rehashed and moved between buckets.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Static hash tables have a fixed number of buckets. As the file grows, these fixed buckets overflow, leading to the creation of long overflow chains. Searching these chains requires multiple disk I/Os, significantly degrading access time. The hash function itself doesn&#39;t become less efficient, the bucket array size is fixed, and records are not constantly rehashed in static hashing.</div>
+            <div class="topics">Θέματα: static_hashing, performance_issues, overflow_chains</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="15" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following statements accurately describes a difference between Linear Hashing and Extensible Hashing?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-15-A" name="mc-15" value="A">
+            <label for="mc-15-A"><strong>A:</strong> Linear Hashing uses a directory, while Extensible Hashing does not.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-15-B" name="mc-15" value="B">
+            <label for="mc-15-B"><strong>B:</strong> Extensible Hashing always splits the overflowing bucket, while Linear Hashing splits buckets in a round-robin fashion.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-15-C" name="mc-15" value="C">
+            <label for="mc-15-C"><strong>C:</strong> Linear Hashing avoids overflow buckets, while Extensible Hashing uses them.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-15-D" name="mc-15" value="D">
+            <label for="mc-15-D"><strong>D:</strong> Extensible Hashing is recommended when main storage is at a premium.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Extensible Hashing directly splits the bucket that overflows, and it uses a directory. Linear Hashing, in contrast, splits buckets in a round-robin manner (determined by the &#39;Next&#39; pointer) and does not use a directory. Linear Hashing *does* use overflow buckets, and it is recommended when main storage is at a premium precisely because it avoids the directory overhead of Extensible Hashing.</div>
+            <div class="topics">Θέματα: linear_hashing, extensible_hashing, comparison</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="16" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the ideal number of disk I/Os for a search operation in a static hash table where each bucket consists of a single block?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-16-A" name="mc-16" value="A">
+            <label for="mc-16-A"><strong>A:</strong> Zero I/Os (if directory in memory).</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-16-B" name="mc-16" value="B">
+            <label for="mc-16-B"><strong>B:</strong> One I/O.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-16-C" name="mc-16" value="C">
+            <label for="mc-16-C"><strong>C:</strong> Two I/Os.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-16-D" name="mc-16" value="D">
+            <label for="mc-16-D"><strong>D:</strong> Proportional to the number of records in the file.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">In the ideal case for a static hash table, where each bucket fits into a single block and there are no overflow chains, searching for a key involves evaluating the hash function, and then fetching that single bucket block from disk. This results in one disk I/O.</div>
+            <div class="topics">Θέματα: static_hashing, io_cost, performance</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="17" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Why is &#39;B&#39; (number of buckets) often chosen to be a prime number when using K mod B as a hash function?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-17-A" name="mc-17" value="A">
+            <label for="mc-17-A"><strong>A:</strong> To ensure that the hash function always returns 0.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-17-B" name="mc-17" value="B">
+            <label for="mc-17-B"><strong>B:</strong> To simplify the calculation of the hash value.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-17-C" name="mc-17" value="C">
+            <label for="mc-17-C"><strong>C:</strong> To help distribute keys more uniformly and avoid patterns.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-17-D" name="mc-17" value="D">
+            <label for="mc-17-D"><strong>D:</strong> To make it easier to double the directory size.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Choosing B as a prime number helps distribute keys more uniformly across the buckets, especially when keys might have certain arithmetic patterns (e.g., multiples of a small number). If B is a power of 2, for instance, and keys are often multiples of 2, certain buckets might be disproportionately filled. A prime B helps break such patterns and achieve better distribution.</div>
+            <div class="topics">Θέματα: hash_functions, prime_numbers, distribution</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="18">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is a &#39;bucket&#39; in the context of secondary storage hash tables?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A bucket is a unit of storage, typically a disk block, containing one or more records. It may also have chains of overflow blocks.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: hash_tables, definitions</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="19">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the &#39;global depth&#39; (i) in Extensible Hashing?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">The global depth (i) is the number of bits needed to express the total number of entries in the directory. It indicates how many bits of the hash value are used to index into the directory.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: extensible_hashing, definitions</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="20">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the &#39;local depth&#39; (j) of a bucket in Extensible Hashing?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">The local depth (j) is the number of bits used to determine membership of records in a specific bucket. All hash values of data entries in that bucket agree on the first &#39;j&#39; bits.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: extensible_hashing, definitions</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="21">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is an &#39;overflow chain&#39; in static hash tables?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">An overflow chain is a linked list of additional blocks (overflow pages) attached to a primary bucket block, used to accommodate records when the primary block becomes full.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: static_hashing, definitions</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="22">
+        <div class="qtype">FLASHCARD - when-to-use
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">When is Linear Hashing generally recommended over Extensible Hashing?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Linear Hashing is recommended when main storage is at a premium, as it requires no directory and thus has lower memory overhead compared to Extensible Hashing.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: linear_hashing, extensible_hashing, comparison</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="23">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">Explain the concept of &#39;round-robin&#39; splitting in Linear Hashing.</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">In Linear Hashing, buckets are split in a predetermined linear order (from bucket 0, then 1, etc., indicated by the &#39;Next&#39; pointer), regardless of which bucket actually overflowed. This ensures gradual growth and avoids directory management.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: linear_hashing, splitting_mechanism</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="24">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the &#39;Level&#39; counter in Linear Hashing?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">The &#39;Level&#39; counter indicates the current round number. It determines which hash function (h_Level or h_Level+1) is primarily used and helps define the range of active buckets.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: linear_hashing, definitions</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="25">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">How does a clustered primary index differ from a secondary index when using hashing?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">For a clustered primary index, the hash function directly dictates the physical storage location of the records, so no separate index structure is needed. For a secondary index, the hash function computes a location in a *secondary index file*, which then contains pointers to the actual data records.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: indexing_types, hash_index_applications</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="26">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What does a &#39;pathological case&#39; refer to in Extensible Hashing?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A pathological case refers to a scenario where, despite having few records, the hash values are distributed in such a way that the directory grows very large (e.g., needing a 32-entry table for only 9 records), leading to poor space utilization for the directory.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: extensible_hashing, edge_cases</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="27">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the &#39;Load Factor (LF)&#39; of a hash file, and what is its significance?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">The Load Factor (LF) is the number of records in the file divided by the number of places for records in the primary area. It indicates how full the hash table is. The lecture suggests an overall LF of 75%-80% for good performance (below 2 seeks).</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: hash_tables, performance_metrics</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="28">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">How does the use of least significant bits for directory doubling in Extensible Hashing enable efficient directory doubling?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Using least significant bits allows the directory to be doubled efficiently by simply copying the existing directory and &#39;fixing&#39; pointers to the split image pages. This is because the new entries (e.g., &#39;10&#39; for &#39;00&#39;) can directly point to the same original bucket until a split occurs.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: extensible_hashing, implementation_details</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="29" data-correct="true">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In an ideal static hash table where each bucket is a single block, a search operation requires only one disk I/O.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">As stated in the lecture, in an ideal scenario where each bucket fits into a single block, evaluating the hash function and fetching the bucket requires only one disk I/O.</div>
+            <div class="topics">Θέματα: static_hashing, io_cost</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="30" data-correct="true">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Extensible Hashing is designed to avoid the use of overflow buckets.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Extensible Hashing&#39;s primary mechanism for handling growth is by splitting buckets and potentially doubling the directory, rather than relying on overflow chains like static hashing or even Linear Hashing.</div>
+            <div class="topics">Θέματα: extensible_hashing, design_principles</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="31" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Linear Hashing always splits the bucket that triggered the overflow.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Linear Hashing splits buckets in a round-robin fashion, determined by the &#39;Next&#39; pointer. The bucket that actually overflows might not be the one that is split immediately; instead, the &#39;Next&#39; bucket in sequence is split.</div>
+            <div class="topics">Θέματα: linear_hashing, splitting_mechanism</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="32" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Hash indexes are generally superior to B+ trees for range queries.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Hash indexes are best for equality searches because they scatter data. B+ trees, which maintain sorted order, are generally superior for range queries as they allow for efficient traversal of contiguous key ranges.</div>
+            <div class="topics">Θέματα: hash_indexes, btree, comparison, query_types</div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="33" data-correct="same">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The worst hash function maps all search-key values to the _____ bucket.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">Think about what would cause maximum collisions.</div>
+            <div class="answer-reveal">same</div>
+            <div class="topics">Θέματα: hash_functions, worst_case</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="34" data-correct="69%">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The average space utilization for buckets in Extensible Hashing is approximately _____.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">It&#39;s related to a natural logarithm value.</div>
+            <div class="answer-reveal">69%</div>
+            <div class="topics">Θέματα: extensible_hashing, space_utilization</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="35" data-correct="round-robin">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In Linear Hashing, the table grows and shrinks &#39;on the fly&#39; by splitting buckets in a _____ order.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">Think about how the &#39;Next&#39; pointer moves.</div>
+            <div class="answer-reveal">round-robin</div>
+            <div class="topics">Θέματα: linear_hashing, splitting_mechanism</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="36">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Consider a Static Hash Table with 4 primary buckets (0-3), where each bucket can hold a maximum of 2 records. The hash function is h(K) = K mod 4. Show the state of the hash table after inserting the following keys in order: 1, 5, 9, 13, 2, 6.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>Initial state: Buckets 0, 1, 2, 3 are empty.</li><li>Insert 1: h(1) = 1 mod 4 = 1. Bucket 1: [1]</li><li>Insert 5: h(5) = 5 mod 4 = 1. Bucket 1: [1, 5]</li><li>Insert 9: h(9) = 9 mod 4 = 1. Bucket 1 is full. Add overflow page to bucket 1. Bucket 1: [1, 5] -&gt; [9]</li><li>Insert 13: h(13) = 13 mod 4 = 1. Bucket 1&#39;s primary page is full, overflow page [9] is full. Add new overflow page to bucket 1. Bucket 1: [1, 5] -&gt; [9] -&gt; [13]</li><li>Insert 2: h(2) = 2 mod 4 = 2. Bucket 2: [2]</li><li>Insert 6: h(6) = 6 mod 4 = 2. Bucket 2: [2, 6]</li><li>Final state: Bucket 0: [], Bucket 1: [1, 5] -&gt; [9] -&gt; [13], Bucket 2: [2, 6], Bucket 3: []</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>correct_final_state: 40 βαθμοί</li><li>proper_overflow_handling: 30 βαθμοί</li><li>step_by_step_logic: 30 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: static_hashing, insertion, overflow_chains</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="37">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Consider an Extensible Hash Table. Initially, global depth (i) = 1, and there are two buckets (0, 1), each with local depth (j) = 1. Each bucket can hold 2 records. The hash function h(K) produces binary sequences. Assume records are inserted based on their hash value&#39;s prefix. Show the state of the table after inserting records with hash values: 0010, 0111, 1001, 1010, 0000, 0101. (Assume the directory uses the first &#39;i&#39; bits, and bucket content is based on &#39;j&#39; bits).</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>Initial state: i=1. Directory: 0-&gt;Bucket A (j=1), 1-&gt;Bucket B (j=1). Bucket A: [], Bucket B: []. Capacity 2 records/bucket.</li><li>Insert 0010: h(0010) starts with 0. Goes to Bucket A. Bucket A: [0010]</li><li>Insert 0111: h(0111) starts with 0. Goes to Bucket A. Bucket A: [0010, 0111]</li><li>Insert 1001: h(1001) starts with 1. Goes to Bucket B. Bucket B: [1001]</li><li>Insert 1010: h(1010) starts with 1. Goes to Bucket B. Bucket B: [1001, 1010]</li><li>Insert 0000: h(0000) starts with 0. Goes to Bucket A. Bucket A is full (j=1, i=1). Since j=i, global depth i increments to 2. Directory doubles (00, 01, 10, 11). Previous 0 now points to 00 and 01. Previous 1 now points to 10 and 11. Bucket A (0) splits based on 2nd bit. 0010 (00) goes to new Bucket A&#39; (00), 0111 (01) goes to new Bucket A&#39;&#39; (01). Both new buckets have j=2. Directory: 00-&gt;A&#39;, 01-&gt;A&#39;&#39;, 10-&gt;B, 11-&gt;B. Bucket A&#39;: [0010], Bucket A&#39;&#39;: [0111]. Insert 0000 (00) into Bucket A&#39;. Bucket A&#39;: [0010, 0000].</li><li>Insert 0101: h(0101) starts with 01. Goes to Bucket A&#39;&#39;. Bucket A&#39;&#39;: [0111, 0101].</li><li>Final state: i=2. Directory: 00-&gt;Bucket A&#39; (j=2): [0010, 0000], 01-&gt;Bucket A&#39;&#39; (j=2): [0111, 0101], 10-&gt;Bucket B (j=1): [1001, 1010], 11-&gt;Bucket B (j=1): [1001, 1010].</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>correct_final_tree_state: 40 βαθμοί</li><li>proper_directory_doubling: 30 βαθμοί</li><li>correct_bucket_splitting_and_redistribution: 30 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: extensible_hashing, insertion, global_local_depth, directory_doubling, bucket_splitting</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="38">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Consider a Linear Hash Table. Initially, Level = 0, Next = 0, and B_initial = 2. Each primary bucket can hold 2 records. The hash function h(K) produces 4-bit sequences. h_Level(K) uses Level bits, h_Level+1(K) uses Level+1 bits. Assume a split is triggered whenever a bucket overflows. Show the state of the table (buckets and Next/Level) after inserting keys with hash values: 0001, 0101, 1010, 1111, 0000, 0111, 1000.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>Initial: Level=0, Next=0. Buckets: 0, 1. Capacity 2.</li><li>Insert 0001: h0(0001) = 0. Bucket 0: [0001].</li><li>Insert 0101: h0(0101) = 1. Bucket 1: [0101].</li><li>Insert 1010: h0(1010) = 0. Bucket 0: [0001, 1010].</li><li>Insert 1111: h0(1111) = 1. Bucket 1: [0101, 1111].</li><li>Insert 0000: h0(0000) = 0. Bucket 0 is full. Trigger split. Split bucket &#39;Next&#39; (which is 0). Allocate new bucket 2. Rehash entries in bucket 0 using h1(K). h1(0001)=00, h1(1010)=10, h1(0000)=00. Bucket 0: [0001, 0000]. Bucket 2: [1010]. Increment Next to 1. State: Level=0, Next=1. Buckets: 0, 1, 2.</li><li>Insert 0111: h0(0111) = 1. Bucket 1 is full. Trigger split. Split bucket &#39;Next&#39; (which is 1). Allocate new bucket 3. Rehash entries in bucket 1 using h1(K). h1(0101)=01, h1(1111)=11, h1(0111)=01. Bucket 1: [0101, 0111]. Bucket 3: [1111]. Increment Next to 2. State: Level=0, Next=2. Buckets: 0, 1, 2, 3.</li><li>Insert 1000: h0(1000) = 0. This is a split bucket (0). Rehash using h1(K). h1(1000)=10. Bucket 2: [1010, 1000]. State: Level=0, Next=2. Buckets: 0, 1, 2, 3.</li><li>Final State: Level=0, Next=2. Buckets: 0:[0001, 0000], 1:[0101, 0111], 2:[1010, 1000], 3:[1111].</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>correct_final_state: 40 βαθμοί</li><li>proper_split_triggering_and_rehashing: 30 βαθμοί</li><li>correct_next_and_level_updates: 30 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: linear_hashing, insertion, splitting_mechanism, next_pointer, level_counter, rehashing</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question short-answer" data-qtype="Σύντομη Απάντηση" data-idx="39">
+        <div class="qtype">SHORT ANSWER QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Explain why a &#39;bad&#39; hash function can severely degrade the performance of a hash-based index.</div>
+            <div class="answer-points" style="display:none;">
+                <h4>Σημαντικά σημεία:</h4>
+                <ul><li>A bad hash function maps many different search-key values to the same bucket.</li><li>This leads to an uneven distribution of records, causing some buckets to become excessively full.</li><li>These full buckets will develop long &#39;overflow chains&#39; of additional disk blocks.</li><li>Searching for a record in such a bucket requires traversing the entire overflow chain, leading to many disk I/Os and significantly increased access time, negating the efficiency benefits of hashing.</li></ul>
+                <div class="meta">Μέγιστη βαθμολογία: 10</div>
+            </div>
+            <div class="topics">Θέματα: hash_functions, performance_issues, overflow</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question short-answer" data-qtype="Σύντομη Απάντηση" data-idx="40">
+        <div class="qtype">SHORT ANSWER QUESTION
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Briefly describe the main difference in how Extensible Hashing and Linear Hashing handle the dynamic growth of the hash file.</div>
+            <div class="answer-points" style="display:none;">
+                <h4>Σημαντικά σημεία:</h4>
+                <ul><li>Extensible Hashing uses a directory that grows or shrinks, and it splits only the bucket that overflows. Growth involves potentially doubling the directory.</li><li>Linear Hashing uses a &#39;round-robin&#39; splitting approach, where buckets are split in a linear order (determined by a &#39;Next&#39; pointer) regardless of which bucket overflowed. It does not use a directory and relies on overflow buckets.</li></ul>
+                <div class="meta">Μέγιστη βαθμολογία: 10</div>
+            </div>
+            <div class="topics">Θέματα: extensible_hashing, linear_hashing, comparison, dynamic_hashing</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question scenario" data-qtype="Σενάριο" data-idx="41">
+        <div class="qtype">SCENARIO BASED QUESTION
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="scenario-text">You are designing a database system for an online retail platform. The primary use case involves frequent exact-match searches for product IDs (e.g., &#39;find product with ID 12345&#39;) and very rare range queries (e.g., &#39;find products with ID between 10000 and 20000&#39;). Memory is a concern, and you want to minimize disk I/O for the most common operation.</div>
+            <div class="qtext">Would you choose a B+ tree index or a hash-based index for the product ID? Justify your choice.</div>
+            <div class="analysis" style="display:none;">
+                <h4>Βασικά σημεία ανάλυσης:</h4>
+                <ul><li>query patterns</li><li>memory constraints</li><li>index types</li><li>performance</li></ul>
+                <div class="sample-answer">
+                    <h4>Ενδεικτική απάντηση:</h4>
+                    <div>For this scenario, a hash-based index would be the better choice for the product ID. 
+
+Justification:
+1.  **Query Patterns:** The primary use case is frequent exact-match searches. Hash indexes excel at equality queries, typically achieving O(1) or very close to O(1) disk I/O in the ideal case (one I/O to fetch the bucket). B+ trees, while efficient, would typically require log(N) I/Os for a search.
+2.  **Rare Range Queries:** While hash indexes are poor for range queries, the scenario states these are &#39;very rare&#39;. The performance hit for these infrequent operations is acceptable given the significant gain for the frequent exact matches.
+3.  **Memory Concerns:** If a Linear Hash index is chosen, it does not require a directory, making it more memory-efficient than an Extensible Hash index or even potentially a B+ tree, especially if the B+ tree&#39;s upper levels cannot be entirely cached in memory.</div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: indexing_strategy, performance_optimization, hash_vs_btree</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση ανάλυσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question calculation" data-qtype="Υπολογιστικό" data-idx="42">
+        <div class="qtype">CALCULATION QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">An ideal static hash table requires 1 disk I/O for a search. If a bucket now has an overflow chain of 3 additional blocks (total 4 blocks for the bucket), how many disk I/Os are needed in the worst case to search for a record within that specific bucket?</div>
+            <div class="given-values"><b>Δεδομένα:</b> primary_block_count: 1, overflow_block_count: 3</div>
+            <div class="solution" style="display:none;">
+                <h4>Βήματα επίλυσης:</h4>
+                <ol><li>The search starts by fetching the primary bucket block (1 I/O).</li><li>If the record is not found there, the search continues to the first overflow block (1 I/O).</li><li>If not found, it continues to the second overflow block (1 I/O).</li><li>If not found, it continues to the third overflow block (1 I/O).</li><li>In the worst case, the record is either in the last overflow block or not present, requiring all blocks in the chain to be read.</li><li>Total I/O operations = 1 (primary) + 3 (overflow) = 4 I/Os.</li></ol>
+                <div class="final-answer"><b>Τελική απάντηση:</b> 4 I/O operations</div>
+            </div>
+            <div class="topics">Θέματα: io_cost, static_hashing, overflow_chains</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="quiz-mode" style="display:none;">
+        <div id="quiz-question"></div>
+        <div class="quiz-navigation">
+            <button id="prev-question-btn">Προηγούμενη</button>
+            <button id="next-question-btn">Επόμενη</button>
+        </div>
+    </div>
+</div>
+<script src="quiz.js"></script>
+</body>
+</html>

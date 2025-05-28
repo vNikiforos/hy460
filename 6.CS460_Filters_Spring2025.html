@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector Indexes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="meta">
+        <b>Μάθημα:</b> CS-460 | <b>Διάλεξη:</b> 11 | <b>Τίτλος:</b> Vector Indexes | <b>Ημ/νία:</b> 2025-05-28
+    </div>
+    <div class="mode-switch">
+        <button id="show-all-btn">Όλες οι ερωτήσεις</button>
+        <button id="quiz-mode-btn">Quiz mode</button>
+    </div>
+    <div id="questions-all">
+
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="0" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is the primary purpose of &#39;VECTOR INDEXES&#39; as described in the content?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-0-A" name="mc-0" value="A">
+            <label for="mc-0-A"><strong>A:</strong> To store vectors in a compressed format.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-0-B" name="mc-0" value="B">
+            <label for="mc-0-B"><strong>B:</strong> To efficiently find a match for a given vector.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-0-C" name="mc-0" value="C">
+            <label for="mc-0-C"><strong>C:</strong> To convert high-dimensional vectors into low-dimensional ones.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-0-D" name="mc-0" value="D">
+            <label for="mc-0-D"><strong>D:</strong> To perform exact equality searches on vector data.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The content for both Inverted File and Navigable Small Worlds indexes explicitly states their purpose is &#39;To find a match&#39; for a vector.</div>
+            <div class="topics">Θέματα: vector indexes, purpose</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="1" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In the context of &#39;VECTOR INDEXES: INVERTED FILE&#39;, how are vectors initially organized into smaller groups?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-1-A" name="mc-1" value="A">
+            <label for="mc-1-A"><strong>A:</strong> By sorting them based on their magnitude.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-1-B" name="mc-1" value="B">
+            <label for="mc-1-B"><strong>B:</strong> Using a hashing function to assign them to buckets.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-1-C" name="mc-1" value="C">
+            <label for="mc-1-C"><strong>C:</strong> Through a clustering algorithm.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-1-D" name="mc-1" value="D">
+            <label for="mc-1-D"><strong>D:</strong> Based on their insertion order into the index.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text states: &#39;Partition vectors into smaller groups using a clustering algorithm.&#39;</div>
+            <div class="topics">Θέματα: inverted file, organization</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="2" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">To find a match for a query vector using an Inverted File index, after mapping it to a group, what is the next step?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-2-A" name="mc-2" value="A">
+            <label for="mc-2-A"><strong>A:</strong> Re-clustering all vectors in the database.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-2-B" name="mc-2" value="B">
+            <label for="mc-2-B"><strong>B:</strong> Scanning that specific group&#39;s vectors.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-2-C" name="mc-2" value="C">
+            <label for="mc-2-C"><strong>C:</strong> Building a graph of nearest neighbors.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-2-D" name="mc-2" value="D">
+            <label for="mc-2-D"><strong>D:</strong> Performing a binary search across all groups.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text says: &#39;To find a match, use same clustering algorithm to map into a group, then scan that group&#39;s vectors.&#39;</div>
+            <div class="topics">Θέματα: inverted file, search process</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="3" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which technique is mentioned to improve accuracy in an Inverted File vector index?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-3-A" name="mc-3" value="A">
+            <label for="mc-3-A"><strong>A:</strong> Increasing the dimensionality of vectors.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-3-B" name="mc-3" value="B">
+            <label for="mc-3-B"><strong>B:</strong> Checking nearby groups in addition to the mapped group.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-3-C" name="mc-3" value="C">
+            <label for="mc-3-C"><strong>C:</strong> Using a different clustering algorithm for each query.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-3-D" name="mc-3" value="D">
+            <label for="mc-3-D"><strong>D:</strong> Storing full vectors in memory instead of on disk.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The content explicitly states: &#39;→Also check nearby groups to improve accuracy.&#39;</div>
+            <div class="topics">Θέματα: inverted file, accuracy</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="4" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the purpose of &#39;Preprocess / quantize vectors to reduce dimensionality&#39; in the context of Inverted File indexes?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-4-A" name="mc-4" value="A">
+            <label for="mc-4-A"><strong>A:</strong> To increase the storage footprint of the index.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-4-B" name="mc-4" value="B">
+            <label for="mc-4-B"><strong>B:</strong> To make the clustering algorithm more complex.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-4-C" name="mc-4" value="C">
+            <label for="mc-4-C"><strong>C:</strong> To optimize the index for better performance and efficiency.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-4-D" name="mc-4" value="D">
+            <label for="mc-4-D"><strong>D:</strong> To ensure exact matches are always found.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Reducing dimensionality typically aims to make computations faster and reduce memory/storage requirements, thus optimizing performance. The text lists it as an optimization for IVFFlat.</div>
+            <div class="topics">Θέματα: inverted file, optimization, dimensionality reduction</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="5" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is an example of an Inverted File vector index mentioned in the content?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-5-A" name="mc-5" value="A">
+            <label for="mc-5-A"><strong>A:</strong> Faiss</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-5-B" name="mc-5" value="B">
+            <label for="mc-5-B"><strong>B:</strong> hnswlib</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-5-C" name="mc-5" value="C">
+            <label for="mc-5-C"><strong>C:</strong> IVFFlat</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-5-D" name="mc-5" value="D">
+            <label for="mc-5-D"><strong>D:</strong> B+-Tree</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text explicitly lists &#39;IVFFlat&#39; as an example under &#39;VECTOR INDEXES: INVERTED FILE&#39;. Faiss and hnswlib are examples of Navigable Small Worlds.</div>
+            <div class="topics">Θέματα: inverted file, examples</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="6" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">How does a &#39;NAVIGABLE SMALL WORLDS&#39; index organize vectors?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-6-A" name="mc-6" value="A">
+            <label for="mc-6-A"><strong>A:</strong> By partitioning them into clusters based on similarity.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-6-B" name="mc-6" value="B">
+            <label for="mc-6-B"><strong>B:</strong> By building a graph where each node is a vector and has edges to its nearest neighbors.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-6-C" name="mc-6" value="C">
+            <label for="mc-6-C"><strong>C:</strong> By storing them in a sorted array for binary search.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-6-D" name="mc-6" value="D">
+            <label for="mc-6-D"><strong>D:</strong> By hashing vectors into fixed-size buckets.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text states: &#39;Build a graph where each node represents a vector and it has edges to its n nearest neighbors.&#39;</div>
+            <div class="topics">Θέματα: navigable small worlds, organization</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="7" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is HNSW, as mentioned in the context of Navigable Small Worlds indexes?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-7-A" name="mc-7" value="A">
+            <label for="mc-7-A"><strong>A:</strong> A method for hashing vectors into smaller spaces.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-7-B" name="mc-7" value="B">
+            <label for="mc-7-B"><strong>B:</strong> A technique for performing exact nearest neighbor searches.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-7-C" name="mc-7" value="C">
+            <label for="mc-7-C"><strong>C:</strong> An optimization that uses multiple levels of graphs.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-7-D" name="mc-7" value="D">
+            <label for="mc-7-D"><strong>D:</strong> A specific type of clustering algorithm for vector partitioning.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text states: &#39;→Can use multiple levels of graphs (HNSW)&#39;. HNSW stands for Hierarchical Navigable Small Worlds.</div>
+            <div class="topics">Θέματα: navigable small worlds, HNSW, optimization</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="8" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">When finding a match for a given vector in a Navigable Small Worlds index, what search strategy is employed?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-8-A" name="mc-8" value="A">
+            <label for="mc-8-A"><strong>A:</strong> A breadth-first search across all nodes.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-8-B" name="mc-8" value="B">
+            <label for="mc-8-B"><strong>B:</strong> A random walk through the graph until a match is found.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-8-C" name="mc-8" value="C">
+            <label for="mc-8-C"><strong>C:</strong> Entering the graph and greedily choosing the next edge that moves closer to the target vector.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-8-D" name="mc-8" value="D">
+            <label for="mc-8-D"><strong>D:</strong> A full scan of all vectors in the index.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text states: &#39;Tofind amatch foragiven vector, enter thegraph andthen greedily choose thenext edge that moves closer tothat vector.&#39;</div>
+            <div class="topics">Θέματα: navigable small worlds, search process</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="9" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is an example of a Navigable Small Worlds index mentioned in the content?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-9-A" name="mc-9" value="A">
+            <label for="mc-9-A"><strong>A:</strong> IVFFlat</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-9-B" name="mc-9" value="B">
+            <label for="mc-9-B"><strong>B:</strong> B-Tree</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-9-C" name="mc-9" value="C">
+            <label for="mc-9-C"><strong>C:</strong> Faiss</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-9-D" name="mc-9" value="D">
+            <label for="mc-9-D"><strong>D:</strong> Inverted Index</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text explicitly lists &#39;Faiss&#39; and &#39;hnswlib&#39; as examples under &#39;VECTOR INDEXES: NAVIGABLE SMALL WORLDS&#39;.</div>
+            <div class="topics">Θέματα: navigable small worlds, examples</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="10" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is a key difference in the initial organization approach between Inverted File and Navigable Small Worlds indexes?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-10-A" name="mc-10" value="A">
+            <label for="mc-10-A"><strong>A:</strong> Inverted File uses a graph, while NSW uses sorted lists.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-10-B" name="mc-10" value="B">
+            <label for="mc-10-B"><strong>B:</strong> Inverted File uses clustering, while NSW builds a nearest-neighbor graph.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-10-C" name="mc-10" value="C">
+            <label for="mc-10-C"><strong>C:</strong> Inverted File uses hashing, while NSW uses B-trees.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-10-D" name="mc-10" value="D">
+            <label for="mc-10-D"><strong>D:</strong> Inverted File reduces dimensionality, while NSW increases it.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Inverted File &#39;Partition vectors into smaller groups using a clustering algorithm&#39;, while NSW &#39;Build a graph where each node represents a vector and it has edges to its n nearest neighbors&#39;.</div>
+            <div class="topics">Θέματα: comparison, inverted file, navigable small worlds</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="11" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">If a query vector is processed by an Inverted File index and mapped to a specific group, but the desired match is not found within that group, what is the recommended next step for improved accuracy?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-11-A" name="mc-11" value="A">
+            <label for="mc-11-A"><strong>A:</strong> Re-index the entire dataset.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-11-B" name="mc-11" value="B">
+            <label for="mc-11-B"><strong>B:</strong> Expand the search to include vectors from nearby groups.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-11-C" name="mc-11" value="C">
+            <label for="mc-11-C"><strong>C:</strong> Switch to a different indexing method.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-11-D" name="mc-11" value="D">
+            <label for="mc-11-D"><strong>D:</strong> Reduce the dimensionality of the query vector.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The content states: &#39;→Also check nearby groups to improve accuracy.&#39;</div>
+            <div class="topics">Θέματα: inverted file, accuracy, search process</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="12" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following statements is TRUE regarding the search process in Navigable Small Worlds indexes?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-12-A" name="mc-12" value="A">
+            <label for="mc-12-A"><strong>A:</strong> It involves a full scan of all vectors in the database.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-12-B" name="mc-12" value="B">
+            <label for="mc-12-B"><strong>B:</strong> It relies on a pre-computed hash table for direct lookups.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-12-C" name="mc-12" value="C">
+            <label for="mc-12-C"><strong>C:</strong> It navigates a graph by making greedy choices to move closer to the target vector.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-12-D" name="mc-12" value="D">
+            <label for="mc-12-D"><strong>D:</strong> It requires all vectors to be sorted before search can begin.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text clearly states: &#39;Tofind amatch foragiven vector, enter thegraph andthen greedily choose thenext edge that moves closer tothat vector.&#39;</div>
+            <div class="topics">Θέματα: navigable small worlds, search process</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="13" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The &#39;preprocess / quantize vectors&#39; step in Inverted File indexes primarily aims to:</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-13-A" name="mc-13" value="A">
+            <label for="mc-13-A"><strong>A:</strong> Increase the precision of the clustering algorithm.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-13-B" name="mc-13" value="B">
+            <label for="mc-13-B"><strong>B:</strong> Reduce the computational cost and memory footprint of vector operations.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-13-C" name="mc-13" value="C">
+            <label for="mc-13-C"><strong>C:</strong> Ensure that all vectors have the same length.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-13-D" name="mc-13" value="D">
+            <label for="mc-13-D"><strong>D:</strong> Convert vectors into a human-readable format.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Reducing dimensionality (quantization/preprocessing) is a common technique to make high-dimensional data more manageable, leading to reduced computational cost and memory usage.</div>
+            <div class="topics">Θέματα: inverted file, optimization, dimensionality reduction</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="14" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the role of &#39;n nearest neighbors&#39; in the construction of a Navigable Small Worlds graph?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-14-A" name="mc-14" value="A">
+            <label for="mc-14-A"><strong>A:</strong> It defines the number of clusters to be formed.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-14-B" name="mc-14" value="B">
+            <label for="mc-14-B"><strong>B:</strong> It determines the maximum depth of the graph.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-14-C" name="mc-14" value="C">
+            <label for="mc-14-C"><strong>C:</strong> It specifies how many edges each vector node will have in the graph.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-14-D" name="mc-14" value="D">
+            <label for="mc-14-D"><strong>D:</strong> It dictates the number of levels in a hierarchical NSW (HNSW) structure.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The text says: &#39;Build a graph where each node represents a vector and it has edges to its n nearest neighbors.&#39; This directly defines the connectivity of the graph.</div>
+            <div class="topics">Θέματα: navigable small worlds, graph construction</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="15" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is NOT a characteristic of the Inverted File (IVFFlat) vector index as described?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-15-A" name="mc-15" value="A">
+            <label for="mc-15-A"><strong>A:</strong> It uses a clustering algorithm to partition vectors.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-15-B" name="mc-15" value="B">
+            <label for="mc-15-B"><strong>B:</strong> It involves scanning groups of vectors to find a match.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-15-C" name="mc-15" value="C">
+            <label for="mc-15-C"><strong>C:</strong> It builds a graph of nearest neighbors for search.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-15-D" name="mc-15" value="D">
+            <label for="mc-15-D"><strong>D:</strong> It can preprocess/quantize vectors to reduce dimensionality.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Building a graph of nearest neighbors is characteristic of Navigable Small Worlds, not Inverted File indexes. Inverted File uses clustering and group scanning.</div>
+            <div class="topics">Θέματα: inverted file, characteristics, distinction</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="16" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">A database system needs to support efficient approximate nearest neighbor search for a large collection of image embeddings. Which type of index would be suitable based on the provided content?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-16-A" name="mc-16" value="A">
+            <label for="mc-16-A"><strong>A:</strong> A traditional B+-tree index.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-16-B" name="mc-16" value="B">
+            <label for="mc-16-B"><strong>B:</strong> A hash index for exact matches.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-16-C" name="mc-16" value="C">
+            <label for="mc-16-C"><strong>C:</strong> Either an Inverted File or a Navigable Small Worlds index.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-16-D" name="mc-16" value="D">
+            <label for="mc-16-D"><strong>D:</strong> An external sorting algorithm.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Both Inverted File and Navigable Small Worlds indexes are designed for finding matches (approximate nearest neighbors) for vectors, which image embeddings are. Traditional B+-trees and hash indexes are not designed for similarity search on high-dimensional vectors.</div>
+            <div class="topics">Θέματα: application, vector indexes</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="17">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the fundamental approach of an Inverted File index for vectors?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">It partitions vectors into smaller groups using a clustering algorithm.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: inverted file, definition</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="18">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">How is a match typically found in an Inverted File index after a query vector is mapped to a group?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">By scanning the vectors within that specific group.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: inverted file, search process</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="19">
+        <div class="qtype">FLASHCARD - when-to-use
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">When would you &#39;check nearby groups&#39; in an Inverted File index search?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">To improve the accuracy of the match finding process.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: inverted file, accuracy</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="20">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the purpose of &#39;preprocessing / quantizing vectors&#39; in the context of Inverted File indexes?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">To reduce dimensionality, which helps optimize performance and efficiency.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: inverted file, optimization</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="21">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the core data structure used by Navigable Small Worlds indexes?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A graph where each node represents a vector and has edges to its &#39;n&#39; nearest neighbors.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: navigable small worlds, data structure</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="22">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">Explain the search strategy used in Navigable Small Worlds indexes.</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">You enter the graph and then greedily choose the next edge that moves closer to the target vector.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: navigable small worlds, search process</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="23">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What does HNSW stand for and what does it introduce to Navigable Small Worlds?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">HNSW stands for Hierarchical Navigable Small Worlds, and it introduces the concept of using multiple levels of graphs.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: navigable small worlds, HNSW</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="24">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">Name one example of a Navigable Small Worlds index.</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Faiss or hnswlib.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: navigable small worlds, examples</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="25">
+        <div class="qtype">FLASHCARD - comparison
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the fundamental difference in how Inverted File and Navigable Small Worlds indexes structure their data for search?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Inverted File uses clustering to partition vectors into groups, while Navigable Small Worlds builds a graph of nearest neighbors.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: comparison, inverted file, navigable small worlds</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="26">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the primary goal of both Inverted File and Navigable Small Worlds vector indexes?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">To efficiently find a match for a given vector (i.e., approximate nearest neighbor search).</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: vector indexes, purpose</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="27" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The Inverted File (IVFFlat) index primarily uses a graph structure with edges to nearest neighbors for vector organization.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">This statement describes Navigable Small Worlds. Inverted File indexes partition vectors using a clustering algorithm.</div>
+            <div class="topics">Θέματα: inverted file, navigable small worlds, comparison</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="28" data-correct="true">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">To improve accuracy, an Inverted File index may scan vectors in groups adjacent to the one initially mapped by the query.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The content explicitly states: &#39;→Also check nearby groups to improve accuracy.&#39;</div>
+            <div class="topics">Θέματα: inverted file, accuracy</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="29" data-correct="true">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">HNSW is an optimization for Navigable Small Worlds indexes that involves using multiple levels of graphs.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The content states: &#39;→Can use multiple levels of graphs (HNSW)&#39; under Navigable Small Worlds.</div>
+            <div class="topics">Θέματα: navigable small worlds, HNSW</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="30" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The search process in Navigable Small Worlds indexes involves a full, exhaustive scan of all vectors to guarantee the exact nearest neighbor.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The search is described as &#39;greedily choose the next edge&#39;, implying an approximate search, not an exhaustive scan for exact nearest neighbor.</div>
+            <div class="topics">Θέματα: navigable small worlds, search process, approximate search</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="31" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Preprocessing and quantizing vectors in Inverted File indexes is primarily done to increase the precision of the clustering algorithm.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">While it might indirectly affect precision, the primary stated purpose of reducing dimensionality (preprocessing/quantizing) is for optimization, typically implying efficiency gains (e.g., reduced computation, memory). Precision is more about the clustering algorithm itself and checking nearby groups.</div>
+            <div class="topics">Θέματα: inverted file, optimization, dimensionality reduction</div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="32" data-correct="clustering">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Inverted File indexes partition vectors into smaller groups using a _________ algorithm.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">Think about how data points are grouped.</div>
+            <div class="answer-reveal">clustering</div>
+            <div class="topics">Θέματα: inverted file, organization</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="33" data-correct="greedily">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">To find a match in a Navigable Small Worlds index, one must enter the graph and then _________ choose the next edge that moves closer to the target vector.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">This term describes a common algorithmic approach for finding local optima.</div>
+            <div class="answer-reveal">greedily</div>
+            <div class="topics">Θέματα: navigable small worlds, search process</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="34" data-correct="multiple">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The optimization known as HNSW allows Navigable Small Worlds indexes to use _________ levels of graphs.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">Think about the &#39;H&#39; in HNSW.</div>
+            <div class="answer-reveal">multiple</div>
+            <div class="topics">Θέματα: navigable small worlds, HNSW</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="35" data-correct="dimensionality">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The process of &#39;Preprocess / quantize vectors&#39; in Inverted File indexes is done to reduce _________.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">This refers to the number of features or attributes in a vector.</div>
+            <div class="answer-reveal">dimensionality</div>
+            <div class="topics">Θέματα: inverted file, optimization</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="36">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Describe the conceptual steps involved in finding a match for a query vector using an Inverted File (IVFFlat) index, assuming the index is already built.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>Step 1: Apply the same clustering algorithm used during index creation to the query vector to map it to a specific group.</li><li>Step 2: Scan all vectors within that identified group to find potential matches.</li><li>Step 3 (Optional, for accuracy): If higher accuracy is desired, also scan vectors in groups nearby the initially mapped group.</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>correct_initial_mapping: 30 βαθμοί</li><li>correct_primary_scan: 30 βαθμοί</li><li>correct_accuracy_step: 40 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: inverted file search, clustering, group scanning, accuracy improvement</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="37">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Outline the conceptual search process for finding a match for a query vector within a Navigable Small Worlds (NSW) index.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>Step 1: Enter the graph at an initial entry point (e.g., a random node, or a node from a higher level in HNSW).</li><li>Step 2: From the current node, greedily choose the next edge that leads to a node whose vector is closer to the query vector.</li><li>Step 3: Repeat Step 2, navigating through the graph, until a local optimum is reached (i.e., no neighbor is closer than the current node), or a stopping criterion is met. The final node reached is the approximate match.</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>correct_entry_point: 30 βαθμοί</li><li>correct_greedy_navigation: 40 βαθμοί</li><li>correct_termination_condition: 30 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: NSW search, graph traversal, greedy choice, nearest neighbors</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="38">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Imagine you are designing a system for a large-scale image search engine that needs to find visually similar images (represented as high-dimensional vectors) very quickly. You have limited computational resources for the search phase. Based on the provided content, conceptually compare how an Inverted File (IVFFlat) index and a Navigable Small Worlds (NSW) index would handle the search, and suggest one conceptual advantage of each in this scenario.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>**IVFFlat Search:** The query vector is clustered to find its group, and then only vectors within that group (and potentially nearby groups) are scanned. This limits the search space to a small subset of the total data.</li><li>**NSW Search:** The query vector navigates a pre-built graph by greedily moving towards closer neighbors. This avoids full scans and can be very fast by following direct paths.</li><li>**Conceptual Advantage of IVFFlat:** Its primary advantage in resource-constrained scenarios is that it explicitly partitions the data, allowing for a very focused scan on a small subset of the data, potentially reducing I/O and CPU for specific queries if the clustering is effective.</li><li>**Conceptual Advantage of NSW:** Its primary advantage is its graph-based navigation, which can find approximate nearest neighbors very rapidly by following &#39;shortcuts&#39; through the graph, often outperforming clustering-based methods in speed for high recall, especially with HNSW&#39;s multi-level structure.</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>IVFFlat_search_description: 25 βαθμοί</li><li>NSW_search_description: 25 βαθμοί</li><li>IVFFlat_conceptual_advantage: 25 βαθμοί</li><li>NSW_conceptual_advantage: 25 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: IVFFlat mechanism, NSW mechanism, performance implications, search space</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question short-answer" data-qtype="Σύντομη Απάντηση" data-idx="39">
+        <div class="qtype">SHORT ANSWER QUESTION
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Explain the fundamental difference in how Inverted File and Navigable Small Worlds indexes are structured to support vector similarity search.</div>
+            <div class="answer-points" style="display:none;">
+                <h4>Σημαντικά σημεία:</h4>
+                <ul><li>Inverted File: Structures data by partitioning vectors into groups using a clustering algorithm.</li><li>Navigable Small Worlds: Structures data by building a graph where each vector is a node connected to its nearest neighbors.</li><li>This structural difference leads to different search mechanisms (group scanning vs. graph traversal).</li></ul>
+                <div class="meta">Μέγιστη βαθμολογία: 10</div>
+            </div>
+            <div class="topics">Θέματα: comparison, inverted file, navigable small worlds</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question short-answer" data-qtype="Σύντομη Απάντηση" data-idx="40">
+        <div class="qtype">SHORT ANSWER QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Discuss the role of &#39;greedy choice&#39; in the search process of a Navigable Small Worlds index and why it&#39;s used.</div>
+            <div class="answer-points" style="display:none;">
+                <h4>Σημαντικά σημεία:</h4>
+                <ul><li>Role: In NSW, &#39;greedy choice&#39; means at each step of the search, the algorithm selects the next node (via an edge) that is closest to the query vector among its current neighbors.</li><li>Why used: It&#39;s a heuristic to quickly navigate the graph towards the approximate nearest neighbor without exhaustively checking all paths. This makes the search very fast and efficient, though it doesn&#39;t guarantee the absolute exact nearest neighbor (it finds an approximate one).</li></ul>
+                <div class="meta">Μέγιστη βαθμολογία: 10</div>
+            </div>
+            <div class="topics">Θέματα: navigable small worlds, search process, greedy algorithm, approximate search</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question scenario" data-qtype="Σενάριο" data-idx="41">
+        <div class="qtype">SCENARIO BASED QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="scenario-text">A company is building a recommendation system where users&#39; preferences are represented as high-dimensional vectors. They need to find similar users quickly to suggest new content. The dataset is extremely large, and the primary goal is fast approximate nearest neighbor search, even if it means slightly lower recall compared to an exhaustive search. Memory usage during search is also a critical concern.</div>
+            <div class="qtext">Based on the provided lecture content, which type of vector index (Inverted File or Navigable Small Worlds) would generally be more suitable for this scenario, and why? Justify your answer by referencing their operational characteristics.</div>
+            <div class="analysis" style="display:none;">
+                <h4>Βασικά σημεία ανάλυσης:</h4>
+                <ul><li>large dataset</li><li>fast approximate search</li><li>high-dimensional vectors</li><li>memory usage</li><li>recall vs. exactness</li></ul>
+                <div class="sample-answer">
+                    <h4>Ενδεικτική απάντηση:</h4>
+                    <div>For this scenario, a **Navigable Small Worlds (NSW)** index (especially HNSW) would generally be more suitable. 
+
+**Justification:**
+1.  **Fast Approximate Search:** NSW indexes are designed for very fast approximate nearest neighbor search by navigating a graph greedily. This aligns perfectly with the requirement for &#39;fast approximate nearest neighbor search&#39; and the willingness to accept &#39;slightly lower recall&#39;.
+2.  **Scalability for Large Datasets:** While both can handle large datasets, NSW (and HNSW) often demonstrates superior performance for high-dimensional, large-scale approximate nearest neighbor queries in terms of speed and recall for a given index size.
+3.  **Memory Usage:** While NSW indexes can be memory-intensive due to graph storage, the &#39;greedy choice&#39; search mechanism means that during query time, only a small portion of the graph needs to be traversed, potentially leading to efficient memory access patterns during search. Inverted File indexes, while partitioning, might still involve scanning entire clusters which could be large, depending on cluster size and number of nearby clusters checked. The graph traversal in NSW can be more efficient in terms of I/O and memory access during query time once the graph is loaded.</div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: vector indexes, application, performance, inverted file, navigable small worlds</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση ανάλυσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question calculation" data-qtype="Υπολογιστικό" data-idx="42">
+        <div class="qtype">CALCULATION QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Conceptually, if an Inverted File index has &#39;N&#39; groups and a query vector is mapped to one group, and then &#39;K&#39; nearby groups are also checked for improved accuracy, what is the conceptual &#39;search space&#39; in terms of number of groups accessed for a single query?</div>
+            <div class="given-values"><b>Δεδομένα:</b> N_total_groups: N, K_nearby_groups_checked: K</div>
+            <div class="solution" style="display:none;">
+                <h4>Βήματα επίλυσης:</h4>
+                <ol><li>The query vector is mapped to 1 primary group.</li><li>Additionally, K nearby groups are checked.</li><li>Total groups accessed = 1 (primary) + K (nearby).</li></ol>
+                <div class="final-answer"><b>Τελική απάντηση:</b> 1 + K groups</div>
+            </div>
+            <div class="topics">Θέματα: inverted file, io_cost, conceptual_calculation</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="quiz-mode" style="display:none;">
+        <div id="quiz-question"></div>
+        <div class="quiz-navigation">
+            <button id="prev-question-btn">Προηγούμενη</button>
+            <button id="next-question-btn">Επόμενη</button>
+        </div>
+    </div>
+</div>
+<script src="quiz.js"></script>
+</body>
+</html>

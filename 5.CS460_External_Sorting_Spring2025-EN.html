@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>External Sorting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="meta">
+        <b>Μάθημα:</b> CS-460 | <b>Διάλεξη:</b> X | <b>Τίτλος:</b> External Sorting | <b>Ημ/νία:</b> 2025-05-28
+    </div>
+    <div class="mode-switch">
+        <button id="show-all-btn">Όλες οι ερωτήσεις</button>
+        <button id="quiz-mode-btn">Quiz mode</button>
+    </div>
+    <div id="questions-all">
+
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="0" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the primary reason for using external sorting in a Database Management System?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-0-A" name="mc-0" value="A">
+            <label for="mc-0-A"><strong>A:</strong> To sort data that fits entirely in main memory.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-0-B" name="mc-0" value="B">
+            <label for="mc-0-B"><strong>B:</strong> To reduce the number of disk I/Os when data is smaller than memory.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-0-C" name="mc-0" value="C">
+            <label for="mc-0-C"><strong>C:</strong> To handle datasets that are too large to fit into main memory.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-0-D" name="mc-0" value="D">
+            <label for="mc-0-D"><strong>D:</strong> To improve the performance of internal sorting algorithms like Quicksort.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">External sorting is specifically designed for datasets that reside on disk and are too large to be held entirely in main memory, necessitating disk I/Os during the sorting process.</div>
+            <div class="topics">Θέματα: external_sorting, definition, memory_constraints</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="1" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is NOT a reason why sorting is a classic and important problem in computer science and DBMS?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-1-A" name="mc-1" value="A">
+            <label for="mc-1-A"><strong>A:</strong> It is the first step in bulk loading B+ tree indexes.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-1-B" name="mc-1" value="B">
+            <label for="mc-1-B"><strong>B:</strong> It is useful for eliminating duplicates in a collection of records.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-1-C" name="mc-1" value="C">
+            <label for="mc-1-C"><strong>C:</strong> It guarantees that all subsequent queries will run in O(1) time.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-1-D" name="mc-1" value="D">
+            <label for="mc-1-D"><strong>D:</strong> Some operators (e.g., sort-merge join) rely on sorted input files.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">While sorting is crucial for many DBMS operations, it does not guarantee O(1) query time for all subsequent operations. It&#39;s a preparatory step for certain operations or for specific output requirements.</div>
+            <div class="topics">Θέματα: sorting_importance, DBMS_operations</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="2" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In the context of external sorting, what is a &#39;run&#39;?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-2-A" name="mc-2" value="A">
+            <label for="mc-2-A"><strong>A:</strong> A single record that has been sorted.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-2-B" name="mc-2" value="B">
+            <label for="mc-2-B"><strong>B:</strong> A subfile of records that has been sorted.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-2-C" name="mc-2" value="C">
+            <label for="mc-2-C"><strong>C:</strong> The total number of passes required for sorting.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-2-D" name="mc-2" value="D">
+            <label for="mc-2-D"><strong>D:</strong> A buffer page used during the merge phase.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">A &#39;run&#39; refers to a sorted subfile created during the initial pass (Pass 0) of an external merge sort algorithm.</div>
+            <div class="topics">Θέματα: external_sorting, terminology, runs</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="3" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">A Two-Way Merge Sort requires how many buffer pages for its merge passes (Pass 1 and subsequent)?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-3-A" name="mc-3" value="A">
+            <label for="mc-3-A"><strong>A:</strong> One buffer page.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-3-B" name="mc-3" value="B">
+            <label for="mc-3-B"><strong>B:</strong> Two buffer pages.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-3-C" name="mc-3" value="C">
+            <label for="mc-3-C"><strong>C:</strong> Three buffer pages.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-3-D" name="mc-3" value="D">
+            <label for="mc-3-D"><strong>D:</strong> Four buffer pages.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The Two-Way Merge Sort algorithm explicitly states it requires 3 buffers for Pass 1, 2, 3, etc.: two for input runs and one for output.</div>
+            <div class="topics">Θέματα: two_way_merge_sort, buffers, algorithm_details</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="4" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the primary goal of Multi-Way Merge Sort compared to Two-Way Merge Sort?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-4-A" name="mc-4" value="A">
+            <label for="mc-4-A"><strong>A:</strong> To increase the number of initial runs.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-4-B" name="mc-4" value="B">
+            <label for="mc-4-B"><strong>B:</strong> To decrease the number of passes required.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-4-C" name="mc-4" value="C">
+            <label for="mc-4-C"><strong>C:</strong> To use less main memory for sorting.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-4-D" name="mc-4" value="D">
+            <label for="mc-4-D"><strong>D:</strong> To only sort data that fits entirely in memory.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Multi-Way Merge Sort aims to reduce the number of passes by merging more than 2 runs at a time (using B-1 input buffers), and also by producing longer initial runs in Pass 0.</div>
+            <div class="topics">Θέματα: multi_way_merge_sort, optimization, passes</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="5" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Given a file of N pages and B available buffer pages, how many sorted runs are produced in Pass 0 of Multi-Way Merge Sort?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-5-A" name="mc-5" value="A">
+            <label for="mc-5-A"><strong>A:</strong> N / B</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-5-B" name="mc-5" value="B">
+            <label for="mc-5-B"><strong>B:</strong> ceil(N / B)</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-5-C" name="mc-5" value="C">
+            <label for="mc-5-C"><strong>C:</strong> N * B</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-5-D" name="mc-5" value="D">
+            <label for="mc-5-D"><strong>D:</strong> B / N</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Pass 0 reads input data in B pages at a time and produces sorted runs of B pages each. The number of such runs will be N divided by B, rounded up if N is not a multiple of B, hence ceil(N/B).</div>
+            <div class="topics">Θέματα: multi_way_merge_sort, pass_0, runs, calculation_concept</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="6" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is an advantage of Replacement (Tournament) Sort over the standard Pass 0 of Multi-Way Merge Sort?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-6-A" name="mc-6" value="A">
+            <label for="mc-6-A"><strong>A:</strong> It uses fewer buffer pages.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-6-B" name="mc-6" value="B">
+            <label for="mc-6-B"><strong>B:</strong> It produces shorter sorted runs on average.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-6-C" name="mc-6" value="C">
+            <label for="mc-6-C"><strong>C:</strong> It minimizes the number of initial runs by generating longer runs.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-6-D" name="mc-6" value="D">
+            <label for="mc-6-D"><strong>D:</strong> It is always faster than Quicksort for internal sorting.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Replacement Sort is specifically introduced as an optimization for Pass 0 to reduce the number of initial runs by generating longer runs on average (2*(B-2) pages long), which in turn reduces the total number of merge passes.</div>
+            <div class="topics">Θέματα: replacement_sort, optimization, run_length</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="7" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Why is &#39;double buffering&#39; used in external sorting?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-7-A" name="mc-7" value="A">
+            <label for="mc-7-A"><strong>A:</strong> To increase the number of passes required for sorting.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-7-B" name="mc-7" value="B">
+            <label for="mc-7-B"><strong>B:</strong> To reduce the total number of I/O operations.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-7-C" name="mc-7" value="C">
+            <label for="mc-7-C"><strong>C:</strong> To keep the CPU busy while waiting for I/O requests to complete.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-7-D" name="mc-7" value="D">
+            <label for="mc-7-D"><strong>D:</strong> To allow for more runs to be merged simultaneously.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Double buffering aims to overlap I/O operations with CPU processing. While one buffer is being processed by the CPU, the &#39;shadow block&#39; (second buffer) is being filled/emptied by I/O, thus reducing CPU idle time.</div>
+            <div class="topics">Θέματα: double_buffering, I/O_optimization, performance</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="8" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">When sorting a large file, using an unclustered B+ tree index on the sorting column is generally:</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-8-A" name="mc-8" value="A">
+            <label for="mc-8-A"><strong>A:</strong> A good idea, as it avoids external sorting entirely.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-8-B" name="mc-8" value="B">
+            <label for="mc-8-B"><strong>B:</strong> A good idea, as it provides sorted access to data entries.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-8-C" name="mc-8" value="C">
+            <label for="mc-8-C"><strong>C:</strong> A very bad idea, as it can lead to one I/O per data record in the worst case.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-8-D" name="mc-8" value="D">
+            <label for="mc-8-D"><strong>D:</strong> Indifferent, as its performance is comparable to external merge sort.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">An unclustered B+ tree stores &lt;key,rid&gt; pairs. Retrieving records in sorted order means following RIDs, which can point to arbitrary data pages, leading to a high number of random I/Os (potentially one per record) if records are not physically clustered, making it very inefficient compared to external sorting.</div>
+            <div class="topics">Θέματα: B+tree_for_sorting, unclustered_index, I/O_cost, performance_comparison</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="9" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the lexicographical order used for when a sort key is an ordered list of attributes (e.g., (A,B))?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-9-A" name="mc-9" value="A">
+            <label for="mc-9-A"><strong>A:</strong> To define the order of attributes within a single record.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-9-B" name="mc-9" value="B">
+            <label for="mc-9-B"><strong>B:</strong> To determine the physical storage order of records on disk.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-9-C" name="mc-9" value="C">
+            <label for="mc-9-C"><strong>C:</strong> To define the comparison order between two records based on multiple attributes.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-9-D" name="mc-9" value="D">
+            <label for="mc-9-D"><strong>D:</strong> To specify the block size for I/O operations.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Lexicographical order defines how records are compared when the sort key consists of multiple attributes, comparing the first attribute, then the second if the first are equal, and so on.</div>
+            <div class="topics">Θέματα: sorting_key, lexicographical_order, definition</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="10" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In Multi-Way Merge Sort, how many input buffers are typically used in the merging phase (Pass 1 and subsequent passes)?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-10-A" name="mc-10" value="A">
+            <label for="mc-10-A"><strong>A:</strong> B</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-10-B" name="mc-10" value="B">
+            <label for="mc-10-B"><strong>B:</strong> B-1</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-10-C" name="mc-10" value="C">
+            <label for="mc-10-C"><strong>C:</strong> 1</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-10-D" name="mc-10" value="D">
+            <label for="mc-10-D"><strong>D:</strong> 2</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The merging phase of Multi-Way Merge Sort uses B-1 buffers for input runs and 1 buffer for output, allowing for a (B-1)-way merge.</div>
+            <div class="topics">Θέματα: multi_way_merge_sort, buffers, merge_phase</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="11" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The total I/O cost for an external merge sort algorithm is generally expressed as 2N * (# of passes). Why is it 2N?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-11-A" name="mc-11" value="A">
+            <label for="mc-11-A"><strong>A:</strong> Because each page is read twice from disk.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-11-B" name="mc-11" value="B">
+            <label for="mc-11-B"><strong>B:</strong> Because each page is written twice to disk.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-11-C" name="mc-11" value="C">
+            <label for="mc-11-C"><strong>C:</strong> Because each page is read once and written once in each pass.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-11-D" name="mc-11" value="D">
+            <label for="mc-11-D"><strong>D:</strong> Because two disks are always used for sorting.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">In each pass of external merge sort (except potentially the very last write), every page of the file is read from disk and then written back to disk after sorting/merging, accounting for 2N I/O operations per pass.</div>
+            <div class="topics">Θέματα: I/O_cost, external_sorting, cost_model</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="12" data-correct="D">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Consider a scenario where you have 80 runs, each 80 pages long, and 81 pages of buffer space. If you merge all 80 runs in a single pass, what is the approximate total number of seeks?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-12-A" name="mc-12" value="A">
+            <label for="mc-12-A"><strong>A:</strong> 80 seeks</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-12-B" name="mc-12" value="B">
+            <label for="mc-12-B"><strong>B:</strong> 640 seeks</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-12-C" name="mc-12" value="C">
+            <label for="mc-12-C"><strong>C:</strong> 1280 seeks</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-12-D" name="mc-12" value="D">
+            <label for="mc-12-D"><strong>D:</strong> 6400 seeks</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">If all 80 runs are merged in a single pass, each run&#39;s pages will likely require a seek to access (assuming random access for each run&#39;s next page). Since there are 80 pages per run, and 80 runs, the total seeks would be 80 runs * 80 seeks/run = 6400 seeks. This highlights the problem with random I/O when merging many runs.</div>
+            <div class="topics">Θέματα: I/O_cost, sequential_vs_random_IO, seeks</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="13" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Why is virtual memory generally not recommended as a solution for external sorting when data is much larger than physical memory?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-13-A" name="mc-13" value="A">
+            <label for="mc-13-A"><strong>A:</strong> Virtual memory is slower than direct disk I/O.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-13-B" name="mc-13" value="B">
+            <label for="mc-13-B"><strong>B:</strong> It leads to excessive page faults (thrashing) due to unpredictable access patterns.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-13-C" name="mc-13" value="C">
+            <label for="mc-13-C"><strong>C:</strong> It cannot handle files larger than the physical RAM.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-13-D" name="mc-13" value="D">
+            <label for="mc-13-D"><strong>D:</strong> It requires more CPU cycles than external sorting algorithms.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">While virtual memory allows processes to use more memory than physically available, for large-scale sorting, the access patterns can become highly unpredictable, leading to frequent page faults (thrashing) where the system spends most of its time swapping pages between disk and memory, severely degrading performance.</div>
+            <div class="topics">Θέματα: virtual_memory, thrashing, external_sorting_challenges</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="14" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the main benefit of using a clustered B+ tree index for sorting a table?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-14-A" name="mc-14" value="A">
+            <label for="mc-14-A"><strong>A:</strong> It reduces the number of initial runs.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-14-B" name="mc-14" value="B">
+            <label for="mc-14-B"><strong>B:</strong> It allows direct retrieval of records in sorted order with minimal I/O.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-14-C" name="mc-14" value="C">
+            <label for="mc-14-C"><strong>C:</strong> It eliminates the need for any buffer pages.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-14-D" name="mc-14" value="D">
+            <label for="mc-14-D"><strong>D:</strong> It is always faster than external sorting, regardless of clustering.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">With a clustered B+ tree, the data records themselves are stored in the order of the key. Traversing the leaf pages of the B+ tree directly retrieves the data records in sorted order, often with sequential I/O, making it very efficient for sorting.</div>
+            <div class="topics">Θέματα: B+tree_for_sorting, clustered_index, I/O_efficiency</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="15" data-correct="A">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The &#39;fan-out&#39; during merge passes in external sorting is reduced if:</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-15-A" name="mc-15" value="A">
+            <label for="mc-15-A"><strong>A:</strong> The block size is increased (when buffers are blocks of pages).</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-15-B" name="mc-15" value="B">
+            <label for="mc-15-B"><strong>B:</strong> The number of buffer pages (B) is increased.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-15-C" name="mc-15" value="C">
+            <label for="mc-15-C"><strong>C:</strong> Double buffering is employed.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-15-D" name="mc-15" value="D">
+            <label for="mc-15-D"><strong>D:</strong> The number of initial runs is minimized.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The fan-out (number of runs merged simultaneously) is B-1. If each input buffer is made a &#39;block of pages&#39; to minimize seek time, then effectively fewer *logical* buffers (each holding multiple pages) can fit into the total B buffer pages, reducing the effective fan-out (B-1) for merging individual runs.</div>
+            <div class="topics">Θέματα: fan_out, block_size, I/O_optimization</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="16" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">If a file has N pages and Pass 0 of Multi-Way Merge Sort produces `r` initial runs, the number of merge passes required after Pass 0 is approximately:</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-16-A" name="mc-16" value="A">
+            <label for="mc-16-A"><strong>A:</strong> log_B(r)</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-16-B" name="mc-16" value="B">
+            <label for="mc-16-B"><strong>B:</strong> log_(B-1)(r)</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-16-C" name="mc-16" value="C">
+            <label for="mc-16-C"><strong>C:</strong> r / (B-1)</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-16-D" name="mc-16" value="D">
+            <label for="mc-16-D"><strong>D:</strong> r * (B-1)</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">In each merge pass, B-1 runs are merged. So, if there are `r` runs, the number of passes needed to merge them into a single run is log base (B-1) of r. The total passes include Pass 0 plus these merge passes.</div>
+            <div class="topics">Θέματα: multi_way_merge_sort, passes, formula</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="17" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Why might minimizing the number of passes not always be optimal for overall I/O cost, especially in later merge passes?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-17-A" name="mc-17" value="A">
+            <label for="mc-17-A"><strong>A:</strong> Because a higher number of passes always implies more random I/Os.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-17-B" name="mc-17" value="B">
+            <label for="mc-17-B"><strong>B:</strong> Because increasing the number of runs merged simultaneously can lead to a very high number of random seeks.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-17-C" name="mc-17" value="C">
+            <label for="mc-17-C"><strong>C:</strong> Because smaller block sizes are always preferred for sequential I/O.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-17-D" name="mc-17" value="D">
+            <label for="mc-17-D"><strong>D:</strong> Because CPU cost becomes dominant in later passes.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The lecture illustrates that merging too many runs at once (to minimize passes) can lead to a very high number of random seeks, as each run&#39;s next page might be on a different part of the disk. A strategy with more passes but fewer, larger sequential reads per run can sometimes be more efficient in terms of total seek time.</div>
+            <div class="topics">Θέματα: I/O_optimization, sequential_vs_random_IO, seeks, performance_tradeoffs</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="18" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is a key characteristic of a file sorted with respect to a sort key `k` and ordering `θ`?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-18-A" name="mc-18" value="A">
+            <label for="mc-18-A"><strong>A:</strong> All records have the same key value.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-18-B" name="mc-18" value="B">
+            <label for="mc-18-B"><strong>B:</strong> For any two records `r1, r2` with `r1` preceding `r2`, `r1.k θ r2.k`.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-18-C" name="mc-18" value="C">
+            <label for="mc-18-C"><strong>C:</strong> The file size is always less than main memory.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-18-D" name="mc-18" value="D">
+            <label for="mc-18-D"><strong>D:</strong> Records are stored in random order.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The definition of a sorted file states that for any two records r1, r2 with r1 preceding r2 in the file, their corresponding keys are in θ-order: r1.k θ r2.k.</div>
+            <div class="topics">Θέματα: sorting, definition</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="19">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is &#39;External Sorting&#39;?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A sorting process where the collection of data items to be sorted is not stored entirely in main memory, but primarily on disk.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: external_sorting, definition</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="20">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">In external sorting, what is a &#39;run&#39;?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A sorted subfile of records produced during the initial pass (Pass 0).</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: external_sorting, terminology, runs</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="21">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the purpose of &#39;Pass 0&#39; in an external merge sort algorithm?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">To read input data into main memory (B pages at a time), sort these memory-sized chunks internally, and write them back to disk as initial sorted &#39;runs&#39;.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: external_sorting, pass_0, algorithm_steps</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="22">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">Explain the concept of &#39;Double Buffering&#39; in the context of external sorting.</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Using two buffers (e.g., INPUT and INPUT&#39;) for I/O. While the CPU processes data from one buffer, the other buffer is being filled/emptied by disk I/O, reducing CPU idle time and overlapping I/O with computation.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: double_buffering, I/O_optimization</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="23">
+        <div class="qtype">FLASHCARD - formula
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the formula for the total I/O cost of an external merge sort algorithm (in terms of N pages and number of passes)?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">2N * (# of passes), where N is the total number of pages in the file. (Each page is read once and written once per pass).</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: I/O_cost, formula, external_sorting</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="24">
+        <div class="qtype">FLASHCARD - formula
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the formula for the total number of passes in Multi-Way Merge Sort, given N pages and B buffer pages?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">1 + ceil(log_(B-1)(ceil(N/B))) (or 1 + log_(B-1)(r) where r = ceil(N/B) is the number of initial runs).</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: multi_way_merge_sort, passes, formula</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="25">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the average length of runs produced by Replacement (Tournament) Sort?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Approximately 2*(B-2) pages long, where B is the number of available buffer pages.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: replacement_sort, run_length, optimization</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="26">
+        <div class="qtype">FLASHCARD - when-to-use
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">When is a clustered B+ tree a good choice for sorting a large file?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">When the data records themselves are physically stored in the order of the sort key. This allows for efficient sequential retrieval of sorted data by traversing the leaf pages of the index.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: B+tree_for_sorting, clustered_index, performance</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="27">
+        <div class="qtype">FLASHCARD - when-to-use
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">When is an unclustered B+ tree generally a *bad* choice for sorting a large file?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">When the data records are not physically ordered by the sort key. Retrieving records via RIDs from the index can lead to a high number of random disk I/Os (potentially one I/O per record), making it very inefficient.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: B+tree_for_sorting, unclustered_index, performance</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="28">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">How is &#39;lexicographical order&#39; applied when sorting records by a key composed of multiple attributes (e.g., (A, B))?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Records are compared first by the primary attribute (A). If they are equal, then they are compared by the secondary attribute (B), and so on.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: sorting_key, lexicographical_order</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="29">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">Why is sorting useful for eliminating duplicates in a collection of records (e.g., `SELECT DISTINCT`)?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">Once records are sorted, duplicate records will appear consecutively. This makes it easy to identify and remove them by simply iterating through the sorted list and keeping only the first occurrence of each unique record.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: sorting_importance, duplicates, DBMS_operations</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="30">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the main goal of &#39;external sorting&#39; in terms of data location?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">To sort data that lives on disk, rather than entirely in main memory.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: external_sorting, definition</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="31" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">External sorting is primarily used when the entire dataset to be sorted can fit comfortably within main memory.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">External sorting is specifically designed for data that *does not* fit into main memory. If data fits, internal sorting algorithms are used.</div>
+            <div class="topics">Θέματα: external_sorting, definition</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="32" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In a Two-Way Merge Sort, Pass 0 uses three buffer pages for sorting and writing initial runs.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Pass 0 of Two-Way Merge Sort explicitly states it uses &#39;only one buffer page&#39; to read, sort, and write pages. Three buffers are used for subsequent merge passes.</div>
+            <div class="topics">Θέματα: two_way_merge_sort, buffers, pass_0</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="33" data-correct="true">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Multi-Way Merge Sort aims to reduce the number of initial runs and the number of merge passes compared to Two-Way Merge Sort.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">These are the two stated improvements of Multi-Way Merge Sort: producing longer initial runs (reducing their count) and merging more runs at a time (reducing merge passes).</div>
+            <div class="topics">Θέματα: multi_way_merge_sort, optimization</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="34" data-correct="true">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Replacement (Tournament) Sort, while producing longer runs, is generally slower than Quicksort for internal sorting.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The summary states &#39;Replacement sort: slower (2x), longer runs&#39;. This refers to its performance as an *internal* sorting algorithm compared to Quicksort, even though it&#39;s beneficial for generating longer runs in the external sorting context.</div>
+            <div class="topics">Θέματα: replacement_sort, internal_sorting_comparison</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="35" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">An unclustered B+ tree index is generally an efficient method for sorting a large file, comparable to external merge sort.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">An unclustered B+ tree index is generally a very inefficient method for sorting large files because retrieving records in sorted order often requires one random I/O per data record, leading to significantly higher I/O costs compared to external merge sort.</div>
+            <div class="topics">Θέματα: B+tree_for_sorting, unclustered_index, performance_comparison</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="36" data-correct="true">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The cost of external merge sort is typically measured as 2N times the number of passes, where N is the number of pages in the file.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">This is the standard formula provided in the lecture for the total I/O cost, representing one read and one write per page per pass.</div>
+            <div class="topics">Θέματα: I/O_cost, external_sorting</div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="37" data-correct="sorting">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The primary challenge in external sorting is to overlap disk I/Os with ______ in memory.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">This is the core activity performed on data in memory.</div>
+            <div class="answer-reveal">sorting</div>
+            <div class="topics">Θέματα: external_sorting, challenges</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="38" data-correct="B">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In Pass 0 of Multi-Way Merge Sort, B buffers are used to produce sorted runs of size ______ pages each.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">Think about how much data fits into memory for the initial sort.</div>
+            <div class="answer-reveal">B</div>
+            <div class="topics">Θέματα: multi_way_merge_sort, pass_0, runs</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="39" data-correct="2*(B-2)">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Replacement (Tournament) Sort produces runs of approximately ______ pages long on average.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">This is a specific formula mentioned for this optimization.</div>
+            <div class="answer-reveal">2*(B-2)</div>
+            <div class="topics">Θέματα: replacement_sort, run_length</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="40" data-correct="one I/O">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">For an unclustered B+ tree used for sorting, the worst-case I/O cost can be ______ per data record.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">Consider the scenario where each record is on a different disk page.</div>
+            <div class="answer-reveal">one I/O</div>
+            <div class="topics">Θέματα: B+tree_for_sorting, unclustered_index, I/O_cost</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="41">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">A file contains 100 pages (N=100) and you have 9 buffer pages (B=9) available for Multi-Way Merge Sort. Calculate the number of passes required to sort this file.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>1. Calculate the number of initial runs produced in Pass 0: `r = ceil(N / B)`.</li><li>2. Calculate the number of merge passes: `ceil(log_(B-1)(r))`.</li><li>3. Add 1 for Pass 0 to get the total number of passes.</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>correct_calculation_of_initial_runs: 30 βαθμοί</li><li>correct_calculation_of_merge_passes: 40 βαθμοί</li><li>correct_total_number_of_passes: 30 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: Multi-Way Merge Sort, number of passes formula, ceil function</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="42">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Describe the process of Replacement (Tournament) Sort, highlighting how it produces longer runs than simply sorting B-page chunks in Pass 0. Assume B buffer pages, one input buffer, one output buffer, and B-2 pages for the &#39;current set&#39; (heap).</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>1. Initialization: Read B-2 blocks into H1 (current set).</li><li>2. Main Loop: Continuously move the smallest record from H1 to the output buffer.</li><li>3. Input Handling: Read a new record from the input buffer into H1.</li><li>4. Run Termination Logic: Explain the condition for starting a new run (when the new record is smaller than the largest key already output in the current run).</li><li>5. Output Handling: Write output buffer to disk when full.</li><li>6. Average Run Length: Mention the average run length (2*(B-2)).</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>correctly_describes_initialization_and_main_loop: 40 βαθμοί</li><li>accurate_explanation_of_run_termination_condition: 30 βαθμοί</li><li>correctly_states_average_run_length_and_why_it_is_longer: 30 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: Replacement Sort algorithm, heaps, run generation, snowplow analogy</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="43">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">You are performing an external merge sort on a file of 250,000 blocks. Your main memory can hold 12,800 blocks.
+
+a) How many initial runs are produced in Pass 0?
+b) How many merge passes are required after Pass 0?
+c) What is the total number of I/O operations (reads + writes) for the entire sorting process?</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>1. a) Calculate initial runs: `ceil(Total Blocks / Memory Blocks)`.</li><li>2. b) Calculate merge passes: `ceil(log_(B-1)(initial_runs))`, where B is memory blocks.</li><li>3. c) Calculate total I/O: `2 * Total Blocks * Total Passes`.</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>correct_calculation_for_part_a: 30 βαθμοί</li><li>correct_calculation_for_part_b: 30 βαθμοί</li><li>correct_calculation_for_part_c: 40 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: Multi-Way Merge Sort, initial runs, merge passes, I/O cost</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question short-answer" data-qtype="Σύντομη Απάντηση" data-idx="44">
+        <div class="qtype">SHORT ANSWER QUESTION
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Explain why external sorting is a challenge even if the data to be sorted is *smaller* than the available main memory.</div>
+            <div class="answer-points" style="display:none;">
+                <h4>Σημαντικά σημεία:</h4>
+                <ul><li>The challenge is not just fitting data, but overlapping disk I/Os with in-memory sorting.</li><li>Minimizing the time spent waiting for disk operations (seek time, rotational delay) is crucial.</li><li>Efficient buffer management (e.g., double buffering, large blocks) is needed to keep the CPU busy.</li></ul>
+                <div class="meta">Μέγιστη βαθμολογία: 10</div>
+            </div>
+            <div class="topics">Θέματα: external_sorting, challenges, I/O_optimization</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question short-answer" data-qtype="Σύντομη Απάντηση" data-idx="45">
+        <div class="qtype">SHORT ANSWER QUESTION
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Describe the two main improvements that Multi-Way Merge Sort offers over Two-Way Merge Sort.</div>
+            <div class="answer-points" style="display:none;">
+                <h4>Σημαντικά σημεία:</h4>
+                <ul><li>**Reduction in initial runs:** Pass 0 of Multi-Way Merge Sort uses B buffers to produce longer initial runs (B pages each), whereas Two-Way Merge Sort produces 1-page runs. This reduces the total number of runs to merge.</li><li>**Reduction in merge passes:** Multi-Way Merge Sort merges B-1 runs at a time (using B-1 input buffers), significantly reducing the number of merge passes required compared to Two-Way Merge Sort which only merges 2 runs at a time.</li></ul>
+                <div class="meta">Μέγιστη βαθμολογία: 10</div>
+            </div>
+            <div class="topics">Θέματα: multi_way_merge_sort, two_way_merge_sort, optimization, comparison</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question scenario" data-qtype="Σενάριο" data-idx="46">
+        <div class="qtype">SCENARIO BASED QUESTION
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="scenario-text">You are designing a database system for a large e-commerce platform. One critical operation is to frequently retrieve customer orders sorted by `order_date` and then `customer_id`. The order table is extremely large (billions of records) and does not fit in main memory. You also need to support efficient range queries on `order_date`.</div>
+            <div class="qtext">Given the requirements, which indexing strategy would you recommend for the `order_date, customer_id` combination to facilitate sorted retrieval, and why? Discuss the trade-offs involved.</div>
+            <div class="analysis" style="display:none;">
+                <h4>Βασικά σημεία ανάλυσης:</h4>
+                <ul><li>Large dataset (external sorting likely needed if no suitable index).</li><li>Sorted retrieval requirement.</li><li>Range queries on `order_date`.</li><li>Clustered vs. Unclustered B+ tree.</li><li>External sorting as a fallback.</li></ul>
+                <div class="sample-answer">
+                    <h4>Ενδεικτική απάντηση:</h4>
+                    <div>Recommendation: A **clustered B+ tree index** on `(order_date, customer_id)`.
+
+Why:
+- **Sorted Retrieval:** A clustered index physically stores the data records in the order of the index key. This means traversing the leaf pages of the B+ tree directly yields the records in the desired sorted order with minimal I/O (sequential reads). This is far superior to external sorting for this purpose, as external sorting would involve multiple passes over the entire dataset.
+- **Range Queries:** B+ trees are excellent for range queries because keys are stored in sorted order, allowing efficient traversal of a contiguous range of keys.
+- **Efficiency:** As discussed in the lecture, a clustered B+ tree for sorting is &#39;always better than external sorting&#39; (for very large N, it&#39;s N + height I/Os vs 2N * passes).
+
+Trade-offs:
+- **Only one clustered index:** A table can only have one clustered index. If other sorting or range query requirements exist on different columns, they would need non-clustered indexes or rely on external sorting.
+- **Insertion/Deletion Cost:** Maintaining a clustered index can be more expensive for insertions and deletions if they cause significant physical reordering of data pages.
+- **Space:** The index itself consumes space, though for a clustered index, the data is the leaf level, so it&#39;s not &#39;extra&#39; space in the same way a non-clustered index is.</div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: indexing_strategy, B+tree, clustered_index, external_sorting_comparison, performance_optimization, trade_offs</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση ανάλυσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question calculation" data-qtype="Υπολογιστικό" data-idx="47">
+        <div class="qtype">CALCULATION QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">A database system needs to sort a file containing 10,000 pages (N=10,000). The available main memory for sorting is 129 buffer pages (B=129). Calculate the total number of I/O operations required for the Multi-Way Merge Sort.</div>
+            <div class="given-values"><b>Δεδομένα:</b> N: 10000, B: 129</div>
+            <div class="solution" style="display:none;">
+                <h4>Βήματα επίλυσης:</h4>
+                <ol><li>1. Calculate the number of initial runs (r) in Pass 0: `r = ceil(N / B) = ceil(10,000 / 129) = ceil(77.519) = 78` runs.</li><li>2. Calculate the number of runs merged per pass in subsequent passes: `B-1 = 129 - 1 = 128` runs.</li><li>3. Calculate the number of merge passes: `ceil(log_(B-1)(r)) = ceil(log_128(78))`.</li><li>   - Since `128^0 = 1` and `128^1 = 128`, `log_128(78)` is `0.something`.</li><li>   - `ceil(log_128(78)) = 1` merge pass.</li><li>4. Calculate the total number of passes: `Total Passes = Pass 0 + Merge Passes = 1 + 1 = 2` passes.</li><li>5. Calculate the total I/O operations: `2 * N * Total Passes = 2 * 10,000 * 2 = 40,000` I/O operations.</li></ol>
+                <div class="final-answer"><b>Τελική απάντηση:</b> 40,000 I/O operations</div>
+            </div>
+            <div class="topics">Θέματα: multi_way_merge_sort, I/O_cost, calculation, passes</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="quiz-mode" style="display:none;">
+        <div id="quiz-question"></div>
+        <div class="quiz-navigation">
+            <button id="prev-question-btn">Προηγούμενη</button>
+            <button id="next-question-btn">Επόμενη</button>
+        </div>
+    </div>
+</div>
+<script src="quiz.js"></script>
+</body>
+</html>

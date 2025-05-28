@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Handling and PSM Exceptions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="meta">
+        <b>Μάθημα:</b> CS-460 | <b>Διάλεξη:</b> X | <b>Τίτλος:</b> Error Handling and PSM Exceptions | <b>Ημ/νία:</b> 2025-05-28
+    </div>
+    <div class="mode-switch">
+        <button id="show-all-btn">Όλες οι ερωτήσεις</button>
+        <button id="quiz-mode-btn">Quiz mode</button>
+    </div>
+    <div id="questions-all">
+
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="0" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following best describes the structure of an SQLSTATE value?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-0-A" name="mc-0" value="A">
+            <label for="mc-0-A"><strong>A:</strong> A single integer representing an error code.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-0-B" name="mc-0" value="B">
+            <label for="mc-0-B"><strong>B:</strong> A two-character class code followed by a three-character subclass code.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-0-C" name="mc-0" value="C">
+            <label for="mc-0-C"><strong>C:</strong> A three-character class code followed by a two-character subclass code.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-0-D" name="mc-0" value="D">
+            <label for="mc-0-D"><strong>D:</strong> A five-digit number indicating the severity of an error.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">SQLSTATE is designed as a five-character string of the form &#39;ccsss&#39;, where &#39;cc&#39; is a two-character class code and &#39;sss&#39; is a three-character subclass code. This structure allows for categorization of errors.</div>
+            <div class="topics">Θέματα: SQLSTATE, error_handling</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="1" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What does an SQLSTATE value that starts with &#39;00&#39; signify?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-1-A" name="mc-1" value="A">
+            <label for="mc-1-A"><strong>A:</strong> A warning condition.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-1-B" name="mc-1" value="B">
+            <label for="mc-1-B"><strong>B:</strong> No data found.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-1-C" name="mc-1" value="C">
+            <label for="mc-1-C"><strong>C:</strong> A successful statement execution.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-1-D" name="mc-1" value="D">
+            <label for="mc-1-D"><strong>D:</strong> An unrecoverable error.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">According to the ISO/ANSI standards, an SQLSTATE that starts with &#39;00&#39; indicates a successful statement execution.</div>
+            <div class="topics">Θέματα: SQLSTATE, error_codes</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="2" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In SQL error handling, what does an SQLSTATE value starting with &#39;01&#39; indicate?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-2-A" name="mc-2" value="A">
+            <label for="mc-2-A"><strong>A:</strong> A critical error that aborted the transaction.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-2-B" name="mc-2" value="B">
+            <label for="mc-2-B"><strong>B:</strong> A successful operation with no issues.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-2-C" name="mc-2" value="C">
+            <label for="mc-2-C"><strong>C:</strong> A warning was issued during statement execution.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-2-D" name="mc-2" value="D">
+            <label for="mc-2-D"><strong>D:</strong> No data was found for the query.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The documentation states that an SQLSTATE starting with &#39;01&#39; is a warning, meaning the statement completed successfully but with some cautionary information.</div>
+            <div class="topics">Θέματα: SQLSTATE, error_codes</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="3" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the meaning of an SQLSTATE value that begins with &#39;02&#39;?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-3-A" name="mc-3" value="A">
+            <label for="mc-3-A"><strong>A:</strong> A successful execution with minor issues.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-3-B" name="mc-3" value="B">
+            <label for="mc-3-B"><strong>B:</strong> An error that requires immediate attention.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-3-C" name="mc-3" value="C">
+            <label for="mc-3-C"><strong>C:</strong> No data was found for the operation.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-3-D" name="mc-3" value="D">
+            <label for="mc-3-D"><strong>D:</strong> A syntax error in the SQL statement.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">An SQLSTATE that starts with &#39;02&#39; specifically means &#39;no data&#39; was found, which is a common condition for queries that return no rows.</div>
+            <div class="topics">Θέματα: SQLSTATE, error_codes</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="4" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What does an SQLCODE value of zero (0) signify?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-4-A" name="mc-4" value="A">
+            <label for="mc-4-A"><strong>A:</strong> A warning condition.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-4-B" name="mc-4" value="B">
+            <label for="mc-4-B"><strong>B:</strong> An error occurred.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-4-C" name="mc-4" value="C">
+            <label for="mc-4-C"><strong>C:</strong> The statement was successful.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-4-D" name="mc-4" value="D">
+            <label for="mc-4-D"><strong>D:</strong> The statement is still running.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">A value of zero (0) for SQLCODE means that the statement was successful.</div>
+            <div class="topics">Θέματα: SQLCODE, error_handling</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="5" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">If SQLCODE returns a positive integer value, what does it indicate?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-5-A" name="mc-5" value="A">
+            <label for="mc-5-A"><strong>A:</strong> The statement failed due to a critical error.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-5-B" name="mc-5" value="B">
+            <label for="mc-5-B"><strong>B:</strong> A warning was issued when the statement was run.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-5-C" name="mc-5" value="C">
+            <label for="mc-5-C"><strong>C:</strong> The statement is still processing.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-5-D" name="mc-5" value="D">
+            <label for="mc-5-D"><strong>D:</strong> The statement completed successfully without any issues.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">A positive SQLCODE value means that a warning was issued when the statement was run, indicating a successful completion but with some minor issues or conditions.</div>
+            <div class="topics">Θέματα: SQLCODE, error_codes</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="6" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What does a negative SQLCODE value signify?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-6-A" name="mc-6" value="A">
+            <label for="mc-6-A"><strong>A:</strong> A successful statement execution.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-6-B" name="mc-6" value="B">
+            <label for="mc-6-B"><strong>B:</strong> A warning condition.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-6-C" name="mc-6" value="C">
+            <label for="mc-6-C"><strong>C:</strong> An error occurred during statement execution.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-6-D" name="mc-6" value="D">
+            <label for="mc-6-D"><strong>D:</strong> The statement was cancelled by the user.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">A negative SQLCODE value means that an error occurred, indicating that the statement did not complete successfully.</div>
+            <div class="topics">Θέματα: SQLCODE, error_codes</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="7" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is a primary advantage of SQLSTATE over SQLCODE?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-7-A" name="mc-7" value="A">
+            <label for="mc-7-A"><strong>A:</strong> SQLSTATE provides more detailed error messages.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-7-B" name="mc-7" value="B">
+            <label for="mc-7-B"><strong>B:</strong> SQLSTATE is an INTEGER value, making it easier to compare.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-7-C" name="mc-7" value="C">
+            <label for="mc-7-C"><strong>C:</strong> SQLSTATE is designed for portability based on ISO/ANSI standards.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-7-D" name="mc-7" value="D">
+            <label for="mc-7-D"><strong>D:</strong> SQLSTATE automatically handles exceptions without explicit declaration.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">SQLSTATE is designed so that application programs can test for specific errors or classes of errors based on ISO/ANSI standards, providing portability. SQLCODE is typically vendor-specific.</div>
+            <div class="topics">Θέματα: SQLSTATE, SQLCODE, portability</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="8" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the main purpose of declaring an exception handler in PSM?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-8-A" name="mc-8" value="A">
+            <label for="mc-8-A"><strong>A:</strong> To define new types of SQL errors.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-8-B" name="mc-8" value="B">
+            <label for="mc-8-B"><strong>B:</strong> To invoke a specific piece of code when a list of error codes appears during execution.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-8-C" name="mc-8" value="C">
+            <label for="mc-8-C"><strong>C:</strong> To prevent any errors from occurring in a stored procedure.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-8-D" name="mc-8" value="D">
+            <label for="mc-8-D"><strong>D:</strong> To log all successful statement executions to a file.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">A handler declaration allows a piece of code (exception handler) to be invoked whenever one of a list of error codes appears in SQLSTATE during execution, enabling structured error handling.</div>
+            <div class="topics">Θέματα: PSM, exception_handling, DECLARE_HANDLER</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="9" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">When a `DECLARE CONTINUE HANDLER` is triggered, what is the expected behavior?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-9-A" name="mc-9" value="A">
+            <label for="mc-9-A"><strong>A:</strong> The current block of statements is immediately terminated.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-9-B" name="mc-9" value="B">
+            <label for="mc-9-B"><strong>B:</strong> Any changes made by the current block are undone, and the block terminates.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-9-C" name="mc-9" value="C">
+            <label for="mc-9-C"><strong>C:</strong> The handler&#39;s statement is executed, and execution continues with the statement following the one that raised the exception.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-9-D" name="mc-9" value="D">
+            <label for="mc-9-D"><strong>D:</strong> The entire transaction is rolled back, and the application exits.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The &#39;CONTINUE&#39; option for a handler means that after the handler&#39;s statement is executed, the execution flow continues with the next statement in the block following the one that caused the exception.</div>
+            <div class="topics">Θέματα: PSM, exception_handling, CONTINUE_HANDLER</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="10" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which handler option causes the current block of statements to terminate after the handler&#39;s statement is executed?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-10-A" name="mc-10" value="A">
+            <label for="mc-10-A"><strong>A:</strong> CONTINUE</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-10-B" name="mc-10" value="B">
+            <label for="mc-10-B"><strong>B:</strong> EXIT</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-10-C" name="mc-10" value="C">
+            <label for="mc-10-C"><strong>C:</strong> UNDO</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-10-D" name="mc-10" value="D">
+            <label for="mc-10-D"><strong>D:</strong> ROLLBACK</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The &#39;EXIT&#39; option for a handler means that after the handler&#39;s statement is executed, the execution of the current block terminates.</div>
+            <div class="topics">Θέματα: PSM, exception_handling, EXIT_HANDLER</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="11" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the specific effect of a `DECLARE UNDO HANDLER`?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-11-A" name="mc-11" value="A">
+            <label for="mc-11-A"><strong>A:</strong> It continues execution after handling the error.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-11-B" name="mc-11" value="B">
+            <label for="mc-11-B"><strong>B:</strong> It terminates the current block and commits all changes.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-11-C" name="mc-11" value="C">
+            <label for="mc-11-C"><strong>C:</strong> It terminates the current block and undoes any changes made by the block so far.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-11-D" name="mc-11" value="D">
+            <label for="mc-11-D"><strong>D:</strong> It only logs the error without affecting execution flow.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The &#39;UNDO&#39; handler is similar to &#39;EXIT&#39; (terminates the block), but it additionally undoes any changes to the database or local variables made by the statements of the block executed so far, effectively aborting the block as a transaction.</div>
+            <div class="topics">Θέματα: PSM, exception_handling, UNDO_HANDLER</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="12" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">What is the key distinction between an `EXIT HANDLER` and an `UNDO HANDLER`?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-12-A" name="mc-12" value="A">
+            <label for="mc-12-A"><strong>A:</strong> An `EXIT HANDLER` continues execution, while an `UNDO HANDLER` terminates.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-12-B" name="mc-12" value="B">
+            <label for="mc-12-B"><strong>B:</strong> An `EXIT HANDLER` only affects local variables, while an `UNDO HANDLER` affects database changes.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-12-C" name="mc-12" value="C">
+            <label for="mc-12-C"><strong>C:</strong> Both terminate the current block, but an `UNDO HANDLER` also rolls back changes made within the block.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-12-D" name="mc-12" value="D">
+            <label for="mc-12-D"><strong>D:</strong> An `EXIT HANDLER` is for warnings, while an `UNDO HANDLER` is for critical errors.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">Both EXIT and UNDO handlers cause the current block to terminate. However, UNDO handlers have the additional effect of undoing any changes to the database or local variables made by the statements of the block executed so far, effectively treating the block as a transaction that is aborted by the exception.</div>
+            <div class="topics">Θέματα: PSM, exception_handling, EXIT_HANDLER, UNDO_HANDLER</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="13" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Which of the following is a valid component of a `&lt;condition list&gt;` in a `DECLARE HANDLER` statement?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-13-A" name="mc-13" value="A">
+            <label for="mc-13-A"><strong>A:</strong> An integer error code like `SQLCODE -100`.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-13-B" name="mc-13" value="B">
+            <label for="mc-13-B"><strong>B:</strong> A five-character string representing an SQLSTATE value.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-13-C" name="mc-13" value="C">
+            <label for="mc-13-C"><strong>C:</strong> A boolean expression like `(x &gt; 10)`.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-13-D" name="mc-13" value="D">
+            <label for="mc-13-D"><strong>D:</strong> A function call that returns a status.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The `&lt;condition list&gt;` can be a comma-separated list of conditions, which are either declared conditions (like Not Found) or expressions of the form `SQLSTATE` followed by a five-character string (e.g., `SQLSTATE &#39;02000&#39;`).</div>
+            <div class="topics">Θέματα: PSM, exception_handling, condition_list</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="14" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">In the `GetYear` function example, what is the purpose of `DECLARE Not_Found CONDITION FOR SQLSTATE &#39;02000&#39;;`?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-14-A" name="mc-14" value="A">
+            <label for="mc-14-A"><strong>A:</strong> To define a new SQLSTATE code for &#39;not found&#39; errors.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-14-B" name="mc-14" value="B">
+            <label for="mc-14-B"><strong>B:</strong> To associate a human-readable name (&#39;Not_Found&#39;) with the SQLSTATE code &#39;02000&#39;.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-14-C" name="mc-14" value="C">
+            <label for="mc-14-C"><strong>C:</strong> To declare a variable named `Not_Found` that stores the SQLSTATE.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-14-D" name="mc-14" value="D">
+            <label for="mc-14-D"><strong>D:</strong> To specify that the function should return &#39;Not_Found&#39; if an error occurs.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">This statement declares a named condition `Not_Found` that corresponds to the SQLSTATE &#39;02000&#39;. This makes the handler declaration more readable and maintainable by using a descriptive name instead of the raw SQLSTATE code.</div>
+            <div class="topics">Θέματα: PSM, exception_handling, declared_conditions</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="15" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">If the `SELECT year FROM Movies WHERE title = t` query in the `GetYear` function returns more than one movie, which condition will be triggered by the `DECLARE EXIT HANDLER`?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-15-A" name="mc-15" value="A">
+            <label for="mc-15-A"><strong>A:</strong> Not_Found</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-15-B" name="mc-15" value="B">
+            <label for="mc-15-B"><strong>B:</strong> Too_Many</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-15-C" name="mc-15" value="C">
+            <label for="mc-15-C"><strong>C:</strong> SQLSTATE &#39;00000&#39;</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-15-D" name="mc-15" value="D">
+            <label for="mc-15-D"><strong>D:</strong> No handler will be triggered, and an error will propagate.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The example declares `Too_Many CONDITION FOR SQLSTATE &#39;21000&#39;`. While &#39;21000&#39; isn&#39;t explicitly defined in the text as &#39;too many rows&#39;, it&#39;s a common SQLSTATE for cardinality violation. The problem statement for the `GetYear` function explicitly states &#39;If...more than one movie, then NULL must be returned&#39;, implying that &#39;Too_Many&#39; is the condition for this case.</div>
+            <div class="topics">Θέματα: PSM, exception_handling, application_logic</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="16" data-correct="B">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Consider a PSM block with multiple `DECLARE HANDLER` statements. If an error occurs that matches conditions in more than one handler, which handler is typically executed?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-16-A" name="mc-16" value="A">
+            <label for="mc-16-A"><strong>A:</strong> All matching handlers are executed sequentially.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-16-B" name="mc-16" value="B">
+            <label for="mc-16-B"><strong>B:</strong> The handler declared first in the block.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-16-C" name="mc-16" value="C">
+            <label for="mc-16-C"><strong>C:</strong> The handler with the most specific condition.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-16-D" name="mc-16" value="D">
+            <label for="mc-16-D"><strong>D:</strong> The behavior is undefined and depends on the DBMS implementation.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">While not explicitly stated in the provided text, standard PSM behavior dictates that if multiple handlers could catch an exception, the handler declared earliest in the block is typically chosen. This ensures deterministic behavior. (Note: The text implies a single handler for a list of conditions, but this question addresses multiple handler declarations.)</div>
+            <div class="topics">Θέματα: PSM, exception_handling, handler_precedence</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question mc-question" data-qtype="Πολλαπλής Επιλογής" data-idx="17" data-correct="C">
+        <div class="qtype">MULTIPLE CHOICE QUESTIONS - QUIZ MODE
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Why is SQLSTATE considered more suitable for writing portable database applications compared to SQLCODE?</div>
+            <div class="options">
+        <div class="option-wrapper" data-option="A">
+            <input type="radio" id="mc-17-A" name="mc-17" value="A">
+            <label for="mc-17-A"><strong>A:</strong> SQLSTATE provides more detailed error messages than SQLCODE.</label>
+        </div>
+        <div class="option-wrapper" data-option="B">
+            <input type="radio" id="mc-17-B" name="mc-17" value="B">
+            <label for="mc-17-B"><strong>B:</strong> SQLSTATE is an integer value, which is universally understood.</label>
+        </div>
+        <div class="option-wrapper" data-option="C">
+            <input type="radio" id="mc-17-C" name="mc-17" value="C">
+            <label for="mc-17-C"><strong>C:</strong> SQLSTATE follows ISO/ANSI standards for error classification, unlike vendor-specific SQLCODE.</label>
+        </div>
+        <div class="option-wrapper" data-option="D">
+            <input type="radio" id="mc-17-D" name="mc-17" value="D">
+            <label for="mc-17-D"><strong>D:</strong> SQLSTATE automatically handles transaction rollback, while SQLCODE does not.</label>
+        </div></div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The content explicitly states that SQLSTATE is designed based on ISO/ANSI standards, providing portability. SQLCODE is an INTEGER value where a certain warning or error is indicated, but it is generally vendor-specific, making it less portable.</div>
+            <div class="topics">Θέματα: SQLSTATE, SQLCODE, portability</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="18">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is SQLSTATE?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">SQLSTATE is a five-character string value (&#39;ccsss&#39;) used for error handling, designed based on ISO/ANSI standards to provide portability.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: SQLSTATE, definition</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="19">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is SQLCODE?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">SQLCODE is an INTEGER value where a certain warning or error is indicated. A value of 0 means success, positive means warning, and negative means error.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: SQLCODE, definition</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="20">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the primary purpose of `DECLARE HANDLER` in PSM?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">To declare a piece of code (an exception handler) that is invoked whenever one of a list of specified error codes (SQLSTATE values) appears during execution of a PSM block.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: PSM, exception_handling, DECLARE_HANDLER</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="21">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What does `SQLSTATE &#39;02000&#39;` typically signify?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">It signifies &#39;no data&#39; found, meaning a query or operation did not return any rows or data.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: SQLSTATE, error_codes</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="22">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">Explain the behavior of a `CONTINUE` handler.</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">When a `CONTINUE` handler is triggered, its associated statement is executed, and then the execution of the PSM block continues with the statement immediately following the one that raised the exception.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: PSM, exception_handling, CONTINUE_HANDLER</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="23">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">Explain the behavior of an `EXIT` handler.</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">When an `EXIT` handler is triggered, its associated statement is executed, and then the execution of the current PSM block is terminated.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: PSM, exception_handling, EXIT_HANDLER</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="24">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">Explain the behavior of an `UNDO` handler.</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">When an `UNDO` handler is triggered, its associated statement is executed, the current PSM block is terminated (like `EXIT`), AND any changes to the database or local variables made by the statements of the block executed so far are undone (the block is treated as an aborted transaction).</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: PSM, exception_handling, UNDO_HANDLER</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="25">
+        <div class="qtype">FLASHCARD - definition
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What is the exact format of an SQLSTATE value?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A five-character string of the form &#39;ccsss&#39;, where &#39;cc&#39; is a two-character class code and &#39;sss&#39; is a three-character subclass code.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: SQLSTATE, format</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="26">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What does a positive SQLCODE value indicate?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A positive SQLCODE value indicates that a warning was issued when the statement was run. The statement was successful but with some cautionary information.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: SQLCODE, error_codes</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="27">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What does a negative SQLCODE value indicate?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">A negative SQLCODE value indicates that an error occurred during the statement&#39;s execution, meaning the statement did not complete successfully.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: SQLCODE, error_codes</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question flashcard" data-qtype="Flashcard" data-idx="28">
+        <div class="qtype">FLASHCARD - concept
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="qtext">What are the two types of conditions that can be specified in a `HANDLER`&#39;s `&lt;condition list&gt;`?</div>
+                    </div>
+                    <div class="back">
+                        <div class="answer">The conditions can be either declared conditions (like `Not_Found`) or expressions of the form `SQLSTATE` followed by a five-character string (e.g., `SQLSTATE &#39;02000&#39;`).</div>
+                    </div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: PSM, exception_handling, condition_list</div>
+            <div class="action-buttons">
+                <button class="flip-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="29" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">SQLSTATE values are integer values where a certain warning or error is indicated.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">SQLSTATE is a five-character string value, not an integer. SQLCODE is the integer value.</div>
+            <div class="topics">Θέματα: SQLSTATE, SQLCODE</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="30" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">A `CONTINUE` handler causes the current block&#39;s changes to be rolled back if an error occurs.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The `UNDO` handler is responsible for rolling back changes. A `CONTINUE` handler simply executes its statement and then continues execution of the block.</div>
+            <div class="topics">Θέματα: PSM, exception_handling, CONTINUE_HANDLER, UNDO_HANDLER</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="31" data-correct="false">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">SQLCODE is designed for portability across different database systems based on ISO/ANSI standards.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">SQLSTATE is designed for portability based on ISO/ANSI standards. SQLCODE is generally vendor-specific and thus less portable.</div>
+            <div class="topics">Θέματα: SQLCODE, SQLSTATE, portability</div>
+        </div>
+    </div>
+    <div class="question tf-question" data-qtype="Σωστό/Λάθος" data-idx="32" data-correct="true">
+        <div class="qtype">TRUE/FALSE QUESTIONS
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The `GetYear` example function uses an `EXIT HANDLER` to return NULL if no movie is found or too many movies are found.</div>
+            <div class="tf-options">
+                <button class="tf-btn" data-value="true">Σωστό</button>
+                <button class="tf-btn" data-value="false">Λάθος</button>
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="explanation" style="display:none;">The example code shows `DECLARE EXIT HANDLER FOR Not_Found , Too_Many RETURN NULL;`, which handles both conditions by returning NULL and exiting the block.</div>
+            <div class="topics">Θέματα: PSM, exception_handling, application</div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="33" data-correct="no data">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">An SQLSTATE value starting with &#39;02&#39; indicates _____.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">Think about what happens when a query finds nothing.</div>
+            <div class="answer-reveal">no data</div>
+            <div class="topics">Θέματα: SQLSTATE, error_codes</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="34" data-correct="undone / rolls back">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">The `DECLARE HANDLER` clause `UNDO` is similar to `EXIT`, but it also _____ any changes to the DB or local variables made by the statements of the block executed so far.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">Consider the transactional nature of the block.</div>
+            <div class="answer-reveal">undone / rolls back</div>
+            <div class="topics">Θέματα: PSM, exception_handling, UNDO_HANDLER</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question fillblank" data-qtype="Συμπλήρωσε το Κενό" data-idx="35" data-correct="portability">
+        <div class="qtype">FILL IN THE BLANK
+            <span class="difficulty">hard</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">SQLSTATE is designed so that application programs can test for specific errors or classes of errors, based on the ISO/ANSI standards, providing _____.</div>
+            <div class="fill-input">
+                <input type="text" placeholder="Η απάντησή σου...">
+            </div>
+            <div class="result" style="display:none;"></div>
+            <div class="hint" style="display:none;">What is a key benefit of adhering to standards across different systems?</div>
+            <div class="answer-reveal">portability</div>
+            <div class="topics">Θέματα: SQLSTATE, portability</div>
+            <div class="action-buttons">
+                <button class="check-btn">Έλεγχος</button>
+                <button class="reveal-btn">Εμφάνιση απάντησης</button>
+                <button class="hint-btn">Υπόδειξη</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="36">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Modify the provided `GetYear` function to also handle a generic SQLSTATE for &#39;data exception&#39; (SQLSTATE &#39;22000&#39;) by returning -1, while still maintaining the existing behavior for &#39;Not_Found&#39; and &#39;Too_Many&#39; conditions.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>1. Add a new declared condition for SQLSTATE &#39;22000&#39;, e.g., `DECLARE Data_Exception CONDITION FOR SQLSTATE &#39;22000&#39;;`</li><li>2. Add a new `DECLARE EXIT HANDLER` for this new condition, specifying `RETURN -1;` as the action.</li><li>3. Ensure the new handler is placed appropriately (e.g., before the existing handler if you want it to take precedence for &#39;22000&#39; or after if the existing handler should catch its specific conditions first, though in this case they are distinct).</li><li>Example (placing before existing handler):</li><li>```sql</li><li>CREATE FUNCTION GetYear(t VARCHAR(255)) RETURNS INTEGER</li><li>DECLARE Not_Found CONDITION FOR SQLSTATE &#39;02000&#39;;</li><li>DECLARE Too_Many CONDITION FOR SQLSTATE &#39;21000&#39;;</li><li>DECLARE Data_Exception CONDITION FOR SQLSTATE &#39;22000&#39;;</li><li>BEGIN</li><li>  DECLARE EXIT HANDLER FOR Data_Exception RETURN -1;</li><li>  DECLARE EXIT HANDLER FOR Not_Found , Too_Many RETURN NULL;</li><li>  RETURN (SELECT year FROM Movies WHERE title = t);</li><li>END;</li><li>```</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>correct_declared_condition: 30 βαθμοί</li><li>correct_handler type and action: 40 βαθμοί</li><li>maintaining existing logic: 30 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: PSM handler declaration, condition list, multiple handlers</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="37">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Write a PSM block that attempts to insert a record into a `Logs` table. If a duplicate key error (assume SQLSTATE &#39;23000&#39;) occurs, the block should log a message &#39;Duplicate entry detected, continuing...&#39; to a `Debug_Log` table and then continue execution within the block. If any other error occurs, the block should terminate.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>1. Define a `DECLARE CONTINUE HANDLER` for SQLSTATE &#39;23000&#39; that inserts a message into `Debug_Log`.</li><li>2. Define a generic `DECLARE EXIT HANDLER` for other errors (e.g., `SQLEXCEPTION` or `SQLWARNING` if available, or a catch-all SQLSTATE range if supported, otherwise just an EXIT handler for a specific common error like &#39;22000&#39; for data errors). For this problem, a simple `EXIT HANDLER` without specific conditions is sufficient if the intent is &#39;any other error&#39;.</li><li>3. Include an `INSERT` statement that might cause the duplicate key error.</li><li>4. Include a statement after the `INSERT` to demonstrate continuation.</li><li>Example:</li><li>```sql</li><li>BEGIN</li><li>  DECLARE CONTINUE HANDLER FOR SQLSTATE &#39;23000&#39;</li><li>    INSERT INTO Debug_Log (message) VALUES (&#39;Duplicate entry detected, continuing...&#39;);</li><li>  DECLARE EXIT HANDLER FOR SQLEXCEPTION; -- Catches any other error and exits</li><li>  </li><li>  INSERT INTO Logs (id, description) VALUES (1, &#39;First log entry&#39;);</li><li>  -- This insert might cause &#39;23000&#39; if id=1 already exists</li><li>  INSERT INTO Logs (id, description) VALUES (1, &#39;Attempting duplicate entry&#39;);</li><li>  SELECT &#39;Execution continued after duplicate key.&#39; AS StatusMessage;</li><li>END;</li><li>```</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>correct_continue_handler_syntax: 35 βαθμοί</li><li>correct_continue_handler_action: 35 βαθμοί</li><li>demonstrates continuation logic: 30 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: CONTINUE handler, EXIT handler, error logging, PSM block structure</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question problem" data-qtype="Πρόβλημα" data-idx="38">
+        <div class="qtype">PROBLEM SOLVING
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Design a PSM block that acts as a transaction. It should attempt to update a customer&#39;s balance and then insert a transaction record. If any error occurs during this process (e.g., &#39;data exception&#39; SQLSTATE &#39;22000&#39;, or any other SQL exception), all changes made within this block must be undone. Provide the PSM structure.</div>
+            <div class="solution" style="display:none;">
+                <h4>Λύση:</h4>
+                <ol class="steps"><li>1. Enclose the update and insert operations within a `BEGIN...END` block.</li><li>2. Declare an `UNDO HANDLER` for a broad exception condition (e.g., `SQLEXCEPTION` or `SQLWARNING`, or a specific SQLSTATE like &#39;22000&#39; if only that is to be handled). The problem asks for &#39;any error&#39;, so `SQLEXCEPTION` is appropriate.</li><li>3. Include an `UPDATE` statement and an `INSERT` statement within the block.</li><li>4. (Optional but good practice) Include a `COMMIT` or `ROLLBACK` outside the block if this block is part of a larger transaction, or implicitly rely on the `UNDO` handler for rollback.</li><li>Example:</li><li>```sql</li><li>BEGIN</li><li>  DECLARE UNDO HANDLER FOR SQLEXCEPTION; -- Catches any SQL error and rolls back changes</li><li>  </li><li>  -- Simulate an update operation</li><li>  UPDATE Accounts SET balance = balance - 50 WHERE customer_id = 123;</li><li>  </li><li>  -- Simulate an insert operation that might fail (e.g., constraint violation)</li><li>  INSERT INTO Transactions (transaction_id, customer_id, amount) VALUES (1001, 123, 50);</li><li>  </li><li>  -- If execution reaches here, it means no error occurred, so changes are implicitly committed (or handled by outer transaction)</li><li>  SELECT &#39;Transaction completed successfully.&#39; AS StatusMessage;</li><li>END;</li><li>```</li></ol>
+                <div class="rubric"><b>Κριτήρια Βαθμολόγησης:</b><ul><li>correct_undo_handler_declaration: 40 βαθμοί</li><li>appropriate error condition for &#39;any error&#39;: 30 βαθμοί</li><li>correct placement of transactional statements: 30 βαθμοί</li></ul></div>
+            </div>
+            <div class="topics">Θέματα: PSM block as transaction, UNDO handler, SQLEXCEPTION, transaction rollback</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση λύσης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question short-answer" data-qtype="Σύντομη Απάντηση" data-idx="39">
+        <div class="qtype">SHORT ANSWER QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Explain the key differences between SQLSTATE and SQLCODE in terms of their purpose and characteristics.</div>
+            <div class="answer-points" style="display:none;">
+                <h4>Σημαντικά σημεία:</h4>
+                <ul><li>**SQLSTATE**: A five-character string (&#39;ccsss&#39;) based on ISO/ANSI standards, designed for portability. It allows application programs to test for specific errors or classes of errors.</li><li>**SQLCODE**: An INTEGER value. A value of 0 means success, positive means warning, negative means error. It is generally vendor-specific and thus less portable.</li><li>**Key Difference**: SQLSTATE is standardized and portable, while SQLCODE is vendor-specific and less portable, despite both indicating success, warning, or error conditions.</li></ul>
+                <div class="meta">Μέγιστη βαθμολογία: 10</div>
+            </div>
+            <div class="topics">Θέματα: SQLSTATE, SQLCODE, comparison</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question short-answer" data-qtype="Σύντομη Απάντηση" data-idx="40">
+        <div class="qtype">SHORT ANSWER QUESTION
+            <span class="difficulty">medium</span>
+        </div>
+        <div class="question-content">
+            <div class="qtext">Describe the three choices for `&lt;where to go next&gt;` in a `DECLARE HANDLER` statement (CONTINUE, EXIT, UNDO), detailing the execution flow after each type of handler is invoked.</div>
+            <div class="answer-points" style="display:none;">
+                <h4>Σημαντικά σημεία:</h4>
+                <ul><li>**CONTINUE**: After the handler&#39;s statement is executed, the execution flow continues with the statement immediately following the one that raised the exception within the current block.</li><li>**EXIT**: After the handler&#39;s statement is executed, the execution of the current PSM block is terminated. Control passes to the statement immediately following the `END` of the block.</li><li>**UNDO**: Similar to `EXIT`, the current PSM block is terminated after the handler&#39;s statement is executed. Additionally, any changes to the database or local variables made by the statements of the block executed so far are undone, effectively aborting the block as a transaction.</li></ul>
+                <div class="meta">Μέγιστη βαθμολογία: 10</div>
+            </div>
+            <div class="topics">Θέματα: PSM, exception_handling, handler_types</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση απάντησης</button>
+            </div>
+        </div>
+    </div>
+    <div class="question scenario" data-qtype="Σενάριο" data-idx="41">
+        <div class="qtype">SCENARIO BASED QUESTION
+            <span class="difficulty">easy</span>
+        </div>
+        <div class="question-content">
+            <div class="scenario-text">You are developing a stored procedure that performs a critical financial transaction involving multiple `UPDATE` and `INSERT` statements. It is absolutely essential that if any error occurs at any point during these operations (e.g., a data type mismatch, a constraint violation, or a &#39;no data found&#39; condition on a lookup), the entire transaction must be rolled back, and no partial changes should be committed. After the rollback, the procedure should terminate gracefully.</div>
+            <div class="qtext">Which type of `DECLARE HANDLER` would you implement for this scenario, what condition(s) would you specify, and why is it the most appropriate choice?</div>
+            <div class="analysis" style="display:none;">
+                <h4>Βασικά σημεία ανάλυσης:</h4>
+                <ul><li>Requirement for full rollback on any error.</li><li>Requirement for termination after error.</li><li>Broadness of error handling (any error).</li><li>PSM handler types (CONTINUE, EXIT, UNDO).</li></ul>
+                <div class="sample-answer">
+                    <h4>Ενδεικτική απάντηση:</h4>
+                    <div>For this scenario, I would implement an `UNDO HANDLER`. 
+
+**Handler Type**: `DECLARE UNDO HANDLER`
+
+**Condition(s)**: To catch &#39;any error&#39;, the most appropriate condition would be `SQLEXCEPTION`. This is a general condition that covers all SQL exceptions (errors).
+
+**Justification**: 
+1.  **Full Rollback**: The `UNDO` handler is specifically designed to not only terminate the current block but also to undo (rollback) any changes made to the database or local variables within that block up to the point the exception occurred. This directly addresses the critical requirement that &#39;the entire transaction must be rolled back, and no partial changes should be committed&#39;.
+2.  **Termination**: Like the `EXIT` handler, `UNDO` also terminates the current block, fulfilling the requirement for the procedure to &#39;terminate gracefully&#39; after the rollback.
+3.  **Broad Error Coverage**: Using `SQLEXCEPTION` ensures that virtually any SQL-related error, including data type mismatches, constraint violations, or other unexpected issues, will trigger the handler and initiate the rollback and termination.</div>
+                </div>
+            </div>
+            <div class="topics">Θέματα: PSM, exception_handling, transaction_management, scenario_application</div>
+            <div class="action-buttons">
+                <button class="toggle-btn">Εμφάνιση ανάλυσης</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="quiz-mode" style="display:none;">
+        <div id="quiz-question"></div>
+        <div class="quiz-navigation">
+            <button id="prev-question-btn">Προηγούμενη</button>
+            <button id="next-question-btn">Επόμενη</button>
+        </div>
+    </div>
+</div>
+<script src="quiz.js"></script>
+</body>
+</html>
